@@ -16,9 +16,12 @@ import argparse
 import hashlib
 import json
 import shutil
+import ssl
+import subprocess
 import sys
 import tarfile
 import tempfile
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -31,9 +34,17 @@ ARCHIVES = {"json": "underfire-assets-json.tar.gz", "webp": "underfire-assets-we
 
 
 def _get(url: str, dst: Path) -> None:
+    """Скачать url в dst. Если Python не доверяет сертификатам сайта (так бывает у сборки
+    с python.org на macOS без Install Certificates.command), качаем через curl — он берёт
+    системные сертификаты."""
     req = urllib.request.Request(url, headers={"User-Agent": "underfire-fetch-assets"})
-    with urllib.request.urlopen(req) as res, dst.open("wb") as f:
-        shutil.copyfileobj(res, f, 1 << 20)
+    try:
+        with urllib.request.urlopen(req) as res, dst.open("wb") as f:
+            shutil.copyfileobj(res, f, 1 << 20)
+    except urllib.error.URLError as e:
+        if not isinstance(e.reason, ssl.SSLCertVerificationError) or not shutil.which("curl"):
+            raise
+        subprocess.run(["curl", "-fsSL", "--retry", "3", "-o", str(dst), url], check=True)
 
 
 def sha256(path: Path) -> str:

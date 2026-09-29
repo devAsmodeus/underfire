@@ -1,6 +1,8 @@
 """Архивы ассетов для Release: упаковка (build_assets) и скачивание (fetch_assets) без сети."""
 import json
+import ssl
 import tarfile
+import urllib.error
 
 import build_assets
 import fetch_assets
@@ -73,3 +75,26 @@ def test_copy_fonts_patch_overrides_main(tmp_path):
     out = tmp_path / "assets"
     assert build_assets.copy_fonts(raw, out) == 2
     assert (out / "fonts/Play.ttf").read_bytes() == b"new"
+
+
+
+def test_download_falls_back_to_curl_on_ssl_error(tmp_path, monkeypatch):
+    def no_trust(*args, **kwargs):
+        raise urllib.error.URLError(ssl.SSLCertVerificationError("unable to get local issuer certificate"))
+
+    calls = []
+    monkeypatch.setattr(fetch_assets.urllib.request, "urlopen", no_trust)
+    monkeypatch.setattr(fetch_assets.shutil, "which", lambda name: "/usr/bin/curl")
+    monkeypatch.setattr(fetch_assets.subprocess, "run", lambda cmd, check: calls.append(cmd))
+    fetch_assets._get("https://example.org/a.tar", tmp_path / "a.tar")
+    assert calls and calls[0][0] == "curl" and calls[0][-1] == "https://example.org/a.tar"
+
+
+def test_download_does_not_hide_other_errors(tmp_path, monkeypatch):
+    def not_found(*args, **kwargs):
+        raise urllib.error.URLError("404")
+
+    monkeypatch.setattr(fetch_assets.urllib.request, "urlopen", not_found)
+    with pytest.raises(urllib.error.URLError):
+        fetch_assets._get("https://example.org/missing.tar", tmp_path / "m.tar")
+
