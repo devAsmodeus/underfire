@@ -1,9 +1,24 @@
-# крупный оригинал — не в git
+# Оригинал игры — не в git: чужая собственность и большой объём (README → «Подготовка данных»)
 raw/
 *.xapk
 *.apk
 *.obb
 *.pkm
 *.ccz
-node_modules/
+
+# Производные от оригинала — генерируются локально инструментами из tools/
+data/
+assets/
+
+# Питон
+__pycache__/
+*.pyc
+.venv/
+
+# IDE, Claude Code (личные настройки), macOS
+.idea/
+.claude/settings*.json
 .DS_Store
+
+# Веб-клиент
+node_modules/
