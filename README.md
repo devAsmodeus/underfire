@@ -29,7 +29,7 @@ raw/            # распакованный оригинал — не в git (�
 data/           # результат tools/parse_config.py — в git; руками не правим, только пересборкой
   config.json           # 50 секций, 13 511 сущностей (см. config_sections.json)
   config_sections.json  # сводка «секция → количество»
-  locale_ru.json / locale_en.json  # по 327 шаблонных строк абилок (@ = значение)
+  locale_ru.json / locale_en.json  # все строки игры: 6 416 / 6 305, ключ «секция/…» (@ = значение)
 assets/         # декодированные PNG/атласы для браузера — пока не в git (TODO)
 web/            # браузерный клиент (TODO)
 tools/          # парсеры/декодеры
