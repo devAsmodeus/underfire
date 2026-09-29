@@ -2,7 +2,9 @@
 
 Реконструкция мобильной игры RJ Games «Under Fire: Invasion» (v1.3.12, 2016, движок Inferno
 на cocos2d-x) для браузера. Обзор, форматы и roadmap — в README.md, порядок работы —
-в CONTRIBUTING.md, план — в milestones и issues на GitHub. Стек клиента выбирается (issue #6).
+в CONTRIBUTING.md, план — в milestones и issues на GitHub. Стек клиента — PixiJS 8 + TypeScript
++ Vite (docs/engine-decision.md, исследование — docs/research/). Платформа: сначала браузеры на
+компьютере, телефоны — позже.
 
 ## Правила работы
 
