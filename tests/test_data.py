@@ -12,19 +12,23 @@ def load(name):
     return json.loads((DATA / name).read_text(encoding="utf-8"))
 
 
-def test_summary_matches_config():
-    config, summary = load("config.json"), load("config_sections.json")
-    assert {k: len(v) for k, v in config.items()} == summary
+@pytest.mark.parametrize("name", ["config", "server"])
+def test_summary_matches_sections(name):
+    data, summary = load(f"{name}.json"), load(f"{name}_sections.json")
+    assert {k: len(v) for k, v in data.items()} == summary
 
 
 def test_totals_of_v1_3_12():
     # Эталон для v1.3.12. Если парсер осознанно меняет разбор — обновить числа вместе с data/.
     summary = load("config_sections.json")
     assert (len(summary), sum(summary.values())) == (50, 13_511)
+    server = load("server_sections.json")                   # действия — награды всех квестов
+    assert (len(server), sum(server.values()), server["actions"]) == (21, 11_782, 2_431)
 
 
-def test_every_entity_is_a_node():
-    for section, entities in load("config.json").items():
+@pytest.mark.parametrize("name", ["config", "server"])
+def test_every_entity_is_a_node(name):
+    for section, entities in load(f"{name}.json").items():
         assert all(isinstance(e.get("tag"), str) and e["tag"] for e in entities), section
 
 

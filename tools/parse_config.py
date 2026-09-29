@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
-"""Сбор под браузер, шаг 1: config.xml (движок Inferno) → структурный JSON + локали.
+"""Сбор под браузер, шаг 1: config.xml и server.xml (движок Inferno) → структурный JSON + локали.
 
 config.xml — склейка нескольких XML-документов с namespace inferno: и без общего корня.
 Разбираем устойчивым парсером lxml(recover), приводим к lossless-дереву и группируем по
 верхнеуровневым секциям (buildings, units, soldiers, resources, quests, missions, …).
+server.xml — такая же склейка с серверной частью данных: действия (награды квестов), требования,
+таймеры, контракты. Сервер игры встроен в клиент и читает её сам (docs/research/native.md).
 Локали — такая же склейка документов по секциям (abilities, gui, buildings, …) с CDATA-строками
 (@ = подставляемое значение) → плоская карта 'секция/…/ключ' → текст.
 
     python3 tools/parse_config.py
-Вход  : raw/obb_patch/assets/config/{config.xml,locales/*_locale.xml} (patch перекрывает main)
-Выход : data/config.json, data/config_sections.json (сводка), data/locale_ru.json, data/locale_en.json
+Вход  : raw/obb_patch/assets/config/{config.xml,server.xml,locales/*_locale.xml}
+        (patch перекрывает main)
+Выход : data/{config,server}.json, data/{config,server}_sections.json (сводки),
+        data/locale_ru.json, data/locale_en.json
 """
 from __future__ import annotations
 
@@ -56,19 +60,20 @@ def node(el) -> dict:
     return out
 
 
-def parse_config():
-    root = _load_multidoc(SRC / "config.xml")
+def parse_config(name: str = "config"):
+    """<name>.xml (config или server) → data/<name>.json и сводка data/<name>_sections.json."""
+    root = _load_multidoc(SRC / f"{name}.xml")
     sections: dict[str, list] = {}                  # секция → список сущностей-узлов
     for sec in root:
         if not isinstance(sec.tag, str):
             continue
-        name = _local(sec.tag)
+        section = _local(sec.tag)
         for ent in sec:
             if isinstance(ent.tag, str):
-                sections.setdefault(name, []).append(node(ent))
-    (OUT / "config.json").write_text(json.dumps(sections, ensure_ascii=False, indent=1))
+                sections.setdefault(section, []).append(node(ent))
+    (OUT / f"{name}.json").write_text(json.dumps(sections, ensure_ascii=False, indent=1))
     summary = {k: len(v) for k, v in sorted(sections.items(), key=lambda x: -len(x[1]))}
-    (OUT / "config_sections.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1))
+    (OUT / f"{name}_sections.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1))
     return sections, summary
 
 
@@ -103,12 +108,13 @@ def parse_locale(lang: str) -> int:
 
 def main():
     OUT.mkdir(exist_ok=True)
-    sections, summary = parse_config()
-    total = sum(summary.values())
-    print(f"[config] секций: {len(summary)}, сущностей: {total} → data/config.json "
-          f"({(OUT / 'config.json').stat().st_size // 1024} КБ)")
-    for k, n in list(summary.items())[:20]:
-        print(f"    {k}: {n}")
+    for name in ("config", "server"):
+        _, summary = parse_config(name)
+        total = sum(summary.values())
+        print(f"[{name}] секций: {len(summary)}, сущностей: {total} → data/{name}.json "
+              f"({(OUT / f'{name}.json').stat().st_size // 1024} КБ)")
+        for k, n in list(summary.items())[:10]:
+            print(f"    {k}: {n}")
     for lang in ("ru", "en"):
         n = parse_locale(lang)
         print(f"[locale] {lang}: строк {n} → data/locale_{lang}.json")

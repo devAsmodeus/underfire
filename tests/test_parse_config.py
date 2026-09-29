@@ -20,6 +20,13 @@ CONFIG = f"""<?xml version="1.0"?><inferno:units client="1" {NS}>
 <?xml version="1.0"?><inferno:quests client="1" {NS}><quest id="q1">Текст</quest></inferno:quests>
 """
 
+# server.xml — та же склейка, секции с атрибутом server="1".
+SERVER = f"""<?xml version="1.0"?><inferno:actions server="1" {NS}>
+<action type="quest_1_reward"><give_item item="metal" count="100"/></action>
+</inferno:actions>
+<?xml version="1.0"?><inferno:actions server="1" {NS}><action type="quest_2_reward"/></inferno:actions>
+"""
+
 # Локаль — тоже склейка документов-секций; ключ может повторяться (побеждает последний).
 LOCALE = f"""<?xml version="1.0"?><inferno:abilities {NS}>
 <damage><value_1><![CDATA[<font color="#fff66f">@ урона</font>]]></value_1></damage>
@@ -37,6 +44,7 @@ def out(tmp_path, monkeypatch):
     (src / "locales").mkdir(parents=True)
     out.mkdir()
     (src / "config.xml").write_text(CONFIG, encoding="utf-8")
+    (src / "server.xml").write_text(SERVER, encoding="utf-8")
     (src / "locales" / "ru_locale.xml").write_text(LOCALE, encoding="utf-8")
     monkeypatch.setattr(parse_config, "SRC", src)
     monkeypatch.setattr(parse_config, "OUT", out)
@@ -88,3 +96,15 @@ def test_locale_reads_every_document(out):
 def test_missing_locale_is_skipped(out):
     assert parse_config.parse_locale("en") == 0
     assert not (out / "locale_en.json").exists()
+
+
+def test_server_xml_goes_to_its_own_files(out):
+    sections, summary = parse_config.parse_config("server")
+    assert summary == {"actions": 2}
+    assert sections["actions"][0] == {
+        "tag": "action",
+        "attr": {"type": "quest_1_reward"},
+        "children": [{"tag": "give_item", "attr": {"item": "metal", "count": "100"}}],
+    }
+    assert json.loads((out / "server_sections.json").read_text()) == {"actions": 2}
+    assert not (out / "config.json").exists()   # config и server не смешиваются
