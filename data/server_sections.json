@@ -1,0 +1,23 @@
+{
+ "requirements": 5105,
+ "actions": 2431,
+ "timings": 1329,
+ "contracts": 896,
+ "buildings": 665,
+ "behaviors": 362,
+ "soldiers": 320,
+ "effects": 264,
+ "territories": 120,
+ "units": 86,
+ "order_prices": 47,
+ "expendables": 32,
+ "league_stage_technologies": 31,
+ "interactions": 29,
+ "global_params": 23,
+ "items": 12,
+ "turrets": 11,
+ "perks": 7,
+ "ladders": 6,
+ "tickers": 4,
+ "initial_users": 2
+}
