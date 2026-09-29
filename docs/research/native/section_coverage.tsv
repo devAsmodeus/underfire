@@ -1,0 +1,62 @@
+section	entities_in_config.json	in_config.xml	in_server.xml	client_library(getDataType)	server_loader(loadFromNode)
+Localization	0			LocalizationLibrary	
+abilities	180	config.xml		AbilityLibrary	
+achievements	69	config.xml		AchieveLibrary	
+actions	0		server.xml		LogicConfiguration
+auction	0				LogicConfiguration
+battles	0				LogicConfiguration
+behaviors	362	config.xml	server.xml	BehaviorLibrary	LogicConfiguration
+buildings	665	config.xml	server.xml	BuildingLibrary	LogicConfiguration
+catalogs	72	config.xml		CatalogLibrary	
+chapters	5	config.xml		ChaptersLibrary	
+citizens	107	config.xml		CitizenLibrary	
+contracts	896	config.xml	server.xml	ContractLibrary	LogicConfiguration
+credits	5	config.xml			
+cruising_guns	4	config.xml		CruisingGunLibrary	
+currency_groups	0	config.xml			
+decorations	1	config.xml			
+defense_boosts	0			DefenseBoostsLibrary	
+defense_technology_boosts	5	config.xml			
+effects	264	config.xml	server.xml	EffectLibrary	LogicConfiguration
+expendables	32	config.xml	server.xml	ExpendableLibrary	LogicConfiguration
+explorers	6	config.xml		ExplorersLibrary	
+galaxies	0	config.xml			
+global_params	33	config.xml	server.xml		LogicConfiguration
+guns_shaders	1	config.xml		GunsShadersLibrary	
+indicators	13	config.xml		IndicatorLibrary	
+initial_users	2	config.xml	server.xml		LogicConfiguration
+interactions	29	config.xml	server.xml	InteractionLibrary	LogicConfiguration
+invasions	26	config.xml		InvasionLibrary	
+items	12	config.xml	server.xml	ItemLibrary	LogicConfiguration
+jackpots	0				LogicConfiguration
+ladders	6	config.xml	server.xml	LadderLibrary	LogicConfiguration
+league_stage_technologies	0		server.xml		
+maps	121	config.xml		MapLibrary	LogicConfiguration
+missions	143	config.xml		MissionLibrary	LogicConfiguration
+notifications	11	config.xml		NotificationLibrary	
+offers	45	config.xml		OfferLibrary	
+order_prices	47	config.xml	server.xml	OrderPriceLibrary	
+packs	308	config.xml		PackLibrary	
+perks	7	config.xml	server.xml	PerksLibrary	LogicConfiguration
+quests	2355	config.xml		QuestLibrary	
+rage	3	config.xml		RageLibrary	
+requirements	5105	config.xml	server.xml	RequirementLibrary	LogicConfiguration
+resources	182	config.xml		ResourceLibrary	
+scenes	1	config.xml		SceneLibrary	
+sharings	204	config.xml		SharingLibrary	
+slots	0				LogicConfiguration
+soldiers	320	config.xml	server.xml	SoldierLibrary	LogicConfiguration
+sound_schemes	123	config.xml		SoundLibrary	
+sounds	60	config.xml		MusicLibrary	
+spaceport_store	14	config.xml		SpaceportStoreLibrary	
+splatters	47	config.xml		SplatterLibrary	
+star_systems	9	config.xml		StarSystemLibrary	
+stars	0	config.xml			
+taxes	6	config.xml		TaxLibrary	
+territories	120	config.xml	server.xml	TerritoryLibrary	LogicConfiguration
+tickers	4	config.xml	server.xml	TickerLibrary	LogicConfiguration
+timings	1329	config.xml	server.xml	TimingLibrary	LogicConfiguration
+tracers_scheme	43	config.xml		TracersLibrary	
+turrets	11	config.xml	server.xml	TurretLibrary	LogicConfiguration
+tutorials	12	config.xml		TutorialLibrary	
+units	86	config.xml	server.xml	UnitLibrary	LogicConfiguration

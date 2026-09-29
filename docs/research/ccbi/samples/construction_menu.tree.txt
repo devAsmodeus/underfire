@@ -1,0 +1,53 @@
+# version=5 sequences=Default Timeline(10s) autoplay=0
+CCNode  contentSize=(1024x768); anchor=(0,0)
+  CCNode  pos=(50,50) Percent; anchor=(0,0)
+    CCSpriteBatchNode  pos=(50,50) Percent; contentSize=(2048x1536); scale=(0.5,0.5); texture="frames"
+      CCSprite  pos=(1033.35,763.777); scale=(70,2)*res; displayFrame=background_big_1.png; blendFunc={"src": "GL_SRC_ALPHA", "dst": "GL_ONE_MINUS_SRC_ALPHA"}
+      CCSprite  pos=(1631.23,777.601); scale=(2,2)*res; displayFrame=background_big.png; blendFunc={"src": "GL_SRC_ALPHA", "dst": "GL_ONE_MINUS_SRC_ALPHA"}
+      CCSprite  pos=(432,776); scale=(-2,2)*res; displayFrame=background_big.png; blendFunc={"src": "GL_SRC_ALPHA", "dst": "GL_ONE_MINUS_SRC_ALPHA"}
+    CCMenu  pos=(0,0) Percent
+      CCCheckBox «decorationButton»  pos=(312.96,282); contentSize=(472x188); scale=(0.5,0.5)*res; block->decorationCategory; isEnabled=true; normalImage=button_inset_bush_black.png; selectedImage=button_inset_bush.png; selected=false; group=1
+      CCCheckBox «defenseButton»  pos=(167.96,283.1); contentSize=(472x188); scale=(0.5,0.5)*res; block->defenceCategory; isEnabled=true; normalImage=button_inset_shield_black.png; selectedImage=button_inset_shield.png; selected=false; group=1
+      CCCheckBox «livingButton»  pos=(23,282); contentSize=(472x188); scale=(0.5,0.5)*res; block->livingCategory; isEnabled=true; normalImage=button_inset_bed_black.png; selectedImage=button_inset_bed.png; selected=false; group=1
+      CCCheckBox «productionButton»  pos=(-140,281); contentSize=(472x188); scale=(0.5,0.5)*res; block->productionCategory; isEnabled=true; normalImage=button_inset_construct_black.png; selectedImage=button_inset_construct.png; disabledImage=button_inset_construct.png; selected=false; group=1
+      CCCheckBox «specialButton»  pos=(-311.8,282); contentSize=(472x188); scale=(0.5,0.5)*res; block->specialCategory; isEnabled=true; normalImage=button_inset_star_black.png; selectedImage=button_inset_star.png; selected=true; group=1
+    CCSpriteBatchNode  pos=(0,-24.8832); contentSize=(1024x300); texture="glow_long"
+      CCSprite  pos=(50,50) Percent; anchor=(1,1); scale=(0.94,1)*res; displayFrame=glow_long.png
+      CCSprite  pos=(50,50) Percent; anchor=(1,1); scale=(-0.94,1)*res; displayFrame=glow_long.png
+  CCScrollListView «buildingList»  pos=(63.592,60.3); contentSize=(900x570); isAbsolute=false; verticalTextAlignment=1; textAlignment=1; _template="construction_menu_template"; horizontal=true; _count=3
+  CCSpriteBatchNode  pos=(50,50) Percent; contentSize=(2048x1536); scale=(0.5,0.5); texture="frames"
+    CCSprite  pos=(96,1445); scale=(1,1)*res; displayFrame=frame_big_top_left.png
+    CCSprite  pos=(603.158,70.1748); scale=(1,1)*res; displayFrame=frame_big_bottom.png
+    CCSprite  pos=(96,108); scale=(1,1)*res; displayFrame=frame_big_bottom_left.png
+    CCSprite  pos=(2039,36); anchor=(1,0); scale=(1,1)*res; displayFrame=frame_big_bottom_right.png
+    CCSprite  pos=(1866,0); anchor=(0,0); scale=(-1,1)*res; displayFrame=frame_big_bottom.png
+    CCSprite  pos=(2048,1536); anchor=(1,1); scale=(1,1)*res; displayFrame=frame_big_top_right.png
+    CCSprite  pos=(2043,765.44); anchor=(0,1); scale=(-1,1)*res; displayFrame=frame_big_left_right.png
+    CCSprite  pos=(2043,1367); anchor=(0,1); scale=(-1,1)*res; displayFrame=frame_big_left_right_top.png
+    CCSprite  pos=(6,1366); anchor=(0,1); scale=(1,1)*res; displayFrame=frame_big_left_right_top.png
+    CCSprite  pos=(6,180); anchor=(0,0); scale=(1,1)*res; displayFrame=frame_big_left_right.png
+    CCSprite  pos=(1866,1530); anchor=(0,1); scale=(-1,1)*res; displayFrame=frame_big_top.png
+    CCSprite  pos=(182,1530); anchor=(0,1); scale=(1,1)*res; displayFrame=frame_big_top.png
+    CCSprite  pos=(1022,1540); anchor=(0.5,1); scale=(1,1)*res; displayFrame=frame_name.png
+  CCLabelTTF «menuName»  pos=(514.32,739); fontName="fonts/Play-Bold.ttf"; fontSize=25; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="Тактический штаб"
+  CCMenu  pos=(995,738)
+    CCMenuItemImage  pos=(-4.84005,-4.51204); scale=(0.5,0.5)*res; block->close; isEnabled=true; normalSpriteFrame=button_cross.png; selectedSpriteFrame=button_cross_down.png; disabledSpriteFrame=button_cross.png
+  CCNode  pos=(0,50) Percent; anchor=(0,0)
+    CCMenu  pos=(0,0)
+      CCMenuItemImage «moveBackward»  pos=(-5,0); anchor=(0,0.5); scale=(0.5,0.5)*res; block->moveBackward; isEnabled=true; normalSpriteFrame=button_arrow.png; selectedSpriteFrame=button_arrow_down.png; disabledSpriteFrame=button_arrow_black.png
+  CCNode  pos=(100,50) Percent; anchor=(0,0)
+    CCMenu  pos=(0,0)
+      CCMenuItemImage «moveForward»  pos=(5,0); anchor=(0,0.5); scale=(-0.5,0.5)*res; block->moveForward; isEnabled=true; normalSpriteFrame=button_arrow.png; selectedSpriteFrame=button_arrow_down.png; disabledSpriteFrame=button_arrow_black.png
+  CCNode  pos=(50,50) Percent; anchor=(0,0)
+    CCSprite «iconBubbleMainAct»  pos=(-278,293); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleMainPass»  visible=false; pos=(-278,313); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleProductionAct»  visible=false; pos=(-111,290); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleProductionPass»  pos=(-111,313); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleHouseAct»  visible=false; pos=(51,292); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleHousePass»  pos=(51,313); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleDefenceAct»  visible=false; pos=(192,289); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleDefencePass»  pos=(192,313); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleEnvironmentAct»  visible=false; pos=(342,290); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+    CCSprite «iconBubbleEnvironmentPass»  pos=(342,313); scale=(0.3,0.3)*res; displayFrame=new_message_icon_menu_construction.png
+  CCNode «buildCenterButton»  pos=(514,97); anchor=(0,0)
+  CCNode  anchor=(0,0)

@@ -1,0 +1,109 @@
+# DSL vocabularies recovered from string references of parser functions (Thumb xref scan of libinferno.so).
+# Order = order of first reference inside the function (roughly parse order). Tag names and attribute names are mixed.
+
+## BehaviorLibrary::parse(
+attack effect die idle charge type 
+
+## BehaviorLibrary::loadScript(
+if condition then else animation_if animation_play type frame animation_cooldown time animation_random list animation_stop while do sleep return apply_shield pct add_splatter_to_target damage damage_t
+ype heal amount cast effect inherit_stats cast_visual self_target stun spawn x y defend direction cooldown_start cooldown add_tracer_to_target duration blink cooldown_stop variable_inc variable value 
+variable_dec variable_set query_target query_targets_in_area range query_targets_in_sector angle query_friends swap_layer staged gun_boost shake_screen start_value end_value 
+
+## BehaviorLibrary::loadScriptCondition(
+and or not distance_to_target_g distance distance_to_target_ge distance_to_target_e distance_to_target_le distance_to_target_l can_shoot_target is_on_cooldown cooldown health_g health_pct health_ge he
+alth_e health_le health_l target_health_g target_health_ge target_health_e target_health_le target_health_l variable_g variable value variable_ge variable_e variable_le variable_l item_count_g item co
+unt item_count_ge item_count_e item_count_le item_count_l has_ability ability 
+
+## BehaviorLibrary::damageBaseTypeFromString(
+long short 
+
+## inferno::configuration::LogicConfiguration::LoadScript(
+if condition then else while do sleep return apply_shield pct time damage type damage_type heal amount cast effect inherit_stats 0 stun spawn x y defend cooldown_start cooldown cooldown_stop variable_
+inc variable value 1 variable_dec variable_set query_target query_targets_in_area range query_targets_in_sector angle query_friends 
+
+## inferno::configuration::LogicConfiguration::LoadScriptCondition(
+and or not distance_to_target_g distance_to_target_ge distance_to_target_e distance_to_target_le distance_to_target_l can_shoot_target is_on_cooldown cooldown distance health_g health_pct health_ge he
+alth_e health_le health_l target_health_g target_health_ge target_health_e target_health_le target_health_l variable_g variable value variable_ge variable_e variable_le variable_l item_count_g item co
+unt item_count_ge item_count_e item_count_le has_ability ability 
+
+## inferno::configuration::LogicConfiguration::loadCityCondition(
+and or not date_e date date_g date_ge date_l date_le building_count_e building level end_level -1 count strict 0 building_count_g building_count_ge building_count_l building_count_le indicator_e indic
+ator value indicator_g indicator_ge indicator_l indicator_le is_contract_producing contract is_requirement_granted requirement is_territory_explored territory is_timing_in_progress timing item_count_e
+ item item_count_g item_count_ge item_count_l item_count_le level_e ladder level_g level_ge level_l level_le seconds_have_passed_e seconds seconds_have_passed_g seconds_have_passed_ge seconds_have_pas
+sed_l seconds_have_passed_le unit_level_e unit unit_level_g unit_level_ge unit_level_l unit_level_le 
+
+## inferno::configuration::CityScript::loadFromNode(
+apply_perk perk Empty perk type. give_item item Empty item type. count respect_limits 0 silent give_item_random type Empty random items/ jackpot_add modify_ticker ticker Empty ticker type. interval ti
+me move_day_in_item Invalid move_day_in_item command. move_item source destination remove_perk start_ticker start_timing timing Empty timing type. stop_ticker send_notification notification Empty noti
+fication type. set_item take_item analytics_submit_event method optional name Invalid move_item command. 
+
+## MissionLibrary::parseMission(
+type map is_pvp visual name task description icon info_background slot_spawners fill_all bonus_score bonus_score_decrement_interval spread fraction praetorian prepare_price on_prepare on_victory on_fa
+il analytics helper select start unit_place battle_start expendables slots turrets direction level side x y pvp_spawner points script_spawners tag trigger src width length height splatter visible_requ
+irement targets script \t waypoints id radius next visible restore_cost avatar n rewards sounds boosts avaliable_requirement 
+
+## MissionLibrary::parseWaypointOperator(
+defend spawn script_spawner tag droids type turrets medkit arsenal units_support units_types mercenaries time point x y mask direction w expendables_types after visual description avatar ally_support 
+squad units 
+
+## parseItemActions(
+take_item count item give_item_random type give_item 
+
+## MapLibrary::parseMap(
+type width length visual src x y height scale camera_x camera_y obstacles shoot building level direction w visible zones id zone_id from_x from_y to_x to_y paths from to next sounds 
+
+## TutorialLibrary::parse(
+type quest module ratio startX startY steps sleep show_arrow hide_arrow hide_gui show_gui move_camera show_dialog pause_game play_game focus_area hide_dialog wait_for_waypoint activate_waypoint set_to
+uch finish cast_effect set_guns analytics_submit_event focus_element show_map_move allow_show_arrows 
+
+## RequirementLibrary::createCondition(
+territory timing requirement quest unit count item hero expendable level date offer contract platform gun 
+
+## QuestLibrary::parse(
+type priority invisible manual_submit hide_complete group sharing random is_sharing_quest timing_quest requirements available task complete submit actions visual src icon task_icon avatar name descrip
+tion description_short completion completion_short rewards 
+
+## SoldierLibrary::parse(
+type attack_behavior defend_behavior rage visual src corpse elite height width length hide_widget prepare_display name description desync_animation stats splatters 
+
+## UnitLibrary::parse(
+type fraction mercenary unit_class upgrade_building counter_item requirements available visual src name description level equipment unit_name purchase_quest hire_quest purchase_price hire_price featur
+es stuff item stats health short_attack long_attack armor weapon_short weapon_long 
+
+## EffectLibrary::parse(
+effect type behavior visual class curse voodoo time pct stats 
+
+## TurretLibrary::parse(
+type behavior level_item visual src icon width length height invisible name description levels charges stats 
+
+## StatsData::parse(
+health short_attack long_attack speed abilities ability sensitivity type 
+
+## CRjObjectBuilder::addMapObjectVisualInfoFromXML(
+r visual name fps scale atlases , / directions prefix width height offsetX offsetY hitArea states layers frameCount frames _ .png 
+
+## inferno::User::serializeToNode(
+battle buildings contracts interactions items notifications perks pvp scheduled_events slot_machine territories tickers timings sid type room targets uid building id x y level direction construction_t
+iming_id contract building_id production_timing_id interaction reset_timing_id mission notification notification_class exploration_timing_id ticker till_time last_tick_time interval timer start_time f
+inish_time 
+
+## inferno::Mission::serialize(
+1 0 type started uid start_time mission_class offense revenge battle story enemy_units unit health long_attack short_attack armor weapon_long weapon_short pvp_spawner points point enemy_unit x y turre
+ts turret level enemy_stuff thing units spells spell slot_spawners slot_spawner tag slot stuff 
+
+## RjBattleSaver::writeToDisk(
+root mission_type game_state waypoint_id ready_to_defend_count defend_count tick_counter callback_params waitpoint_id ProgressPercentage progress_percentage players player health max_health units_on_m
+ap team_id indexed_objects object logic_defend_points units past_waypoints_id waypoint_visuals_id point id state 
+
+## inferno::configuration::GlobalParams::GlobalParams(
+default_initial_user_type pvp_enemies_reset_timer pvp_stage_item interactions_max_count default invalid interactions_max_count default attribute group name limit interactions_reset_timing invalid inte
+ractions_max_count node max_notification_count 1 ticks_per_second 30 invalid ticks per second pvp_stage_maps stage map empty map name. empty stage name. pvp_units unit pvp_turrets_count_item pvp_turre
+ts turret user_info_ignore_items item 
+
+## inferno::configuration::LogicConfiguration::loadFromNode(
+inferno:actions action type Duplicated action  inferno:auction inferno:battles battle Duplicated battle  inferno:behaviors behavior Duplicated behavior  inferno:buildings building Duplicated building 
+ inferno:contracts contract Duplicated contract  inferno:effects effect Duplicated effect  inferno:expendables expendable Duplicated spell  inferno:global_params inferno:initial_users initial_user Dup
+licated initialUser  inferno:items item Duplicated item  inferno:interactions interaction Duplicated interaction  inferno:jackpots jackpot Duplicated ladder  inferno:ladders ladder inferno:maps map Du
+plicated battleFieldMap  inferno:missions mission Duplicated mission  inferno:perks perk Duplicated perk  inferno:requirements requirement Duplicated condition  inferno:slots inferno:soldiers soldier 
+Duplicated soldier  inferno:territories territory _ x Duplicated territory  inferno:tickers ticker Duplicated ticker  inferno:timings timing Duplicated timer  inferno:turrets turret Duplicated turret 
+ inferno:units unit Duplicated unit  
