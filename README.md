@@ -4,58 +4,119 @@
 внутр. код SpaceHeat) для запуска в браузере. Оригинал — Android/iOS/Windows на собственном
 движке **Inferno** (cocos2d-x). Серверы мертвы, но игра офлайновая — вся логика в клиенте.
 
+> Некоммерческий фанатский проект по сохранению игры, не связан с RJ Games. Игра, её графика,
+> звук, тексты и данные принадлежат правообладателям и в репозиторий не входят — здесь только
+> собственные инструменты и документация. Для работы нужен свой экземпляр оригинала.
+
 ## Источник (проверен на подлинность)
 
-- `mobi.rjg.underfire` **v1.3.12** (последняя, 29.05.2016), XAPK из APKPure, 649 МБ.
-- Подпись APK: `O=RJ Games, OU=Mobile Games, Moscow, RU`, MD5 `F8:07:8F:CE:59:A8:54:8A:D1:27:94:CD:1E:D8:66:7C` — оригинал, без модов.
-- Движок `libinferno.so` (cocos2d-x) + FMOD, только armeabi (32-бит). 64-битной сборки нет →
-  на Apple Silicon не запускается; поэтому цель — браузерная пересборка.
+- `mobi.rjg.underfire` **v1.3.12** (versionCode 62, последняя, 29.05.2016), XAPK из APKPure,
+  649 МБ: APK + два OBB — `main.13` и `patch.59`.
+- Подпись APK: `C=RU, L=Moscow, O=RJ Games, OU=Mobile Games`, MD5 сертификата
+  `F8:07:8F:CE:59:A8:54:8A:D1:27:94:CD:1E:D8:66:7C` — оригинал, без модов.
+- Движок `libinferno.so` (cocos2d-x, 15 МБ) + FMOD, только armeabi (32-бит). 64-битной сборки
+  нет → на Apple Silicon не запускается; поэтому цель — браузерная пересборка.
+- Код игры остаётся внутри APK (`lib/armeabi/`); в `raw/` извлекаются только ассеты и данные.
 
 ## Структура проекта
 
 ```
-raw/            # извлечённый оригинал (в .gitignore — большой)
-  apk/assets/   # config, шейдеры, шрифты, интерфейс, звуки
-  obb_main/     # main.13 OBB: графика (текстуры .pkm.ccz ETC1, атласы)
-  obb_patch/    # patch.59 OBB: АВТОРИТЕТНЫЕ данные (config.xml 5.4 МБ) + графика
-data/           # распарсенный JSON (результат сбора)
+raw/            # распакованный оригинал — не в git (см. «Подготовка данных»)
+  apk/assets/   # из APK: звуки, музыка, шрифты, шейдеры, немного интерфейса
+  obb_main/     # main.13 OBB: основная графика и иконки, интерфейс, звук, config.xml 2014 г.
+  obb_patch/    # patch.59 OBB: АВТОРИТЕТНЫЙ config.xml (2015 г., 5.4 МБ) + обновлённая графика
+data/           # результат tools/parse_config.py — генерируется локально, не в git
   config.json           # 50 секций, 13 511 сущностей (см. config_sections.json)
   config_sections.json  # сводка «секция → количество»
-  locale_ru.json / locale_en.json  # шаблонные строки абилок (@ = значение)
-assets/         # декодированные PNG/атласы для браузера (TODO)
+  locale_ru.json / locale_en.json  # по 327 шаблонных строк абилок (@ = значение)
+assets/         # декодированные PNG/атласы для браузера — генерируются, не в git (TODO)
 web/            # браузерный клиент (TODO)
 tools/          # парсеры/декодеры
   parse_config.py       # config.xml (Inferno, lxml recover) → data/*.json
 ```
 
+## Что внутри оригинала
+
+Файлы patch перекрывают main, main — APK (1 618 путей есть и в main, и в patch). Без дублей
+и `.DS_Store` — 10 175 файлов из 11 929.
+
+| Тип | Файлов | Что это |
+|---|---:|---|
+| `.pkm.ccz` | 3 503 | текстуры: ETC1 в zlib-контейнере (см. «Форматы ассетов») |
+| `.atlas` | 2 685 | нарезка текстур на кадры |
+| `.png` | 1 952 | иконки (1 927) и мелкая графика — готовы к использованию |
+| `.xml` | 1 655 | `config.xml`, анимации (`config/visuals/`), карты, миссии, локали |
+| `.ccbi` | 177 | макеты интерфейса CocosBuilder |
+| `.wav` / `.mp3` | 115 / 63 | звуки, музыка, эмбиенты |
+| `.ttf` | 12 | шрифты |
+| `.frag` / `.vert` | 8 / 1 | GLSL-шейдеры (размытие, ч/б и т. п.) |
+
 ## Модель данных (config.xml)
 
-Склейка XML-документов namespace `inferno:` без общего корня. Ключевые секции:
-`buildings` (665), `soldiers` (320), `units` (86), `turrets`, `resources` (182),
-`currency_groups`/`order_prices`/`offers`/`packs`/`spaceport_store` (экономика),
-`chapters`/`missions` (143)/`maps` (121), `star_systems`/`territories` (120, галактика),
-`quests` (2355), `perks`, `abilities` (180), `behaviors`, `contracts`, `invasions`,
-`requirements` (5105). Модель совпадает по духу с Under Control.
+Склейка 548 XML-документов namespace `inferno:` без общего корня; lxml в режиме recover
+разбирает её без ошибок. Имён секций 53, три из них пустые (`currency_groups`, `galaxies`,
+`stars`), поэтому в `config.json` 50 секций. Patch — надмножество main: все секции main плюс
+`achievements` (69) и `spaceport_store` (14), 13 511 сущностей против 10 580, поэтому парсер
+читает только patch.
+
+Ключевые секции: `buildings` (665), `soldiers` (320), `units` (86), `turrets` (11),
+`resources` (182), `order_prices`/`offers`/`packs`/`spaceport_store` (экономика),
+`chapters` (5)/`missions` (143)/`maps` (121), `star_systems` (9)/`territories` (120, галактика),
+`quests` (2 355), `perks` (7), `abilities` (180), `behaviors` (362), `contracts` (896),
+`invasions` (26), `requirements` (5 105). Модель совпадает по духу с Under Control
+(другая игра RJ Games).
+
+Отдельно от `config.xml` лежат описания анимаций `config/visuals/**/*.xml`: `visual` →
+направления (атлас, смещение, `hitArea`) → состояния (`idle`, `work`, …) → слои с номерами
+кадров. `parse_config.py` их пока не читает.
+
+## Форматы ассетов
+
+- **`.pkm.ccz`** — 16-байтный заголовок `CCZ!` (сжатие zlib), внутри PKM v1.0, формат ETC1 RGB.
+  ETC1 не хранит прозрачность: у 3 405 из 3 503 текстур закодированная высота вдвое больше
+  реальной — по всей видимости, в нижней половине лежит альфа-маска. Остальные 98 — без альфы.
+- **`.atlas`** — текстовый формат Inferno (не plist cocos2d-x). Первая строка
+  `textures: <имя>.png`, хотя фактически рядом лежит `<имя>.pkm.ccz`. Дальше по строке на кадр
+  через табуляцию: имя, `x y w h` в текстуре и ещё четыре числа — судя по значениям, смещение
+  обрезанного кадра и его исходный размер.
+- **`.ccbi`** — бинарные макеты CocosBuilder (сигнатура `ibcc`).
 
 ## Сделано
 
 - [x] XAPK получен, подпись проверена, распакован (APK + 2 OBB).
-- [x] Полная инвентаризация ассетов и данных.
-- [x] `parse_config.py`: config.xml → `data/config.json` (lossless по секциям) + локали.
+- [x] Полная инвентаризация ассетов и данных; форматы текстур и атласов определены.
+- [x] `parse_config.py`: config.xml → `data/config.json` (lossless по секциям) + локали;
+      полнота сверена с исходником.
+- [x] Публичный репозиторий; порядок работы — в [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Дальше (roadmap сборки под браузер)
 
-1. **Ассеты**: декодер `.pkm.ccz` (ccz=zlib → PKM ETC1 → PNG) + атласы cocos2d-x → спрайты.
+1. **Ассеты**: декодер `.pkm.ccz` (zlib → PKM ETC1 → RGB + альфа из нижней половины → PNG),
+   разбор `.atlas` → спрайты, `visuals/*.xml` → анимации.
 2. **Каталоги**: из config.json собрать читаемые каталоги (юниты со статами/уроном,
-   здания по уровням, экономика, дерево миссий/глав) — как каталоги UC.
+   здания по уровням, экономика, дерево миссий/глав) — как в реконструкции Under Control.
 3. **Локализация**: сшить inline `<name>/<description>` из config + шаблоны локалей.
-4. **Рендер**: браузерный клиент (PixiJS, как UC-клон) — карта-колония, бой, миссии.
-5. **Логика боя**: разобрать `behaviors`/`abilities`/`missions` (волны, ИИ).
+4. **Рендер**: браузерный клиент — карта-колония, бой, миссии. Стек не выбран: PixiJS или
+   Phaser 3 (выбран для реконструкции Under Control) — решить до начала этапа.
+5. **Логика боя**: разобрать `behaviors`/`abilities`/`missions` (волны, ИИ). Кода игры в данных
+   нет: чего не хватит, восстанавливать реверсом `libinferno.so` (ARM32).
+
+## Подготовка данных
+
+Оригинал в репозиторий не входит — нужен свой XAPK `mobi.rjg.underfire` 1.3.12.
+
+```bash
+X=/путь/к/Under+Fire_+Invasion_1.3.12_APKPure.xapk
+T=$(mktemp -d) && unzip -q "$X" -d "$T"
+unzip -q "$T/mobi.rjg.underfire.apk" 'assets/*' -d raw/apk
+unzip -q "$T/Android/obb/mobi.rjg.underfire/main.13.mobi.rjg.underfire.obb" -d raw/obb_main
+unzip -q "$T/Android/obb/mobi.rjg.underfire/patch.59.mobi.rjg.underfire.obb" -d raw/obb_patch
+rm -rf "$T"
+```
 
 ## Запуск инструментов
 
 ```bash
-cd ~/PycharmProjects/UnderFire
-python3 tools/parse_config.py    # пересобрать data/*.json из raw/
+pip install -r requirements.txt   # lxml — устойчивый парсер для склеенных документов с namespace
+python3 tools/parse_config.py     # пересобрать data/*.json из raw/
 ```
-Требуется `lxml` (устойчивый парсер для склеенных документов с namespace).
