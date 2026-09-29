@@ -33,6 +33,7 @@ data/           # результат tools/parse_config.py — в git; рука�
 assets/         # декодированные PNG/атласы для браузера — пока не в git (TODO)
 web/            # браузерный клиент (TODO)
 tools/          # парсеры/декодеры
+  extract_xapk.py       # XAPK → raw/ (из APK — только assets/, оба OBB — целиком)
   parse_config.py       # config.xml (Inferno, lxml recover) → data/*.json
 ```
 
@@ -104,15 +105,12 @@ tools/          # парсеры/декодеры
 
 ## Подготовка данных
 
-Оригинал в репозиторий не входит — нужен свой XAPK `mobi.rjg.underfire` 1.3.12.
+Оригинал в репозиторий не входит — нужен свой XAPK `mobi.rjg.underfire` 1.3.12. Скрипт
+распаковывает его в `raw/`: из APK — только `assets/`, оба OBB — целиком — и сверяет число
+файлов с эталоном версии (160 / 8 884 / 2 932).
 
 ```bash
-X=/путь/к/Under+Fire_+Invasion_1.3.12_APKPure.xapk
-T=$(mktemp -d) && unzip -q "$X" -d "$T"
-unzip -q "$T/mobi.rjg.underfire.apk" 'assets/*' -d raw/apk
-unzip -q "$T/Android/obb/mobi.rjg.underfire/main.13.mobi.rjg.underfire.obb" -d raw/obb_main
-unzip -q "$T/Android/obb/mobi.rjg.underfire/patch.59.mobi.rjg.underfire.obb" -d raw/obb_patch
-rm -rf "$T"
+python3 tools/extract_xapk.py /путь/к/Under+Fire_+Invasion_1.3.12_APKPure.xapk   # --force — перезаписать
 ```
 
 ## Запуск инструментов
