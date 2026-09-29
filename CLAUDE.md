@@ -22,7 +22,9 @@
 pip install -r requirements-dev.txt              # зависимости + pytest и ruff
 python3 tools/extract_xapk.py <путь к XAPK>     # оригинал → raw/ (--force — перезаписать)
 python3 tools/parse_config.py                    # raw/ → data/*.json
-ruff check . && pytest -q                        # то же, что проверяет CI
+ruff check . && pytest -q                        # то же, что проверяет CI (Python)
+cd web && npm install && npm run dev             # клиент: http://localhost:5173
+npm run typecheck && npm test && npm run build   # то же, что проверяет CI (web/)
 ```
 
 ## Данные
@@ -39,3 +41,5 @@ ruff check . && pytest -q                        # то же, что прове�
 - Инструменты — Python 3.12 в `tools/`, по скрипту на шаг. Вверху docstring: что делает,
   вход, выход, как запускать.
 - Тесты — в `tests/`, без файлов игры: синтетические данные на лету (`tmp_path`).
+- Клиент — TypeScript в `web/src`, PixiJS закреплён точной версией. Геометрию узлов cocos2d-x
+  повторять формулой (`web/src/engine/cocos.ts`), а не подгонкой; тесты — Vitest рядом с кодом.

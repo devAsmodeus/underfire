@@ -24,3 +24,4 @@ __pycache__/
 
 # Веб-клиент
 node_modules/
+web/dist/

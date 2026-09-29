@@ -31,7 +31,8 @@ data/           # результат tools/parse_config.py — в git; рука�
   config_sections.json  # сводка «секция → количество»
   locale_ru.json / locale_en.json  # все строки игры: 6 416 / 6 305, ключ «секция/…» (@ = значение)
 assets/         # декодированные PNG/атласы для браузера — пока не в git (TODO)
-web/            # браузерный клиент (TODO)
+web/            # браузерный клиент: TypeScript + Vite + PixiJS 8
+  src/engine/   # слой совместимости с cocos2d-x 2.x (геометрия узлов, правила CocosBuilder)
 tools/          # парсеры/декодеры
   extract_xapk.py       # XAPK → raw/ (из APK — только assets/, оба OBB — целиком)
   parse_config.py       # config.xml (Inferno, lxml recover) → data/*.json
@@ -140,6 +141,14 @@ python3 tools/parse_config.py     # пересобрать data/*.json из raw/
 ```bash
 pip install -r requirements-dev.txt   # + pytest и ruff
 ruff check . && pytest -q
+```
+
+## Клиент
+
+```bash
+cd web && npm install
+npm run dev                                       # http://localhost:5173; ассеты из ../assets — по /assets/
+npm run typecheck && npm test && npm run build    # то же, что проверяет CI
 ```
 
 ## Лицензия
