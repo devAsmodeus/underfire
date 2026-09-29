@@ -20,10 +20,14 @@ CONFIG = f"""<?xml version="1.0"?><inferno:units client="1" {NS}>
 <?xml version="1.0"?><inferno:quests client="1" {NS}><quest id="q1">Текст</quest></inferno:quests>
 """
 
+# Локаль — тоже склейка документов-секций; ключ может повторяться (побеждает последний).
 LOCALE = f"""<?xml version="1.0"?><inferno:abilities {NS}>
 <damage><value_1><![CDATA[<font color="#fff66f">@ урона</font>]]></value_1></damage>
 <time><value_1><![CDATA[@ секунду]]></value_1><value_2><![CDATA[@ секунды]]></value_2></time>
 </inferno:abilities>
+<?xml version="1.0"?><inferno:gui {NS}>
+<window><title><![CDATA[Старое]]></title><title><![CDATA[Новое]]></title></window>
+</inferno:gui>
 """
 
 
@@ -71,12 +75,13 @@ def test_outputs_written(out):
     assert set(json.loads((out / "config.json").read_text())) == {"units", "quests"}
 
 
-def test_locale_flattened_with_markup(out):
-    assert parse_config.parse_locale("ru") == 3
+def test_locale_reads_every_document(out):
+    assert parse_config.parse_locale("ru") == 4
     assert json.loads((out / "locale_ru.json").read_text()) == {
-        "damage/value_1": '<font color="#fff66f">@ урона</font>',
-        "time/value_1": "@ секунду",
-        "time/value_2": "@ секунды",
+        "abilities/damage/value_1": '<font color="#fff66f">@ урона</font>',
+        "abilities/time/value_1": "@ секунду",
+        "abilities/time/value_2": "@ секунды",
+        "gui/window/title": "Новое",
     }
 
 

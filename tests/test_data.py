@@ -28,5 +28,7 @@ def test_every_entity_is_a_node():
         assert all(isinstance(e.get("tag"), str) and e["tag"] for e in entities), section
 
 
-def test_locales_have_same_keys():
-    assert load("locale_ru.json").keys() == load("locale_en.json").keys()
+def test_locale_totals_of_v1_3_12():
+    # Эталон v1.3.12: строк в RU, в EN и общих ключей (часть строк есть только в одном языке).
+    ru, en = load("locale_ru.json"), load("locale_en.json")
+    assert (len(ru), len(en), len(ru.keys() & en.keys())) == (6_416, 6_305, 6_268)

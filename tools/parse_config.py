@@ -4,7 +4,8 @@
 config.xml — склейка нескольких XML-документов с namespace inferno: и без общего корня.
 Разбираем устойчивым парсером lxml(recover), приводим к lossless-дереву и группируем по
 верхнеуровневым секциям (buildings, units, soldiers, resources, quests, missions, …).
-Локали — вложенные CDATA-строки (@ = подставляемое значение) → плоская карта путь→текст.
+Локали — такая же склейка документов по секциям (abilities, gui, buildings, …) с CDATA-строками
+(@ = подставляемое значение) → плоская карта 'секция/…/ключ' → текст.
 
     python3 tools/parse_config.py
 Вход  : raw/obb_patch/assets/config/{config.xml,locales/*_locale.xml} (patch перекрывает main)
@@ -87,12 +88,15 @@ def flatten_locale(el, prefix="") -> dict:
 
 
 def parse_locale(lang: str) -> int:
+    """Локаль склеена из документов-секций, как config.xml: ключ начинается с имени секции.
+    Если ключ повторяется, остаётся последнее значение."""
     path = SRC / f"locales/{lang}_locale.xml"
     if not path.exists():
         return 0
-    p = etree.XMLParser(recover=True, huge_tree=True, strip_cdata=False)
-    root = etree.fromstring(path.read_bytes(), p)
-    flat = flatten_locale(root)
+    flat: dict[str, str] = {}
+    for sec in _load_multidoc(path):
+        if isinstance(sec.tag, str):
+            flat.update(flatten_locale(sec, _local(sec.tag)))
     (OUT / f"locale_{lang}.json").write_text(json.dumps(flat, ensure_ascii=False, indent=1))
     return len(flat)
 
