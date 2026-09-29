@@ -14,6 +14,8 @@ assets/
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
+.ruff_cache/
 
 # IDE, Claude Code (личные настройки), macOS
 .idea/

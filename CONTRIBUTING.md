@@ -16,8 +16,9 @@
    git push -u origin etc1-decoder
    gh pr create --title "Ассеты: декодер ETC1" --body-file pr.md
    ```
-4. **Слияние** — только squash (остальные способы в репозитории выключены), чтобы в `main`
-   была одна запись на PR:
+4. **Слияние** — только после зелёного CI (линтер и тесты; локально — `ruff check . && pytest -q`)
+   и только squash (остальные способы в репозитории выключены), чтобы в `main` была одна запись
+   на PR:
    ```bash
    gh pr merge --squash --delete-branch
    ```
@@ -34,5 +35,6 @@
 
 ## Окружение
 
-- Python 3 (проверено на 3.12) и зависимости: `pip install -r requirements.txt`.
+- Python 3 (проверено на 3.12) и зависимости: `pip install -r requirements.txt`, для проверок —
+  `pip install -r requirements-dev.txt`.
 - Подготовка данных и запуск инструментов — в [README](README.md#подготовка-данных).
