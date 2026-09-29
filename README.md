@@ -30,12 +30,19 @@ data/           # результат tools/parse_config.py — в git; рука�
   config.json           # 50 секций, 13 511 сущностей (см. config_sections.json)
   config_sections.json  # сводка «секция → количество»
   locale_ru.json / locale_en.json  # все строки игры: 6 416 / 6 305, ключ «секция/…» (@ = значение)
-assets/         # декодированные PNG/атласы для браузера — пока не в git (TODO)
+assets/         # ассеты для браузера: WebP, атласы, анимации, макеты UI, шрифты — не в git,
+                # собираются tools/build_assets.py или скачиваются из релиза (tools/fetch_assets.py)
 web/            # браузерный клиент: TypeScript + Vite + PixiJS 8
   src/engine/   # слой совместимости с cocos2d-x 2.x (геометрия узлов, правила CocosBuilder)
 tools/          # парсеры/декодеры
   extract_xapk.py       # XAPK → raw/ (из APK — только assets/, оба OBB — целиком)
-  parse_config.py       # config.xml (Inferno, lxml recover) → data/*.json
+  parse_config.py       # config.xml, server.xml, локали (Inferno, lxml recover) → data/*.json
+  build_assets.py       # весь конвейер ассетов raw/ → assets/ и архивы для релиза:
+    decode_textures.py  #   .pkm.ccz → WebP с альфой из нижней половины
+    convert_atlases.py  #   .atlas → спрайт-листы PixiJS + индекс кадров
+    visuals_to_json.py  #   config/visuals/*.xml → анимации
+    ccbi_to_json.py     #   макеты CocosBuilder → JSON (ccbi_write.py — обратно, для проверки)
+  fetch_assets.py       # готовые ассеты из GitHub Release → assets/ (без XAPK)
 ```
 
 ## Что внутри оригинала
@@ -126,12 +133,32 @@ tools/          # парсеры/декодеры
 
 ```bash
 python3 tools/extract_xapk.py /путь/к/Under+Fire_+Invasion_1.3.12_APKPure.xapk   # --force — перезаписать
+python3 tools/build_assets.py                     # raw/ → assets/ (≈1,5 мин на 8 ядрах)
+```
+
+### Без XAPK: готовые ассеты
+
+Собранный `assets/` выложен архивами в релиз
+[`assets-v1.3.12`](https://github.com/devAsmodeus/underfire/releases/tag/assets-v1.3.12). Этого
+хватает для клиента, графики и интерфейса; `raw/` нужен только для пересборки ассетов и реверса
+`libinferno.so`.
+
+```bash
+python3 tools/fetch_assets.py              # всё: JSON и WebP (≈450 МБ)
+python3 tools/fetch_assets.py --only json  # без текстур: атласы, анимации, макеты UI, шрифты
+```
+
+Обновить релиз после пересборки (нужен `raw/`):
+
+```bash
+python3 tools/build_assets.py --pack dist/
+gh release upload assets-v1.3.12 dist/* --clobber
 ```
 
 ## Запуск инструментов
 
 ```bash
-pip install -r requirements.txt   # lxml — устойчивый парсер для склеенных документов с namespace
+pip install -r requirements.txt   # lxml, Pillow, texture2ddecoder
 python3 tools/parse_config.py     # пересобрать data/*.json из raw/
 ```
 

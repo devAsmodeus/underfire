@@ -22,6 +22,8 @@
 pip install -r requirements-dev.txt              # зависимости + pytest и ruff
 python3 tools/extract_xapk.py <путь к XAPK>     # оригинал → raw/ (--force — перезаписать)
 python3 tools/parse_config.py                    # raw/ → data/*.json
+python3 tools/build_assets.py                    # raw/ → assets/ (весь конвейер ассетов)
+python3 tools/fetch_assets.py [--only json]      # без raw/: готовый assets/ из релиза
 ruff check . && pytest -q                        # то же, что проверяет CI (Python)
 cd web && npm install && npm run dev             # клиент: http://localhost:5173
 npm run typecheck && npm test && npm run build   # то же, что проверяет CI (web/)
@@ -32,7 +34,8 @@ npm run typecheck && npm test && npm run build   # то же, что прове�
 - `raw/` — распакованный оригинал, не в git. Без него работают только тесты.
 - `data/` — в git, но руками не правится: только пересборкой через `tools/parse_config.py`.
   Если разбор меняется осознанно — обновить эталонные итоги в `tests/test_data.py`.
-- `assets/` — декодированная графика; пока не в git, как публиковать — решается по объёму.
+- `assets/` — ассеты для браузера; не в git. Без `raw/` (например, в облачной сессии) их берут
+  из релиза `assets-v1.3.12`: `python3 tools/fetch_assets.py`.
 - Код игры (`lib/armeabi/libinferno.so`) — только внутри APK, в `raw/` не распаковывается.
 - Большие файлы (`data/config.json` — 14 МБ, `raw/`) читать скриптами, а не целиком.
 
