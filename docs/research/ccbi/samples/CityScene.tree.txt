@@ -1,0 +1,97 @@
+# version=5 sequences=Default Timeline(2s→1), Social timer(1s→1) autoplay=0
+CCLayer  contentSize=(100x100) Percent
+  CCNode «bottomCenter»  pos=(50,0) Percent; anchor=(0,0)
+    CCSprite  anchor=(0.5,0); scale=(0.5,0.5)*res; displayFrame=bottom_panel.png
+    CCMenu «cityMenu»  pos=(45,-1)
+      CCMenuItemImage  pos=(-237,4); contentSize=(180x197); anchor=(0.5,0); scale=(0.5,0.5)*res; block->construct_menu; isEnabled=true; normalSpriteFrame=menu_button_construction.png; selectedSpriteFrame=menu_button_construction_down.png; disabledSpriteFrame=menu_button_construction.png
+      CCMenuItemImage  pos=(-143,4); contentSize=(180x197); anchor=(0.5,0); scale=(0.5,0.5)*res; block->chapters_menu; isEnabled=true; normalSpriteFrame=menu_button_map.png; selectedSpriteFrame=menu_button_map_press.png; disabledSpriteFrame=menu_button_map.png
+      CCMenuItemImage  pos=(137,4); contentSize=(180x197); anchor=(0.5,0); scale=(0.5,0.5)*res; block->mail_menu; isEnabled=true; normalSpriteFrame=menu_button_mail.png; selectedSpriteFrame=menu_button_mail_down.png; disabledSpriteFrame=menu_button_mail.png
+      CCMenuItemImage  pos=(-49,4); contentSize=(180x197); anchor=(0.5,0); scale=(0.5,0.5)*res; block->army_menu; isEnabled=true; normalSpriteFrame=menu_button_army.png; selectedSpriteFrame=menu_button_army_down.png; disabledSpriteFrame=menu_button_army.png
+      CCMenuItemImage  pos=(44,4); contentSize=(180x197); anchor=(0.5,0); scale=(0.5,0.5)*res; block->science_menu; isEnabled=true; normalSpriteFrame=menu_button_science.png; selectedSpriteFrame=menu_button_science_down.png; disabledSpriteFrame=menu_button_science.png
+    CCNode «nodeCircleMessage»  anchor=(0,0)
+      CCSprite «messageBubble»  pos=(206,77); scale=(0.5,0.5)*res; displayFrame=new_message_icon.png
+      CCLabelTTF «textMessageCount»  pos=(206,78); fontName="fonts/Play-Bold.ttf"; fontSize=15; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="999"
+    CCNode  anchor=(0,0)
+      CCSprite «iconBubbleConstruction»  visible=false; pos=(-168,77); scale=(0.5,0.5)*res; displayFrame=new_message_icon.png
+      CCSprite «iconBubbleTechnology»  visible=false; pos=(112,77); scale=(0.5,0.5)*res; displayFrame=new_message_icon.png
+      CCSprite «iconBubbleArmy»  visible=false; pos=(18,77); scale=(0.5,0.5)*res; displayFrame=new_message_icon.png
+  CCNode «topLeft»  pos=(0,100) Percent; anchor=(0,0)
+    CCNode  pos=(47.0669,69.7566) Percent; anchor=(0,0)
+      CCNodeSelector  pos=(116,-1); contentSize=(440x90); anchor=(0,1); block->buttonInfoSelector
+      CCSprite  anchor=(0,1); scale=(0.5,0.5)*res; displayFrame=city_top_left.png
+      CCSprite  pos=(342,-41); scale=(0.5,0.5)*res; displayFrame=progress_bar_empty.png
+      CCProgressTimer «expProgressBar»  pos=(342,-41); scale=(0.5,0.5)*res; displayFrame=progress_bar_full.png; percentage=0.0; reverseDirection=false; type=1; midpoint=[0.0, 1.0]; barChangeRate=[1.0, 0.0]
+      CCLabelTTF «textLevel»  pos=(66,-61); fontName="fonts/Play-Bold.ttf"; fontSize=50; color=[247, 238, 1]; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="1"
+      CCTextLayout  pos=(302.4,-66.24); contentSize=(0x0); dynamicContent=true; horizTextAlignment=0
+        CCSprite  pos=(286,-68); scale=(0.5,0.5)*res; displayFrame=icon_shield_small.png
+        CCLabelTTF «textDefence»  pos=(342.6,-67.44); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="0"
+      CCTextLayout  pos=(186.111,-65.9722); contentSize=(0x0); dynamicContent=true; horizTextAlignment=0
+        CCSprite  pos=(173,-67); scale=(0.5,0.5)*res; displayFrame=icon_citizen.png
+        CCLabelTTF «textCitizen»  pos=(204,-65); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="0"
+      CCTextLayout  pos=(423.611,-65.9722); contentSize=(0x0); dynamicContent=true; horizTextAlignment=0
+        CCSprite  pos=(173,-67); scale=(0.4,0.4)*res; displayFrame=icon_hawk_white_blue_city.png
+        CCLabelTTF «textInfluence»  pos=(204,-65); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="0"
+      CCMenu  pos=(523,-65)
+        CCMenuItemImage «buttonInfo»  contentSize=(62x76); scale=(0.5,0.5)*res; block->buttonInfoSelector; isEnabled=true; normalSpriteFrame=info_city_scene.png; selectedSpriteFrame=info_city_scene_press.png
+  CCNode «topRight»  pos=(100,100) Percent; anchor=(0,0)
+    CCSprite «resourceWidget»  pos=(0,0) RelativeTopRight; anchor=(1,1); scale=(0.5,0.5)*res; displayFrame=top_resources.png
+    CCMenu  pos=(-93,-170)
+      CCMenuItemImage «»  pos=(56,122); contentSize=(98x82); scale=(0.5,0.5)*res; block->onCreditOrder; isEnabled=true; normalSpriteFrame=button_bank_order_4.png; selectedSpriteFrame=button_bank_order_4_press.png; disabledSpriteFrame=button_bank_order_4_black.png
+      CCMenuItemImage «metalOrder»  pos=(56,70); contentSize=(98x82); scale=(0.5,0.5)*res; block->onMetalOrder; isEnabled=true; normalSpriteFrame=button_bank_order_1.png; selectedSpriteFrame=button_bank_order_1_press.png; disabledSpriteFrame=button_bank_order_1_black.png
+      CCMenuItemImage «crystalOrder»  pos=(56,29); contentSize=(98x86); scale=(0.5,0.5)*res; block->onCrystallOrder; isEnabled=true; normalSpriteFrame=button_bank_order_2.png; selectedSpriteFrame=button_bank_order_2_press.png; disabledSpriteFrame=button_bank_order_2_black.png
+      CCMenuItemImage «fuelOrder»  pos=(56,-12); contentSize=(98x82); scale=(0.5,0.5)*res; block->onFuelOrder; isEnabled=true; normalSpriteFrame=button_bank_order_3.png; selectedSpriteFrame=button_bank_order_3_press.png; disabledSpriteFrame=button_bank_order_3_black.png
+      CCMenuItemImage «metalLimit»  visible=false; pos=(56,70); contentSize=(98x82); scale=(0.5,0.5)*res; block->onResourceWidget; isEnabled=false; normalSpriteFrame=metal_limit.png; selectedSpriteFrame=metal_limit_press.png
+      CCMenuItemImage «crystalLimit»  visible=false; pos=(56,29); contentSize=(98x86); scale=(0.5,0.5)*res; block->onResourceWidget; isEnabled=false; normalSpriteFrame=crystal_limit.png; selectedSpriteFrame=crystal_limit_press.png
+      CCMenuItemImage «fuelLimit»  visible=false; pos=(56,-12); contentSize=(98x82); scale=(0.5,0.5)*res; block->onResourceWidget; isEnabled=false; normalSpriteFrame=fuel_limit.png; selectedSpriteFrame=fuel_limit_press.png
+    CCNodeSelector «resourcesSelector»  pos=(-184,-216); contentSize=(170x140); anchor=(0,0); block->onResourceWidget
+    CCNodeSelector «creditsSelector»  pos=(-184,-77); contentSize=(170x60); anchor=(0,0); block->onCreditOrder
+    CCLabelTTF «credit»  pos=(-105,-45); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(80x30); horizontalAlignment=2; verticalAlignment=1; string="0"
+    CCLabelTTF «metal»  pos=(-105,-99); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(80x30); horizontalAlignment=2; verticalAlignment=1; string="0"
+    CCLabelTTF «crystal»  pos=(-105,-140); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(80x30); horizontalAlignment=2; verticalAlignment=1; string="0"
+    CCLabelTTF «fuel»  pos=(-105,-180); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(80x30); horizontalAlignment=2; verticalAlignment=1; string="0"
+    CCSprite  pos=(-166,-47); scale=(0.5,0.5)*res; displayFrame=icon_credit.png
+    CCSprite  pos=(-162,-180); scale=(0.5,0.5)*res; displayFrame=icon_fuel.png
+    CCSprite  pos=(-162,-136); scale=(0.5,0.5)*res; displayFrame=icon_crystal.png
+    CCSprite  pos=(-161,-95); scale=(0.5,0.5)*res; displayFrame=icon_metal.png
+  CCNode «leftCenter»  pos=(0,52.0833) Percent; anchor=(0,0)
+    CCNode «nodeSideQuest»  pos=(0,7.088); anchor=(0,0)
+      CCSprite  pos=(0,15); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=left_frame_blue_widget.png; blendFunc={"src": "GL_SRC_ALPHA", "dst": "GL_ONE_MINUS_SRC_ALPHA"}
+      CCMenu «buttonSideQuest»  pos=(68,25)
+        CCMenuItemImage «sideQuestSelector»  contentSize=(227x204); scale=(0.5,0.5)*res; block->buttonSideQuestSelector; isEnabled=true; normalSpriteFrame=blue_quest_widget.png; selectedSpriteFrame=blue_quest_widget_press.png
+      CCSprite «iconSideQuest»  pos=(68,26); scale=(0.5,0.5)
+    CCNode «nodeSideMission»  pos=(0,-120); anchor=(0,0)
+      CCSprite  pos=(0,15); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=left_frame_blue_widget.png; blendFunc={"src": "GL_SRC_ALPHA", "dst": "GL_ONE_MINUS_SRC_ALPHA"}
+      CCMenu «buttonSideMission»  pos=(68,25)
+        CCMenuItemImage «sideMissionSelector»  contentSize=(227x204); scale=(0.5,0.5)*res; block->buttonSideMissionSelector; isEnabled=true; normalSpriteFrame=blue_quest_widget.png; selectedSpriteFrame=blue_quest_widget_press.png
+      CCSprite «iconSideMission»  pos=(68,26); scale=(0.5,0.5)
+    CCNode «nodeMainQuest»  pos=(0,11); anchor=(0,0)
+      CCSprite  pos=(0,150); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=left_frame_yellow_widget.png
+      CCMenu «buttonMainQuest»  pos=(68,146)
+        CCMenuItemImage «mainQuestSelector»  contentSize=(215x190); scale=(0.5,0.5)*res; block->buttonMainQuestSelector; isEnabled=true; normalSpriteFrame=yellow_quest_widget.png; selectedSpriteFrame=yelow_quest_widget_press.png
+      CCSprite «iconMainQuest»  pos=(68,147); scale=(0.5,0.5)
+    CCNode «socialWidget»  pos=(0,-97); anchor=(0,0)
+      CCSprite  pos=(0,-160); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=social_widget_metal_city_scene.png
+      CCSprite «iconSocial»  pos=(79,-152); scale=(0.5,0.5)
+      CCMenu  pos=(83,-147)
+        CCMenuItemImage «buttonSocial»  contentSize=(295x229); scale=(0.5,0.5)*res; block->buttonSocialSelector; isEnabled=true; normalSpriteFrame=social_widget_city_scene.png; selectedSpriteFrame=social_widget_city_scene_press.png
+      CCLabelTTF «textSocialName»  pos=(80,-172); fontName="fonts/a_SimplerDnm.ttf"; fontSize=12; dimensions=(110x35); horizontalAlignment=0; verticalAlignment=1; string="Награды Конфедерации"
+      CCNode «nodeSocialTimer»  visible=false; anchor=(0,0)
+        CCSprite  pos=(108,-116); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=new_message_icon.png
+        CCSprite  visible=false; pos=(113.8,-116); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=clock_city_scene.png; opacity=255; ANIM[seq1].opacity×3
+        CCLabelTTF  pos=(130,-115); fontName="fonts/Play-Bold.ttf"; fontSize=28; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="!"
+      CCNode «nodeNew»  anchor=(0,0)
+        CCSprite  pos=(108,-116); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=new_message_icon.png
+        CCSprite  visible=false; pos=(113.8,-116); anchor=(0,0.5); scale=(0.5,0.5)*res; displayFrame=clock_city_scene.png; opacity=255; ANIM[seq1].opacity×3
+        CCLabelTTF  pos=(130,-115); fontName="fonts/Play-Bold.ttf"; fontSize=28; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="!"
+  CCNode  pos=(100,50) Percent; anchor=(0,0)
+    CCNode «nodeAction»  pos=(0,40); anchor=(0,0)
+      CCSprite  anchor=(1,0.5); scale=(0.5,0.5)*res; displayFrame=sale_wiget_frame.png
+      CCSprite «iconAction»  pos=(-76,3); scale=(0.5,0.5)
+      CCMenu  pos=(-7,-3)
+        CCMenuItemImage «buttonAction»  contentSize=(309x247); anchor=(1,0.5); scale=(0.5,0.5)*res; block->buttonActionSelector; isEnabled=true; normalSpriteFrame=sale_wiget_button.png; selectedSpriteFrame=sale_wiget_button_press.png
+      CCNode «nodeTimer»  pos=(-16,-35); anchor=(0,0)
+        CCSprite  pos=(-6,-3); anchor=(1,0.5); scale=(0.5,0.5)*res; displayFrame=sale_wiget_timer.png
+        CCLabelTTF «textActionTime»  pos=(-61.2087,-0.114795); fontName="fonts/LiquidCrystal-Regular.ttf"; fontSize=16; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="22м:21с"
+  CCNode «bottomRight»  pos=(0,0) RelativeBottomRight; anchor=(0,0)
+    CCMenu  pos=(0,0) RelativeBottomRight
+      CCMenuItemImage  contentSize=(176x174); anchor=(1,0); scale=(0.5,0.5)*res; block->menu; isEnabled=true; normalSpriteFrame=pause.png; selectedSpriteFrame=pause_down.png; disabledSpriteFrame=pause.png

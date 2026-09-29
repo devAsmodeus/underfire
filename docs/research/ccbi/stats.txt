@@ -1,0 +1,195 @@
+== ФАЙЛЫ
+files_total: 306
+by_source: {'apk': 2, 'obb_main': 161, 'obb_patch': 143}
+by_resolution: {'1024x768': 273, '2048x1536': 33}
+effective_unique: 177
+effective_by_resolution: {'1024x768': 145, '2048x1536': 32}
+overridden_paths: 128
+overridden_identical_bytes: 69
+versions: {5: 306}
+jsControlled: {'False': 306}
+parse_fail_vanilla_dialect: 253
+binary_ccbi_refs: 84
+live_files: 112
+parse_fail_inferno_dialect: 0
+binary_refs_unresolved: []
+dead_files (33): ['1024x768/battle/BattlePrepare.ccbi', '1024x768/battle/BattlePrepare_template.ccbi', '1024x768/battle/PlaceScene.ccbi', '1024x768/battle/fake.ccbi', '1024x768/battle/lose.ccbi', '1024x768/battle/place_scene.ccbi', '1024x768/battle/place_scene_template.ccbi', '1024x768/battle/popups/army_menu_popup.ccbi', '1024x768/battle/popups/army_menu_popup_template.ccbi', '1024x768/battle/popups/expendables_buy_menu_popup.ccbi', '1024x768/battle/popups/shop_unit_popup.ccbi', '1024x768/battle/shop_old.ccbi', '1024x768/battle/turret_widget_old.ccbi', '1024x768/battle/unitdelete.ccbi', '1024x768/battle/unittemplate.ccbi', '1024x768/battle/win.ccbi', '1024x768/city/construction_menu_test.ccbi', '1024x768/city/fake.ccbi', '1024x768/city/frame_for_copy.ccbi', '1024x768/city/frame_test.ccbi', '1024x768/city/popup_dialog.ccbi', '1024x768/city/popups/army_menu_popup_expendables.ccbi', '1024x768/city/popups/buy_squad.ccbi', '1024x768/city/popups/save_time_and_resources.ccbi', '1024x768/city/popups/skip_upgrade_hero_time.ccbi', '1024x768/city/popups/skip_upgrade_unit_time.ccbi', '1024x768/city/save_menu_template.ccbi', '1024x768/city/save_time_and_resources.ccbi', '1024x768/city/tactical_headquarters_menu_test.ccbi', '1024x768/city/test_menu.ccbi', '1024x768/mainmenu/MainMenuScene.ccbi', '1024x768/mainmenu/template.ccbi', '1024x768/worldmap/fake.ccbi']
+
+== ЭФФЕКТИВНЫЙ НАБОР 1024x768: файлов 145, нод 5362, нод/файл {'min': 1, 'median': 24, 'max': 200}, глубина {'median': 3, 'max': 7}
+-- классы (ноды / файлы):
+     2068  139  CCSprite
+     1003  144  CCNode
+      890  119  CCLabelTTF
+      400  117  CCMenu
+      297  106  CCMenuItemImage
+      216   64  CCTextLayout
+      168   68  CCTextButton
+       83   54  CCNodeSelector
+       57   28  CCSpriteBatchNode
+       44   31  CCScrollListView
+       40   11  CCCheckBox
+       30   19  CCTableNode
+       21   11  CCProgressTimer
+       20   20  CCLayer
+       19   11  CCLabelTTFLocalized
+        3    3  CCLayerColor
+        1    1  CRjScrollListView
+        1    1  MainMenuScene
+        1    1  CCScrollView
+-- root_classes: {"CCNode": 124, "CCLayer": 20, "MainMenuScene": 1}
+-- root_contentSize: {"1024x768 Absolute": 36, "100x100 Percent": 28, "586x418.5 Absolute": 5, "540x660 Absolute": 3, "550x570 Absolute": 3, "590x460 Absolute": 3, "145x145 Absolute": 2, "150x150 Absolute": 2, "360x100 Absolute": 2, "600x600 Absolute": 2, "497x482 Absolute": 2, "105x105 Absolute": 1, "540x765 Absolute": 1, "360x110 Absolute": 1, "900x660 Absolute": 1, "200x200 Absolute": 1, "88x88 Absolute": 1, "270x420 Absolute": 1, "290x80 Absolute": 1, "50x80 Absolute": 1, "70x120 Absolute": 1, "550x768 Absolute": 1, "950x768 Absolute": 1, "430x285 Absolute": 1, "160x142 Absolute": 1, "200x480 Absolute": 1, "190x70 Absolute": 1, "150x200 Absolute": 1, "260x130 Absolute": 1, "420x440 Absolute": 1, "420x430 Absolute": 1, "350x170 Absolute": 1, "273x68 Absolute": 1, "621x602.5 Absolute": 1, "55x120 Absolute": 1, "45x120 Absolute": 1, "300x580 Absolute": 1, "300x350 Absolute": 1, "200x160 Absolute": 1, "285x130 Absolute": 1, "270x70 Absolute": 1, "290x550 Absolute": 1, "1024x50 Absolute": 1, "450x550 Absolute": 1, "800x760 Absolute": 1, "585x420 Absolute": 1, "550x580 Absolute": 1, "630x720 Absolute": 1, "268x69 Absolute": 1, "216x430 Absolute": 1, "500x520 Absolute": 1, "550x670 Absolute": 1, "295x480 Absolute": 1, "300x590 Absolute": 1, "560x680 Absolute": 1, "736x768 Absolute": 1, "227x168 Absolute": 1, "220x180 Absolute": 1, "305x670 Absolute": 1, "700x670 Absolute": 1, "800x510 Absolute": 1, "500x550 Absolute": 1, "890x640 Absolute": 1, "590x480 Absolute": 1, "600x400 Absolute": 1, "120x120 Absolute": 1, "700x768 Absolute": 1, "415x220 Absolute": 1}
+-- position_types: {"RelativeBottomLeft": 3785, "Percent": 200, "RelativeTopRight": 111, "RelativeBottomRight": 80, "RelativeTopLeft": 33, "MultiplyResolution": 1}
+-- size_types: {"contentSize:Absolute": 1120, "dimensions:Absolute": 909, "contentSize:Percent": 34, "contentSize:MultiplyResolution": 1}
+-- scale_types: {"Absolute": 3130, "MultiplyResolution": 2230}
+-- floatscale_types: {"Absolute": 1413}
+-- anchorPoint: {"(0.5,0.5)": 3458, "(0,0)": 1450, "(0,1)": 147, "(1,1)": 45, "(1,0)": 39, "(0.5,1)": 38, "(0.5,0)": 32, "(0,0.5)": 26, "(0.6,0.5)": 21, "(0.5,0.4)": 20, "(0.7,0.5)": 19, "(0.4,0.5)": 10}
+-- ignoreAnchorPointForPosition_true_by_class: {"CCMenu": 363, "CCTextLayout": 60, "CCScrollListView": 41, "CCLayer": 9, "CCMenuItemImage": 3, "CCLayerColor": 2, "CRjScrollListView": 1, "CCSprite": 1, "MainMenuScene": 1, "CCScrollView": 1}
+-- visible_false_by_class: {"CCSprite": 141, "CCNode": 129, "CCMenuItemImage": 27, "CCLabelTTF": 27, "CCMenu": 11, "CCTextButton": 10, "CCCheckBox": 9, "CCTextLayout": 6, "CCScrollListView": 1}
+-- rotation_nonzero: 35
+-- skew_nonzero: 0
+-- opacity_non255: 46
+-- color_non_white: 256
+-- blendFunc: {"GL_SRC_ALPHA/GL_ONE_MINUS_SRC_ALPHA": 102}
+-- blocks: {"total": 588, "unique_selectors": 306, "targets": {"Owner": 581, "None": 4, "DocumentRoot": 3}, "with_sound": {"champion_close_attack.wav": 1}, "top": {"close": 102, "buttonBuyResourcesSelector": 17, "buttonInfoSelector": 14, "buttonBuySelector": 8, "buttonUpSelector": 7, "buttonDownSelector": 7, "buttonBackSelector": 6, "buttonPauseSelector": 5, "buttonLeftSelector": 5, "buttonRightSelector": 5, "buttonBuyCreditSelector": 5, "": 4, "buttonExitSelector": 4, "buttonSkipSelector": 4, "buttonCancelSelector": 4, "onResourceWidget": 4, "buttonOpenFastSelector": 4, "buttonUnlockSelector": 4, "buttonGoSelector": 4, "buttonPlusSelector": 3, "buttonBattleSelector": 3, "moveBackwardSelector": 3, "moveForwardSelector": 3, "buttonUnitBuySelector": 3, "buttonActivateSelector": 3}}
+-- blockCCControl: 0
+-- memberVars: {"total": 2543, "targets": {"Owner": 2543}, "unique_names": 1687}
+-- sprite_frames: {"refs": 3294, "unique": 1073, "sheets": {"(empty)": 3294}}
+-- fonts: {"fonts/Play.ttf": 526, "fonts/Play_button.ttf": 398, "fonts/Play-Bold.ttf": 350, "Helvetica": 59, "fonts/LiquidCrystal-Regular.ttf": 58, "fonts/a_SimplerDnm.ttf": 21, "fonts/LiquidCrystal-Bold.ttf": 1}
+-- font_sizes: {"0.0": 14, "12.0": 3, "15.0": 39, "16.0": 11, "17.0": 8, "18.0": 121, "20.0": 287, "22.0": 18, "23.0": 70, "24.0": 5, "25.0": 153, "26.0": 3, "28.0": 11, "30.0": 95, "32.0": 1, "34.0": 24, "35.0": 99, "36.0": 27, "38.0": 1, "40.0": 328, "45.0": 26, "50.0": 51, "60.0": 18}
+-- texts: {"total": 1121, "unique": 481, "by_class": {"CCLabelTTF": 890, "CCTextButton": 168, "CCScrollListView": 44, "CCLabelTTFLocalized": 19}, "cyrillic_unique": 252, "placeholder_like": 421, "top": {"Sample Text": 123, "0": 22, "1564": 20, "Открывается по сюжету": 15, "": 14, "Resources": 13, "99999": 12, "+10": 11, "20": 11, "Тактический штаб": 10, "700": 9, "Price:": 9, "456": 8, "Награда": 8, "Recruit": 8, "Купить": 7, "MAX": 6, "111": 6, "Выполнить": 6, "421": 6}}
+-- label_dimensions: {"0x0": 570, "set": 339}
+-- h_alignment: {"horizontalAlignment=0": 633, "horizontalAlignment=1": 236, "normalHorizontalAlignment=1": 168, "horizTextAlignment=0": 133, "horizTextAlignment=1": 79, "textAlignment=1": 54, "horizontalAlignment=2": 40, "textAlignment=0": 20, "horizTextAlignment=2": 4}
+-- v_alignment: {"verticalAlignment=0": 619, "verticalAlignment=1": 281, "normalVerticalAlignment=1": 168, "verticalTextAlignment=1": 52, "verticalTextAlignment=0": 22, "verticalAlignment=2": 9}
+-- list_templates: {"friends_menu_template": 4, "popups/army_menu_popup_template": 3, "army_menu_template": 3, "expendables_buy_menu_template": 3, "place_scene_template_enemy": 2, "shop_template": 2, "construction_menu_template": 2, "expedition_menu_template": 2, "city/popups/army_menu_popup_template": 2, "BattlePrepare_template": 1, "unittamplate": 1, "place_scene_template": 1, "popups/enemy_popup_template": 1, "shop_template_buy": 1, "technology_widget_battle_template": 1, "technology_widget_shop_template": 1, "city/BattlePrepare_template": 1, "army_menu_template_expendables": 1, "city/building_bar_template": 1, "city/building_bar_template_items": 1, "building_science_center_template": 1, "mail_menu_template": 1, "mercenaries_buy_menu_template": 1, "mission_chose_template": 1, "popups/expedition_menu_popup_send_template": 1, "quest_side_menu_template": 1, "scheme_menu_template": 1, "social_menu_template": 1, "technology_menu_template": 1, "menu_cosmoport_template": 1, "window_quest_locker_template": 1}
+-- ccbfile_props: {"": 2}
+-- batch_textures: {"frames": 46, "city/frames": 8, "glow_long": 2, "construction_template": 1}
+-- progress_timer_types: {"1": 17, "0": 4}
+-- animation: {"files_with_sequences": 144, "sequences_total": 175, "sequence_names_top": {"Default Timeline": 142, "Untitled Timeline": 3, "timelineShow": 2, "timelineHide": 2, "light1": 1, "light2": 1, "light3": 1, "light4": 1, "radio": 1, "attackEnd": 1, "Social timer": 1, "buttons": 1, "fat arrows": 1, "zebra_arrow": 1, "showTimeline": 1}, "files_with_keyframes_or_multi_seq": 24, "files_list": ["1024x768/battle/BattleScene.ccbi", "1024x768/battle/PlaceScene.ccbi", "1024x768/battle/battle_dialog.ccbi", "1024x768/battle/helper_move.ccbi", "1024x768/battle/popups/mission_end_popup.ccbi", "1024x768/city/CityScene.ccbi", "1024x768/city/action_menu.ccbi", "1024x768/city/arrows_template.ccbi", "1024x768/city/bar_menu.ccbi", "1024x768/city/building_science_center.ccbi", "1024x768/city/building_widget.ccbi", "1024x768/city/citizen_widget.ccbi", "1024x768/city/construction_menu_template.ccbi", "1024x768/city/credits_buy_menu.ccbi", "1024x768/city/expendables_buy_menu_template.ccbi", "1024x768/city/popups/army_menu_popup.ccbi", "1024x768/city/produce_menu.ccbi", "1024x768/city/quest_side_menu_template.ccbi", "1024x768/city/resources_buy_menu.ccbi", "1024x768/city/scheme_menu_template.ccbi", "1024x768/city/tactical_headquarters_menu.ccbi", "1024x768/city/tutorial_menu.ccbi", "1024x768/mainmenu/MainMenuScene.ccbi", "1024x768/worldmap/company_menu_template.ccbi"], "animated_nodes": 77, "animated_props": {"opacity:Byte": 51, "scale:ScaleLock": 18, "position:Position": 10}, "keyframes": 246, "easing": {"Linear": 246}, "callback_keyframes": 0, "sound_keyframes": 0, "chained_sequences": 14, "autoplay": {"set": 139, "none": 6}}
+-- свойства по классам:
+   CCLayer: {"contentSize:Size": 20, "anchorPoint:Point": 20, "scale:ScaleLock": 20, "ignoreAnchorPointForPosition:Check": 20, "touchEnabled:Check": 20, "mouseEnabled:Check": 20}
+   CCNode: {"anchorPoint:Point": 1003, "scale:ScaleLock": 1003, "ignoreAnchorPointForPosition:Check": 1003, "position:Position": 523, "contentSize:Size": 258, "visible:Check": 129, "rotation:Degrees": 1}
+   CCSprite: {"anchorPoint:Point": 2068, "scale:ScaleLock": 2068, "ignoreAnchorPointForPosition:Check": 2068, "displayFrame:SpriteFrame": 2068, "position:Position": 1812, "visible:Check": 141, "blendFunc:Blendmode": 99, "opacity:Byte": 48, "rotation:Degrees": 23, "color:Color3": 7}
+   CCProgressTimer: {"anchorPoint:Point": 21, "scale:ScaleLock": 21, "ignoreAnchorPointForPosition:Check": 21, "displayFrame:SpriteFrame": 21, "percentage:Float": 21, "reverseDirection:Check": 21, "type:IntegerLabeled": 21, "midpoint:Point": 21, "barChangeRate:Point": 21, "position:Position": 19}
+   CCLabelTTF: {"anchorPoint:Point": 890, "scale:ScaleLock": 890, "ignoreAnchorPointForPosition:Check": 890, "fontName:FontTTF": 890, "fontSize:FloatScale": 890, "dimensions:Size": 890, "horizontalAlignment:IntegerLabeled": 890, "verticalAlignment:IntegerLabeled": 890, "string:Text": 890, "position:Position": 706, "color:Color3": 246, "visible:Check": 27, "opacity:Byte": 10, "rotation:Degrees": 1}
+   CCScrollListView: {"position:Position": 44, "contentSize:Size": 44, "anchorPoint:Point": 44, "scale:ScaleLock": 44, "ignoreAnchorPointForPosition:Check": 44, "verticalTextAlignment:IntegerLabeled": 44, "textAlignment:IntegerLabeled": 44, "_template:Text": 44, "horizontal:Check": 44, "_count:Integer": 44, "isAbsolute:Check": 32, "visible:Check": 1}
+   CCTextLayout: {"contentSize:Size": 216, "anchorPoint:Point": 216, "scale:ScaleLock": 216, "ignoreAnchorPointForPosition:Check": 216, "touchEnabled:Check": 216, "mouseEnabled:Check": 216, "dynamicContent:Check": 216, "horizTextAlignment:IntegerLabeled": 216, "position:Position": 182, "visible:Check": 6}
+   CCMenu: {"position:Position": 400, "anchorPoint:Point": 400, "scale:ScaleLock": 400, "ignoreAnchorPointForPosition:Check": 400, "touchEnabled:Check": 400, "mouseEnabled:Check": 400, "contentSize:Size": 57, "visible:Check": 11}
+   CCMenuItemImage: {"anchorPoint:Point": 297, "scale:ScaleLock": 297, "ignoreAnchorPointForPosition:Check": 297, "block:Block": 297, "isEnabled:Check": 297, "normalSpriteFrame:SpriteFrame": 297, "selectedSpriteFrame:SpriteFrame": 297, "disabledSpriteFrame:SpriteFrame": 297, "position:Position": 198, "contentSize:Size": 182, "visible:Check": 27, "rotation:Degrees": 10}
+   CCTextButton: {"contentSize:Size": 168, "anchorPoint:Point": 168, "scale:ScaleLock": 168, "ignoreAnchorPointForPosition:Check": 168, "block:Block": 168, "normalSpriteFrame:SpriteFrame": 168, "selectedSpriteFrame:SpriteFrame": 168, "disabledSpriteFrame:SpriteFrame": 168, "state:IntegerLabeled": 168, "string:Text": 168, "normalFontName:FontTTF": 168, "normalFontSize:FloatScale": 168, "normalHorizontalAlignment:IntegerLabeled": 168, "normalVerticalAlignment:IntegerLabeled": 168, "normalOffset:Point": 168, "selectedFontName:FontTTF": 168, "selectedFontSize:FloatScale": 168, "selectedVerticalAlignment:IntegerLabeled": 168, "selectedHorizontalAlignment:IntegerLabeled": 168, "selectedOffset:Point": 168, "disabledFontName:FontTTF": 168, "disabledFontSize:FloatScale": 168, "disabledHorizontalAlignment:IntegerLabeled": 168, "disabledVerticalAlignment:IntegerLabeled": 168, "disabledOffset:Point": 168, "position:Position": 123, "visible:Check": 10, "normalColor:Color3": 4, "makeCopy:NoValue28": 4}
+   CCCheckBox: {"contentSize:Size": 40, "anchorPoint:Point": 40, "scale:ScaleLock": 40, "ignoreAnchorPointForPosition:Check": 40, "block:Block": 40, "isEnabled:Check": 40, "normalImage:SpriteFrame": 40, "selectedImage:SpriteFrame": 40, "disabledImage:SpriteFrame": 40, "selected:Check": 40, "group:Integer": 40, "position:Position": 35, "visible:Check": 9}
+   CCNodeSelector: {"anchorPoint:Point": 83, "scale:ScaleLock": 83, "ignoreAnchorPointForPosition:Check": 83, "block:Block": 83, "contentSize:Size": 82, "position:Position": 62}
+   CRjScrollListView: {"contentSize:Size": 1, "anchorPoint:Point": 1, "scale:Float": 1, "ignoreAnchorPointForPosition:Check": 1, "container:CCBFile": 1, "direction:IntegerLabeled": 1, "clipsToBounds:Check": 1, "bounces:Check": 1}
+   CCLabelTTFLocalized: {"position:Position": 19, "anchorPoint:Point": 19, "scale:ScaleLock": 19, "ignoreAnchorPointForPosition:Check": 19, "fontName:FontTTF": 19, "fontSize:FloatScale": 19, "dimensions:Size": 19, "horizontalAlignment:IntegerLabeled": 19, "verticalAlignment:IntegerLabeled": 19, "string:Text": 19}
+   CCTableNode: {"position:Position": 30, "contentSize:Size": 30, "anchorPoint:Point": 30, "scale:ScaleLock": 30, "ignoreAnchorPointForPosition:Check": 30, "offset:Point": 30, "colcount:Integer": 30, "textAlignment:IntegerLabeled": 30, "verticalTextAlignment:IntegerLabeled": 30}
+   CCSpriteBatchNode: {"anchorPoint:Point": 57, "scale:ScaleLock": 57, "ignoreAnchorPointForPosition:Check": 57, "position:Position": 56, "contentSize:Size": 52}
+   CCLayerColor: {"contentSize:Size": 3, "anchorPoint:Point": 3, "scale:ScaleLock": 3, "ignoreAnchorPointForPosition:Check": 3, "touchEnabled:Check": 3, "mouseEnabled:Check": 3, "color:Color3": 3, "opacity:Byte": 3, "blendFunc:Blendmode": 3, "position:Position": 1}
+   MainMenuScene: {"contentSize:Size": 1, "anchorPoint:Point": 1, "scale:ScaleLock": 1, "ignoreAnchorPointForPosition:Check": 1, "touchEnabled:Check": 1, "mouseEnabled:Check": 1}
+   CCScrollView: {"contentSize:Size": 1, "anchorPoint:Point": 1, "scale:Float": 1, "ignoreAnchorPointForPosition:Check": 1, "container:CCBFile": 1, "direction:IntegerLabeled": 1, "clipsToBounds:Check": 1, "bounces:Check": 1}
+-- extra (custom) свойства по классам:
+   CRjScrollListView: {"template:String": 1}
+   CCSpriteBatchNode: {"texture:String": 53, "isAbsolute:Check": 8, "textures:String": 4}
+
+== ЖИВЫЕ МАКЕТЫ 1024x768: файлов 112, нод 4615, нод/файл {'min': 3, 'median': 27.5, 'max': 200}, глубина {'median': 3.0, 'max': 7}
+-- классы (ноды / файлы):
+     1791  107  CCSprite
+      837  112  CCNode
+      778  102  CCLabelTTF
+      348   97  CCMenu
+      260   87  CCMenuItemImage
+      193   56  CCTextLayout
+      151   59  CCTextButton
+       77   50  CCNodeSelector
+       51   25  CCSpriteBatchNode
+       36   25  CCScrollListView
+       30   19  CCTableNode
+       25    8  CCCheckBox
+       20   10  CCProgressTimer
+       11   11  CCLayer
+        4    4  CCLabelTTFLocalized
+        3    3  CCLayerColor
+-- root_classes: {"CCNode": 101, "CCLayer": 11}
+-- root_contentSize: {"1024x768 Absolute": 33, "100x100 Percent": 9, "586x418.5 Absolute": 5, "600x600 Absolute": 2, "590x460 Absolute": 2, "497x482 Absolute": 2, "105x105 Absolute": 1, "540x765 Absolute": 1, "360x110 Absolute": 1, "900x660 Absolute": 1, "200x200 Absolute": 1, "150x150 Absolute": 1, "88x88 Absolute": 1, "270x420 Absolute": 1, "290x80 Absolute": 1, "50x80 Absolute": 1, "145x145 Absolute": 1, "550x768 Absolute": 1, "950x768 Absolute": 1, "430x285 Absolute": 1, "160x142 Absolute": 1, "200x480 Absolute": 1, "190x70 Absolute": 1, "150x200 Absolute": 1, "260x130 Absolute": 1, "420x440 Absolute": 1, "420x430 Absolute": 1, "350x170 Absolute": 1, "273x68 Absolute": 1, "621x602.5 Absolute": 1, "55x120 Absolute": 1, "45x120 Absolute": 1, "300x580 Absolute": 1, "300x350 Absolute": 1, "200x160 Absolute": 1, "285x130 Absolute": 1, "270x70 Absolute": 1, "290x550 Absolute": 1, "1024x50 Absolute": 1, "540x660 Absolute": 1, "360x100 Absolute": 1, "450x550 Absolute": 1, "800x760 Absolute": 1, "550x570 Absolute": 1, "585x420 Absolute": 1, "550x580 Absolute": 1, "630x720 Absolute": 1, "268x69 Absolute": 1, "216x430 Absolute": 1, "500x520 Absolute": 1, "550x670 Absolute": 1, "295x480 Absolute": 1, "300x590 Absolute": 1, "560x680 Absolute": 1, "736x768 Absolute": 1, "220x180 Absolute": 1, "305x670 Absolute": 1, "700x670 Absolute": 1, "800x510 Absolute": 1, "500x550 Absolute": 1, "590x480 Absolute": 1, "600x400 Absolute": 1, "120x120 Absolute": 1, "700x768 Absolute": 1, "415x220 Absolute": 1}
+-- position_types: {"RelativeBottomLeft": 3225, "Percent": 165, "RelativeTopRight": 104, "RelativeBottomRight": 74, "RelativeTopLeft": 28}
+-- size_types: {"contentSize:Absolute": 1001, "dimensions:Absolute": 782, "contentSize:Percent": 15, "contentSize:MultiplyResolution": 1}
+-- scale_types: {"Absolute": 2608, "MultiplyResolution": 2007}
+-- floatscale_types: {"Absolute": 1235}
+-- anchorPoint: {"(0.5,0.5)": 2980, "(0,0)": 1232, "(0,1)": 137, "(1,1)": 43, "(1,0)": 37, "(0.5,1)": 32, "(0.5,0)": 25, "(0,0.5)": 20, "(0.5,0.4)": 20, "(0.6,0.5)": 15, "(0.7,0.5)": 14, "(0.4,0.5)": 10}
+-- ignoreAnchorPointForPosition_true_by_class: {"CCMenu": 312, "CCTextLayout": 55, "CCScrollListView": 33, "CCMenuItemImage": 3, "CCLayer": 2, "CCLayerColor": 2, "CCSprite": 1}
+-- visible_false_by_class: {"CCSprite": 118, "CCNode": 113, "CCLabelTTF": 26, "CCMenuItemImage": 23, "CCMenu": 11, "CCTextButton": 9, "CCTextLayout": 6, "CCCheckBox": 4, "CCScrollListView": 1}
+-- rotation_nonzero: 32
+-- skew_nonzero: 0
+-- opacity_non255: 43
+-- color_non_white: 221
+-- blendFunc: {"GL_SRC_ALPHA/GL_ONE_MINUS_SRC_ALPHA": 90}
+-- blocks: {"total": 513, "unique_selectors": 283, "targets": {"Owner": 511, "None": 2}, "with_sound": {}, "top": {"close": 91, "buttonBuyResourcesSelector": 17, "buttonInfoSelector": 12, "buttonBackSelector": 6, "buttonBuySelector": 6, "buttonPauseSelector": 5, "buttonUpSelector": 5, "buttonDownSelector": 5, "buttonLeftSelector": 5, "buttonRightSelector": 5, "buttonBuyCreditSelector": 5, "buttonSkipSelector": 4, "buttonCancelSelector": 4, "onResourceWidget": 4, "buttonOpenFastSelector": 4, "buttonUnlockSelector": 4, "buttonGoSelector": 4, "buttonActivateSelector": 3, "buttonExitSelector": 3, "buttonAbilitySelector1": 3, "buttonAbilitySelector2": 3, "buttonAbilitySelector3": 3, "buttonAbilitySelector4": 3, "nodeRewardSelector3": 3, "nodeRewardSelector2": 3}}
+-- blockCCControl: 0
+-- memberVars: {"total": 2225, "targets": {"Owner": 2225}, "unique_names": 1582}
+-- sprite_frames: {"refs": 2854, "unique": 965, "sheets": {"(empty)": 2854}}
+-- fonts: {"fonts/Play.ttf": 474, "fonts/Play_button.ttf": 346, "fonts/Play-Bold.ttf": 320, "fonts/LiquidCrystal-Regular.ttf": 58, "fonts/a_SimplerDnm.ttf": 21, "Helvetica": 15, "fonts/LiquidCrystal-Bold.ttf": 1}
+-- font_sizes: {"0.0": 14, "12.0": 2, "15.0": 34, "16.0": 9, "17.0": 7, "18.0": 108, "20.0": 251, "22.0": 18, "23.0": 54, "24.0": 5, "25.0": 129, "26.0": 3, "28.0": 11, "30.0": 84, "32.0": 1, "34.0": 24, "35.0": 96, "36.0": 12, "38.0": 1, "40.0": 287, "45.0": 23, "50.0": 47, "60.0": 15}
+-- texts: {"total": 969, "unique": 451, "by_class": {"CCLabelTTF": 778, "CCTextButton": 151, "CCScrollListView": 36, "CCLabelTTFLocalized": 4}, "cyrillic_unique": 236, "placeholder_like": 357, "top": {"Sample Text": 101, "Открывается по сюжету": 15, "": 14, "1564": 14, "0": 13, "Resources": 13, "+10": 11, "20": 11, "700": 9, "Price:": 9, "Тактический штаб": 8, "456": 8, "Награда": 8, "MAX": 6, "Купить": 6, "111": 6, "Выполнить": 6, "421": 6, "99999": 6, "11д:23ч": 6}}
+-- label_dimensions: {"0x0": 492, "set": 290}
+-- h_alignment: {"horizontalAlignment=0": 532, "horizontalAlignment=1": 216, "normalHorizontalAlignment=1": 151, "horizTextAlignment=0": 116, "horizTextAlignment=1": 74, "textAlignment=1": 48, "horizontalAlignment=2": 34, "textAlignment=0": 18, "horizTextAlignment=2": 3}
+-- v_alignment: {"verticalAlignment=0": 517, "verticalAlignment=1": 256, "normalVerticalAlignment=1": 151, "verticalTextAlignment=1": 50, "verticalTextAlignment=0": 16, "verticalAlignment=2": 9}
+-- list_templates: {"friends_menu_template": 4, "army_menu_template": 3, "expendables_buy_menu_template": 3, "expedition_menu_template": 2, "city/popups/army_menu_popup_template": 2, "popups/enemy_popup_template": 1, "place_scene_template_enemy": 1, "shop_template": 1, "shop_template_buy": 1, "technology_widget_battle_template": 1, "technology_widget_shop_template": 1, "city/BattlePrepare_template": 1, "army_menu_template_expendables": 1, "city/building_bar_template": 1, "city/building_bar_template_items": 1, "building_science_center_template": 1, "construction_menu_template": 1, "mail_menu_template": 1, "mercenaries_buy_menu_template": 1, "mission_chose_template": 1, "popups/expedition_menu_popup_send_template": 1, "quest_side_menu_template": 1, "scheme_menu_template": 1, "social_menu_template": 1, "technology_menu_template": 1, "menu_cosmoport_template": 1, "window_quest_locker_template": 1}
+-- ccbfile_props: {}
+-- batch_textures: {"frames": 40, "city/frames": 8, "glow_long": 2, "construction_template": 1}
+-- progress_timer_types: {"1": 17, "0": 3}
+-- animation: {"files_with_sequences": 112, "sequences_total": 143, "sequence_names_top": {"Default Timeline": 111, "Untitled Timeline": 3, "timelineShow": 2, "timelineHide": 2, "light1": 1, "light2": 1, "light3": 1, "light4": 1, "radio": 1, "attackEnd": 1, "Social timer": 1, "buttons": 1, "fat arrows": 1, "zebra_arrow": 1, "showTimeline": 1}, "files_with_keyframes_or_multi_seq": 22, "files_list": ["1024x768/battle/BattleScene.ccbi", "1024x768/battle/battle_dialog.ccbi", "1024x768/battle/helper_move.ccbi", "1024x768/battle/popups/mission_end_popup.ccbi", "1024x768/city/CityScene.ccbi", "1024x768/city/action_menu.ccbi", "1024x768/city/arrows_template.ccbi", "1024x768/city/bar_menu.ccbi", "1024x768/city/building_science_center.ccbi", "1024x768/city/building_widget.ccbi", "1024x768/city/citizen_widget.ccbi", "1024x768/city/construction_menu_template.ccbi", "1024x768/city/credits_buy_menu.ccbi", "1024x768/city/expendables_buy_menu_template.ccbi", "1024x768/city/popups/army_menu_popup.ccbi", "1024x768/city/produce_menu.ccbi", "1024x768/city/quest_side_menu_template.ccbi", "1024x768/city/resources_buy_menu.ccbi", "1024x768/city/scheme_menu_template.ccbi", "1024x768/city/tactical_headquarters_menu.ccbi", "1024x768/city/tutorial_menu.ccbi", "1024x768/worldmap/company_menu_template.ccbi"], "animated_nodes": 75, "animated_props": {"opacity:Byte": 50, "scale:ScaleLock": 18, "position:Position": 10}, "keyframes": 244, "easing": {"Linear": 244}, "callback_keyframes": 0, "sound_keyframes": 0, "chained_sequences": 12, "autoplay": {"set": 108, "none": 4}}
+-- свойства по классам:
+   CCLayer: {"contentSize:Size": 11, "anchorPoint:Point": 11, "scale:ScaleLock": 11, "ignoreAnchorPointForPosition:Check": 11, "touchEnabled:Check": 11, "mouseEnabled:Check": 11}
+   CCNode: {"anchorPoint:Point": 837, "scale:ScaleLock": 837, "ignoreAnchorPointForPosition:Check": 837, "position:Position": 429, "contentSize:Size": 225, "visible:Check": 113, "rotation:Degrees": 1}
+   CCSprite: {"anchorPoint:Point": 1791, "scale:ScaleLock": 1791, "ignoreAnchorPointForPosition:Check": 1791, "displayFrame:SpriteFrame": 1791, "position:Position": 1555, "visible:Check": 118, "blendFunc:Blendmode": 87, "opacity:Byte": 45, "rotation:Degrees": 20, "color:Color3": 5}
+   CCProgressTimer: {"anchorPoint:Point": 20, "scale:ScaleLock": 20, "ignoreAnchorPointForPosition:Check": 20, "displayFrame:SpriteFrame": 20, "percentage:Float": 20, "reverseDirection:Check": 20, "type:IntegerLabeled": 20, "midpoint:Point": 20, "barChangeRate:Point": 20, "position:Position": 18}
+   CCLabelTTF: {"anchorPoint:Point": 778, "scale:ScaleLock": 778, "ignoreAnchorPointForPosition:Check": 778, "fontName:FontTTF": 778, "fontSize:FloatScale": 778, "dimensions:Size": 778, "horizontalAlignment:IntegerLabeled": 778, "verticalAlignment:IntegerLabeled": 778, "string:Text": 778, "position:Position": 611, "color:Color3": 213, "visible:Check": 26, "opacity:Byte": 10, "rotation:Degrees": 1}
+   CCMenu: {"position:Position": 348, "anchorPoint:Point": 348, "scale:ScaleLock": 348, "ignoreAnchorPointForPosition:Check": 348, "touchEnabled:Check": 348, "mouseEnabled:Check": 348, "contentSize:Size": 56, "visible:Check": 11}
+   CCMenuItemImage: {"anchorPoint:Point": 260, "scale:ScaleLock": 260, "ignoreAnchorPointForPosition:Check": 260, "block:Block": 260, "isEnabled:Check": 260, "normalSpriteFrame:SpriteFrame": 260, "selectedSpriteFrame:SpriteFrame": 260, "disabledSpriteFrame:SpriteFrame": 260, "position:Position": 168, "contentSize:Size": 161, "visible:Check": 23, "rotation:Degrees": 10}
+   CCTextLayout: {"contentSize:Size": 193, "anchorPoint:Point": 193, "scale:ScaleLock": 193, "ignoreAnchorPointForPosition:Check": 193, "touchEnabled:Check": 193, "mouseEnabled:Check": 193, "dynamicContent:Check": 193, "horizTextAlignment:IntegerLabeled": 193, "position:Position": 159, "visible:Check": 6}
+   CCCheckBox: {"contentSize:Size": 25, "anchorPoint:Point": 25, "scale:ScaleLock": 25, "ignoreAnchorPointForPosition:Check": 25, "block:Block": 25, "isEnabled:Check": 25, "normalImage:SpriteFrame": 25, "selectedImage:SpriteFrame": 25, "disabledImage:SpriteFrame": 25, "selected:Check": 25, "group:Integer": 25, "position:Position": 20, "visible:Check": 4}
+   CCTextButton: {"contentSize:Size": 151, "anchorPoint:Point": 151, "scale:ScaleLock": 151, "ignoreAnchorPointForPosition:Check": 151, "block:Block": 151, "normalSpriteFrame:SpriteFrame": 151, "selectedSpriteFrame:SpriteFrame": 151, "disabledSpriteFrame:SpriteFrame": 151, "state:IntegerLabeled": 151, "string:Text": 151, "normalFontName:FontTTF": 151, "normalFontSize:FloatScale": 151, "normalHorizontalAlignment:IntegerLabeled": 151, "normalVerticalAlignment:IntegerLabeled": 151, "normalOffset:Point": 151, "selectedFontName:FontTTF": 151, "selectedFontSize:FloatScale": 151, "selectedVerticalAlignment:IntegerLabeled": 151, "selectedHorizontalAlignment:IntegerLabeled": 151, "selectedOffset:Point": 151, "disabledFontName:FontTTF": 151, "disabledFontSize:FloatScale": 151, "disabledHorizontalAlignment:IntegerLabeled": 151, "disabledVerticalAlignment:IntegerLabeled": 151, "disabledOffset:Point": 151, "position:Position": 110, "visible:Check": 9, "normalColor:Color3": 4}
+   CCNodeSelector: {"anchorPoint:Point": 77, "scale:ScaleLock": 77, "ignoreAnchorPointForPosition:Check": 77, "block:Block": 77, "contentSize:Size": 76, "position:Position": 56}
+   CCScrollListView: {"position:Position": 36, "contentSize:Size": 36, "anchorPoint:Point": 36, "scale:ScaleLock": 36, "ignoreAnchorPointForPosition:Check": 36, "verticalTextAlignment:IntegerLabeled": 36, "textAlignment:IntegerLabeled": 36, "_template:Text": 36, "horizontal:Check": 36, "_count:Integer": 36, "isAbsolute:Check": 32, "visible:Check": 1}
+   CCTableNode: {"position:Position": 30, "contentSize:Size": 30, "anchorPoint:Point": 30, "scale:ScaleLock": 30, "ignoreAnchorPointForPosition:Check": 30, "offset:Point": 30, "colcount:Integer": 30, "textAlignment:IntegerLabeled": 30, "verticalTextAlignment:IntegerLabeled": 30}
+   CCSpriteBatchNode: {"position:Position": 51, "anchorPoint:Point": 51, "scale:ScaleLock": 51, "ignoreAnchorPointForPosition:Check": 51, "contentSize:Size": 50}
+   CCLabelTTFLocalized: {"position:Position": 4, "anchorPoint:Point": 4, "scale:ScaleLock": 4, "ignoreAnchorPointForPosition:Check": 4, "fontName:FontTTF": 4, "fontSize:FloatScale": 4, "dimensions:Size": 4, "horizontalAlignment:IntegerLabeled": 4, "verticalAlignment:IntegerLabeled": 4, "string:Text": 4}
+   CCLayerColor: {"contentSize:Size": 3, "anchorPoint:Point": 3, "scale:ScaleLock": 3, "ignoreAnchorPointForPosition:Check": 3, "touchEnabled:Check": 3, "mouseEnabled:Check": 3, "color:Color3": 3, "opacity:Byte": 3, "blendFunc:Blendmode": 3, "position:Position": 1}
+-- extra (custom) свойства по классам:
+   CCSpriteBatchNode: {"texture:String": 51, "isAbsolute:Check": 8}
+
+== ВСЕ 306 ФАЙЛОВ: файлов 306, нод 11457, нод/файл {'min': 1, 'median': 24.0, 'max': 200}, глубина {'median': 3.0, 'max': 7}
+-- классы (ноды / файлы):
+     4419  294  CCSprite
+     2104  303  CCNode
+     1921  246  CCLabelTTF
+      852  240  CCMenu
+      670  217  CCMenuItemImage
+      434  123  CCTextLayout
+      333  136  CCTextButton
+      159   92  CCNodeSelector
+      133   65  CCSpriteBatchNode
+       90   63  CCScrollListView
+       90   24  CCCheckBox
+       82   50  CCTableNode
+       61   29  CCLabelTTFLocalized
+       48   27  CCProgressTimer
+       47   47  CCLayer
+        5    5  CCLayerColor
+        4    1  CCControlButton
+        3    3  CRjScrollListView
+        1    1  MainMenuScene
+        1    1  CCScrollView
+
+== РЕСУРСЫ
+interface_atlases: 93
+interface_atlas_frames: 1025
+interface_atlas_frames_rotated: 93
+unique_frames_referenced: 1073
+found_in_interface_atlases: 1019
+found_in_other_atlases: 0
+found_as_png_file: 1
+missing: 53
+missing_list: {"window_button_repeat.png": 6, "gray_place.png": 6, "glass_frame_black_place.png": 6, "battle_button_preloader_passive.png": 4, "icon_plus_place.png": 3, "icon_lock_gray_place.png": 3, "glass_frame_place_place.png": 3, "button_construction_blue.png": 3, "button_construction_blue_down.png": 3, "button_construction_blue_black.png": 3, "battle_push.png": 2, "expendables_buy_popup.png": 2, "button_blue_shop.png": 2, "button_blue_shop_press.png": 2, "button_blue_shop_black.png": 2, "button_yellow_shop.png": 2, "button_yellow_shop_press.png": 2, "button_yellow_shop_black.png": 2, "frame_big_right.png": 2, "big_left_right.png": 2, "big_left_right_top.png": 2, "big_bottom.png": 2, "big_top.png": 2, "battle_button_preloader_active.png": 2, "right_frame_battle_prepare.png": 1, "top_center_battle_prepare.png": 1, "panel.png": 1, "window_lose.png": 1, "button_blue_resources_expendables_buy.png": 1, "button_blue_resources_expendables_buy_press.png": 1, "button_yellow_expendables_buy.png": 1, "button_yellow_expendables_buy_press.png": 1, "button_yellow_expendables_buy_black.png": 1, "bottom_frame_1_shop.png": 1, "frame_big_shop.png": 1, "frame_mercenaries_buy_shop.png": 1, "bottom_frame_2_shop.png": 1, "button_red_shop.png": 1, "button_red_shop_press.png": 1, "button_red_shop_black.png": 1, "credits_frame.png": 1, "deleteunit.png": 1, "window_win.png": 1, "upgrade_building_glow.png": 1, "big_bottom_left.png": 1, "big_top_left.png": 1, "big_bottom_right.png": 1, "big_top_right.png": 1, "button_building_upgrade_yellow_small.png": 1, "button_building_upgrade_yellow_small_down.png": 1, "button_building_upgrade_yellow_small_black.png": 1, "back_preloader.png": 1, "button_green_menu_settings_city_black.png": 1}
+found_in_other_atlases_list: {}
+found_as_png_list: {"battle.png": ["icons/quests/task/battle.png"]}
+frames_in_several_atlases: 6
+fonts_dir: ["Aldo The Apache.ttf", "LiquidCrystal-Bold.ttf", "LiquidCrystal-BoldItalic.ttf", "LiquidCrystal-ExtraBold.ttf", "LiquidCrystal-ExtraBoldItalic.ttf", "LiquidCrystal-Light.ttf", "LiquidCrystal-LightItalic.ttf", "LiquidCrystal-Regular.ttf", "Play-Bold.ttf", "Play.ttf", "Play_button.ttf", "a_SimplerDnm.ttf"]

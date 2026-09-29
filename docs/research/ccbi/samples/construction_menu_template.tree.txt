@@ -1,0 +1,62 @@
+# version=5 sequences=Default Timeline(10s), timelineShow(10s), timelineHide(10s) autoplay=-1
+CCNode  contentSize=(300x580); anchor=(0,0)
+  CCSpriteBatchNode  pos=(-32.832,-29.376); anchor=(0,0); texture="construction_template"
+    CCSprite  pos=(32,30); anchor=(0,0); scale=(0.5,0.5)*res; displayFrame=building_construct_frame_left.png
+    CCSprite  pos=(287,316.3); scale=(-0.5,0.5)*res; displayFrame=building_construct_frame_left.png
+    CCSprite  pos=(184.32,324.5); scale=(10,0.5)*res; displayFrame=building_construct_frame_center.png
+    CCSprite  pos=(209.88,242.72); scale=(0.5,0.5)*res; displayFrame=glow_construction_line.png
+    CCSprite  pos=(181,210); scale=(0.8,0.8)*res; displayFrame=building_menu_construction_light_bottom.png
+    CCSprite  pos=(184.624,555.416); scale=(0.5,0.5)*res; displayFrame=building_menu_construction_light_bottom.png
+  CCNode  pos=(-15,1); anchor=(0,0); scale=(0.5,0.5)
+    CCMenu «constructButtons»  pos=(321.104,535.68)
+      CCTextButton «buttonSlow1»  pos=(4.8,-390); contentSize=(483x138); scale=(1,1)*res; block->construct_with_resourses; normalSpriteFrame=button_construction_long_blue.png; selectedSpriteFrame=button_construction_long_blue_press.png; disabledSpriteFrame=button_construction_long_blue_black.png; state=0; string="Build Slow"; normalFontName="fonts/Play.ttf"; normalFontSize=40; normalHorizontalAlignment=1; normalVerticalAlignment=1; normalOffset=[0.0, 0.0]; selectedFontName="fonts/Play.ttf"; selectedFontSize=40; selectedVerticalAlignment=1; selectedHorizontalAlignment=1; selectedOffset=[0.0, 0.0]; disabledFontName="fonts/Play.ttf"; disabledFontSize=40; disabledHorizontalAlignment=1; disabledVerticalAlignment=1; disabledOffset=[0.0, 0.0]
+    CCMenu «constructButtonsFast»  pos=(323.504,532.224)
+      CCTextButton «buildFast»  pos=(4,-308); contentSize=(502x146); scale=(1,1)*res; block->construct_wih_gold; normalSpriteFrame=button_construction_long_yellow.png; selectedSpriteFrame=button_construction_long_yellow_press.png; disabledSpriteFrame=button_construction_long_yellow_black.png; state=0; string="Build fast"; normalFontName="fonts/Play.ttf"; normalFontSize=40; normalHorizontalAlignment=1; normalVerticalAlignment=1; normalOffset=[0.0, 0.0]; selectedFontName="fonts/Play.ttf"; selectedFontSize=40; selectedVerticalAlignment=1; selectedHorizontalAlignment=1; selectedOffset=[0.0, 0.0]; disabledFontName="fonts/Play.ttf"; disabledFontSize=40; disabledHorizontalAlignment=1; disabledVerticalAlignment=1; disabledOffset=[0.0, 0.0]
+      CCTextButton «buttonSlow2»  pos=(2,-456); contentSize=(483x138); scale=(1,1)*res; block->construct_with_resourses; normalSpriteFrame=button_construction_long_blue.png; selectedSpriteFrame=button_construction_long_blue_press.png; disabledSpriteFrame=button_construction_long_blue_black.png; state=0; string="Build Slow"; normalFontName="fonts/Play.ttf"; normalFontSize=40; normalHorizontalAlignment=1; normalVerticalAlignment=1; normalOffset=[0.0, 0.0]; selectedFontName="fonts/Play.ttf"; selectedFontSize=40; selectedVerticalAlignment=1; selectedHorizontalAlignment=1; selectedOffset=[0.0, 0.0]; disabledFontName="fonts/Play.ttf"; disabledFontSize=40; disabledHorizontalAlignment=1; disabledVerticalAlignment=1; disabledOffset=[0.0, 0.0]
+    CCLabelTTF «textConstructionTimeName»  pos=(325.92,400); fontName="fonts/Play.ttf"; fontSize=40; dimensions=(0x0); horizontalAlignment=1; verticalAlignment=1; string="Construction Time:"
+    CCLabelTTF «constructTime»  pos=(328.64,335); fontName="fonts/LiquidCrystal-Regular.ttf"; fontSize=35; dimensions=(300x60); horizontalAlignment=1; verticalAlignment=1; string=""
+  CCSprite «bulding_icon»  pos=(148,416); scale=(0.93,0.54); displayFrame=x-wing_1.png; blendFunc={"src": "GL_SRC_ALPHA", "dst": "GL_ONE_MINUS_SRC_ALPHA"}
+  CCLabelTTF «buildingName»  pos=(149,534); fontName="fonts/Play-Bold.ttf"; fontSize=25; dimensions=(230x70); horizontalAlignment=1; verticalAlignment=1; string="Геномодуль\nКосмопехоты"
+  CCLabelTTF «closeDescription»  pos=(147,74); fontName="fonts/Play.ttf"; fontSize=20; color=[220, 34, 86]; dimensions=(250x100); horizontalAlignment=1; verticalAlignment=1; string="Требуется 2 уровень базы"
+  CCTextLayout  pos=(-3,75); contentSize=(300x60); dynamicContent=false; horizTextAlignment=1
+    CCLabelTTF «closeDescriptionCitizen»  visible=false; pos=(134,0); fontName="fonts/Play.ttf"; fontSize=20; color=[220, 34, 86]; dimensions=(0x0); horizontalAlignment=1; verticalAlignment=1; string="Требуется 2 уровень базы"
+    CCSprite «iconCitizenClose»  visible=false; scale=(0.5,0.5)*res; displayFrame=icon_citizen.png
+  CCSprite «labelBuildingCount»  pos=(229.16,368.084); scale=(0.5,0.5)*res; displayFrame=sprite_building_count.png
+  CCLabelTTF «buildingCount»  pos=(233,363.333); fontName="fonts/Play-Bold.ttf"; fontSize=20; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string=""
+  CCNodeSelector  pos=(150,417); contentSize=(455x279); scale=(0.5,0.5); block->buttonInfoSelector
+  CCMenu  pos=(63,374)
+    CCMenuItemImage «»  pos=(-5,-4); contentSize=(123x126); scale=(0.5,0.5)*res; block->buttonInfoSelector; isEnabled=true; normalSpriteFrame=info.png; selectedSpriteFrame=info_press.png; disabledSpriteFrame=info_black.png
+  CCTextLayout  pos=(46,347); contentSize=(200x10); dynamicContent=false; horizTextAlignment=1
+    CCLabelTTF «textPoints»  pos=(13,140); fontName="fonts/Play-Bold.ttf"; fontSize=18; opacity=255; dimensions=(0x0); horizontalAlignment=2; verticalAlignment=1; string="+ 500"; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+    CCSprite «iconPoints»  pos=(-1,0); scale=(0.4,0.4)*res; displayFrame=icon_citizen.png; opacity=255; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+  CCNode «nodeBlack»  anchor=(0,0)
+    CCSprite  pos=(149,417); scale=(0.52,0.52)*res; displayFrame=x-wing_black_1.png; opacity=0; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+    CCLabelTTF «textDescription»  pos=(148,427); fontName="fonts/Play.ttf"; fontSize=18; opacity=0; dimensions=(220x120); horizontalAlignment=1; verticalAlignment=1; string="Lord of Machine Cult and keeper of lost technologies. Increases the number of colonists by 75"; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+    CCNode  pos=(152.248,370.232); anchor=(0,0)
+      CCNode «produceNode»  anchor=(0,0)
+        CCTextLayout  pos=(-96,-21); contentSize=(200x10); dynamicContent=false; horizTextAlignment=1
+          CCLabelTTF «produceText»  fontName="fonts/Play.ttf"; fontSize=18; opacity=0; dimensions=(0x0); horizontalAlignment=2; verticalAlignment=1; string="лимит склада + 500"; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+          CCSprite «produceIcon»  scale=(0.4,0.4)*res; displayFrame=icon_citizen.png; opacity=0; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+  CCSprite  pos=(148,417); scale=(0.5,0.5)*res; displayFrame=top_frame.png; opacity=255; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+  CCLabelTTF «textConstructionResourcesName»  pos=(144,319.2); fontName="fonts/Play.ttf"; fontSize=20; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="Resources:"
+  CCSprite  pos=(148,417); scale=(0.5,0.5)*res; displayFrame=top_frame_black.png; opacity=0; ANIM[seq1].opacity×2; ANIM[seq2].opacity×2
+  CCTableNode  pos=(10,200); contentSize=(530x250); anchor=(0,0); scale=(0.5,0.5); offset=[0.0, 0.0]; colcount=2; textAlignment=1; verticalTextAlignment=1
+    CCTextLayout «priceMetalNode»  pos=(100,100); contentSize=(0x0); dynamicContent=true; horizTextAlignment=0
+      CCSprite  scale=(1,1)*res; displayFrame=icon_metal.png
+      CCLabelTTF «priceMetal»  fontName="fonts/Play.ttf"; fontSize=35; color=[248, 239, 146]; dimensions=(0x0); horizontalAlignment=1; verticalAlignment=1; string="9999"
+      CCMenu «buttonBuyMetal»  pos=(0,0); contentSize=(64x64)
+        CCMenuItemImage  contentSize=(123x125); anchor=(0.4,0.5); scale=(0.8,0.8)*res; block->buttonBuyResourcesSelector; isEnabled=true; normalSpriteFrame=button_plus_all.png; selectedSpriteFrame=button_plus_all_press.png; disabledSpriteFrame=button_plus_all_black.png
+    CCTextLayout «priceCrystalNode»  pos=(100,100); contentSize=(0x0); dynamicContent=true; horizTextAlignment=0
+      CCSprite  scale=(1,1)*res; displayFrame=icon_crystal.png
+      CCLabelTTF «priceCrystal»  fontName="fonts/Play.ttf"; fontSize=35; color=[249, 240, 162]; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="9999"
+      CCMenu «buttonBuyCrystal»  pos=(0,0); contentSize=(64x64)
+        CCMenuItemImage  contentSize=(123x125); anchor=(0.4,0.5); scale=(0.8,0.8)*res; block->buttonBuyResourcesSelector; isEnabled=true; normalSpriteFrame=button_plus_all.png; selectedSpriteFrame=button_plus_all_press.png; disabledSpriteFrame=button_plus_all_black.png
+    CCTextLayout «priceCreditNode»  pos=(100,100); contentSize=(0x0); dynamicContent=true; horizTextAlignment=0
+      CCSprite  scale=(1,1)*res; displayFrame=icon_credit.png; color=[249, 240, 162]
+      CCLabelTTF «priceCredit»  fontName="fonts/Play.ttf"; fontSize=35; color=[248, 239, 146]; dimensions=(0x0); horizontalAlignment=0; verticalAlignment=0; string="9999"
+      CCMenu «buttonBuyCredit»  pos=(0,0); contentSize=(64x64)
+        CCMenuItemImage  pos=(0,0.1); contentSize=(123x125); anchor=(0.3,0.5); scale=(0.8,0.8)*res; block->buttonBuyCreditSelector; isEnabled=true; normalSpriteFrame=button_plus_all.png; selectedSpriteFrame=button_plus_all_press.png; disabledSpriteFrame=button_plus_all_black.png
+  CCNode  pos=(147,140); anchor=(0,0)
+    CCSprite «iconArrow»  visible=false; pos=(0,22); scale=(0.5,0.5)*res; rotation=270.0; displayFrame=yellow_arrow_zebra.png
+  CCNode  anchor=(0,0)
+    CCSprite «iconBubble»  pos=(268,548); scale=(0.4,0.4)*res; displayFrame=new_message_icon_construction_template.png
