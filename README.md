@@ -95,15 +95,16 @@ tools/          # парсеры/декодеры
       полнота сверена с исходником.
 - [x] Публичный репозиторий; порядок работы — в [CONTRIBUTING.md](CONTRIBUTING.md).
 - [x] Распаковка XAPK одной командой (`tools/extract_xapk.py`), CI с линтером и тестами.
-- [x] Исследование стека: пять отчётов в [docs/research/](docs/research/README.md), рекомендация —
+- [x] Исследование и выбор стека: пять отчётов в [docs/research/](docs/research/README.md), решение —
       [docs/engine-decision.md](docs/engine-decision.md).
 
 ## Дальше (roadmap сборки под браузер)
 
 Задачи по этапам — в [milestones](https://github.com/devAsmodeus/underfire/milestones) на GitHub.
 
-0. **Стек**: рекомендован PixiJS 8 + TypeScript (ждёт решения) — см.
-   [docs/engine-decision.md](docs/engine-decision.md). Первый шаг — проверочный прототип на 2–3 дня.
+0. **Стек**: PixiJS 8 + TypeScript, решено 29.09.2026 — см.
+   [docs/engine-decision.md](docs/engine-decision.md). Сначала браузеры на компьютере, телефоны —
+   позже. Первый шаг — проверочный прототип на 2–3 дня.
 1. **Графика**: декодер `.pkm.ccz` (zlib → PKM ETC1 → RGB + альфа из нижней половины →
    WebP/KTX2), разбор `.atlas` с повёрнутыми кадрами → спрайты, `visuals/*.xml` → анимации.
 2. **Справочники**: из `config.json` и `server.xml` собрать читаемые каталоги: юниты со статами
