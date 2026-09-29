@@ -1,0 +1,9 @@
+# крупный оригинал — не в git
+raw/
+*.xapk
+*.apk
+*.obb
+*.pkm
+*.ccz
+node_modules/
+.DS_Store
