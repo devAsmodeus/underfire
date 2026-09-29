@@ -1,0 +1,1420 @@
+# namespace inferno:: (logic core / "server" side)
+# format: class [kinds] (N members): members...
+
+inferno [] (1):
+    ErrorCodeMessage
+
+inferno::ApplyPerk [typeinfo for,typeinfo name for,vtable for] (3):
+    ApplyPerk
+    execute
+    ~ApplyPerk
+
+inferno::ApplyShield [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~ApplyShield
+
+inferno::Battle [typeinfo for,typeinfo name for,vtable for] (6):
+    Battle
+    finish
+    getRooms
+    signUp
+    start
+    ~Battle
+
+inferno::BattleInfo [] (2):
+    operator=
+    ~BattleInfo
+
+inferno::BattleRoom [typeinfo for,typeinfo name for,vtable for] (8):
+    BattleRoom
+    finish
+    getMapPool
+    hasPlayer
+    reset
+    serializeToNode
+    submitAttack
+    ~BattleRoom
+
+inferno::BattleRoom::LogEntry [] (1):
+    ~LogEntry
+
+inferno::Building [] (2):
+    Building
+    ~Building
+
+inferno::BuildingCountE [typeinfo for,typeinfo name for,vtable for] (3):
+    BuildingCountE
+    check
+    ~BuildingCountE
+
+inferno::BuildingCountG [typeinfo for,typeinfo name for,vtable for] (3):
+    BuildingCountG
+    check
+    ~BuildingCountG
+
+inferno::BuildingCountGE [typeinfo for,typeinfo name for,vtable for] (3):
+    BuildingCountGE
+    check
+    ~BuildingCountGE
+
+inferno::BuildingCountL [typeinfo for,typeinfo name for,vtable for] (3):
+    BuildingCountL
+    check
+    ~BuildingCountL
+
+inferno::BuildingCountLE [typeinfo for,typeinfo name for,vtable for] (3):
+    BuildingCountLE
+    check
+    ~BuildingCountLE
+
+inferno::CRequestHandler [non-virtual thunk to,typeinfo for,typeinfo name for,vtable for] (44):
+    CRequestHandler
+    WORKER_THREAD_LOGGER_NAME
+    checkAuth
+    checkPrivate
+    commandAdminGiveItem
+    commandAdminTakeItem
+    commandAuth
+    commandBattleSignUp
+    commandCheatChangeUserScheme
+    commandCheatSetItem
+    commandCheatSetUserData
+    commandCollectContract
+    commandConstructBuilding
+    commandExecuteAction
+    commandExploreTerritory
+    commandFailMission
+    commandFinishMission
+    commandGetBattleRoom
+    commandGetGameInfo
+    commandGetJackpotInfo
+    commandGetUserInfo
+    commandInteract
+    commandMoveBuilding
+    commandOrder
+    commandPrepareMission
+    commandPvpAttackBattle
+    commandPvpAttackEnemy
+    commandPvpAttackOpponent
+    commandPvpSetup
+    commandRemoveBuilding
+    commandRemoveContract
+    commandSkipTimer
+    commandSlotMachineOpenField
+    commandSlotMachineStart
+    commandStartContract
+    commandStartMission
+    commandUpdate
+    commandUpgradeBuilding
+    getRequiredInt32
+    getRequiredString
+    getRequiredUInt32
+    handle
+    needServerAuth
+    ~CRequestHandler
+
+inferno::CanShootTarget [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~CanShootTarget
+
+inferno::CastOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~CastOperator
+
+inferno::CityActionLinear [typeinfo for,typeinfo name for,vtable for] (4):
+    CityActionLinear
+    addAction
+    execute
+    ~CityActionLinear
+
+inferno::CityConditionAnd [typeinfo for,typeinfo name for,vtable for] (3):
+    CityConditionAnd
+    check
+    ~CityConditionAnd
+
+inferno::CityConditionComplex [typeinfo for,typeinfo name for,vtable for] (2):
+    addCondition
+    ~CityConditionComplex
+
+inferno::CityConditionConst [typeinfo for,typeinfo name for,vtable for] (3):
+    CityConditionConst
+    check
+    ~CityConditionConst
+
+inferno::CityConditionNot [typeinfo for,typeinfo name for,vtable for] (3):
+    CityConditionNot
+    check
+    ~CityConditionNot
+
+inferno::CityConditionOr [typeinfo for,typeinfo name for,vtable for] (3):
+    CityConditionOr
+    check
+    ~CityConditionOr
+
+inferno::ComponentCooldowns [] (9):
+    ComponentCooldowns
+    get
+    isOnCooldown
+    isStunned
+    serizlize
+    start
+    stop
+    stun
+    update
+
+inferno::ComponentHealth [] (8):
+    ComponentHealth
+    applyShield
+    getHealth
+    isDead
+    receiveDamage
+    receiveHeal
+    setHealth
+    update
+
+inferno::ComponentPosition [typeinfo for,typeinfo name for,vtable for] (12):
+    ComponentPosition
+    get
+    getTileCoord
+    getTileX
+    getTileY
+    getX
+    getY
+    move
+    moveToTile
+    moving
+    quadDistance
+    ~ComponentPosition
+
+inferno::ComponentScriptExecutor [typeinfo for,typeinfo name for,vtable for] (10):
+    ComponentScriptExecutor
+    clear
+    execute
+    halt
+    isFinished
+    pushScript
+    repeat
+    resetDelay
+    sleep
+    ~ComponentScriptExecutor
+
+inferno::ComponentVariables [] (5):
+    dec
+    get
+    inc
+    serizlize
+    set
+
+inferno::CooldownStartOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~CooldownStartOperator
+
+inferno::CooldownStopOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~CooldownStopOperator
+
+inferno::DamageOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~DamageOperator
+
+inferno::DateE [typeinfo for,typeinfo name for,vtable for] (3):
+    DateE
+    check
+    ~DateE
+
+inferno::DateG [typeinfo for,typeinfo name for,vtable for] (3):
+    DateG
+    check
+    ~DateG
+
+inferno::DateGE [typeinfo for,typeinfo name for,vtable for] (3):
+    DateGE
+    check
+    ~DateGE
+
+inferno::DateL [typeinfo for,typeinfo name for,vtable for] (3):
+    DateL
+    check
+    ~DateL
+
+inferno::DateLE [typeinfo for,typeinfo name for,vtable for] (3):
+    DateLE
+    check
+    ~DateLE
+
+inferno::DistanceToTargetCondition [typeinfo for,typeinfo name for,vtable for] (3):
+    DistanceToTargetCondition
+    getQuadDistanceToTarget
+    ~DistanceToTargetCondition
+
+inferno::DistanceToTargetE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~DistanceToTargetE
+
+inferno::DistanceToTargetG [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~DistanceToTargetG
+
+inferno::DistanceToTargetGE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~DistanceToTargetGE
+
+inferno::DistanceToTargetL [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~DistanceToTargetL
+
+inferno::DistanceToTargetLE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~DistanceToTargetLE
+
+inferno::Entity [typeinfo for,typeinfo name for,vtable for] (32):
+    Entity
+    Self
+    applyShield
+    calculateDamage
+    canShootTarget
+    cast
+    cooldownStart
+    cooldownStop
+    damage
+    destroy
+    getCooldown
+    getID
+    getItemCount
+    getSelf
+    getTarget
+    getVariable
+    hasAbility
+    heal
+    queryFriends
+    queryTarget
+    queryTargetsInArea
+    queryTargetsInSecotor
+    serialize
+    setSelf
+    setTarget
+    spawn
+    stun
+    update
+    variableDec
+    variableInc
+    variableSet
+    ~Entity
+
+inferno::EntityCurse [typeinfo for,typeinfo name for,vtable for] (4):
+    Create
+    EntityCurse
+    update
+    ~EntityCurse
+
+inferno::EntityScriptSpawner [typeinfo for,typeinfo name for,vtable for] (6):
+    Create
+    EntityScriptSpawner
+    onMobDied
+    spawn
+    update
+    ~EntityScriptSpawner
+
+inferno::EntitySlotSpawner [typeinfo for,typeinfo name for,vtable for] (5):
+    Create
+    EntitySlotSpawner
+    spawn
+    update
+    ~EntitySlotSpawner
+
+inferno::EntitySoldierAttacker [typeinfo for,typeinfo name for,vtable for] (13):
+    Create
+    EntitySoldierAttacker
+    STATE_ACTION
+    STATE_DEAD
+    STATE_DYING
+    STATE_MOVING
+    STATE_THINK
+    getState
+    moveTo
+    onDied
+    serialize
+    update
+    ~EntitySoldierAttacker
+
+inferno::EntitySoldierAttacker::ActionState [typeinfo for,typeinfo name for,vtable for] (2):
+    update
+    ~ActionState
+
+inferno::EntitySoldierAttacker::DeadState [typeinfo for,typeinfo name for,vtable for] (2):
+    update
+    ~DeadState
+
+inferno::EntitySoldierAttacker::DyingState [typeinfo for,typeinfo name for,vtable for] (2):
+    update
+    ~DyingState
+
+inferno::EntitySoldierAttacker::MovingState [typeinfo for,typeinfo name for,vtable for] (2):
+    update
+    ~MovingState
+
+inferno::EntitySoldierAttacker::State [typeinfo for,typeinfo name for,vtable for] (1):
+    ~State
+
+inferno::EntitySoldierAttacker::ThinkState [typeinfo for,typeinfo name for,vtable for] (2):
+    update
+    ~ThinkState
+
+inferno::EntitySpell [typeinfo for,typeinfo name for,vtable for] (5):
+    EntitySpell
+    cast
+    serialize
+    update
+    ~EntitySpell
+
+inferno::EntityStats [] (7):
+    EMPTY
+    EntityStats
+    operator+
+    operator+=
+    operator-=
+    operator=
+    ~EntityStats
+
+inferno::EntityTotem [typeinfo for,typeinfo name for,vtable for] (7):
+    Create
+    EntityTotem
+    canShootTarget
+    queryFriends
+    queryTargetsInArea
+    update
+    ~EntityTotem
+
+inferno::EntityTurret [typeinfo for,typeinfo name for,vtable for] (5):
+    Create
+    EntityTurret
+    charge
+    update
+    ~EntityTurret
+
+inferno::EntityVoodoo [typeinfo for,typeinfo name for,vtable for] (6):
+    Create
+    EntityVoodoo
+    canShootTarget
+    queryFriends
+    update
+    ~EntityVoodoo
+
+inferno::Field [typeinfo for,typeinfo name for,vtable for] (11):
+    Field
+    aquareTile
+    canShoot
+    findClosestFreePortal
+    findClosestPortal
+    freeTile
+    getTileTraffic
+    heuristic
+    isTileBusy
+    move
+    ~Field
+
+inferno::GiveItem [typeinfo for,typeinfo name for,vtable for] (3):
+    GiveItem
+    execute
+    ~GiveItem
+
+inferno::GiveItemRandom [typeinfo for,typeinfo name for,vtable for] (3):
+    GiveItemRandom
+    execute
+    ~GiveItemRandom
+
+inferno::HasAbility [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~HasAbility
+
+inferno::HealOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~HealOperator
+
+inferno::HealthCondition [typeinfo for,typeinfo name for,vtable for] (1):
+    ~HealthCondition
+
+inferno::HealthConditionE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~HealthConditionE
+
+inferno::HealthConditionG [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~HealthConditionG
+
+inferno::HealthConditionGE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~HealthConditionGE
+
+inferno::HealthConditionL [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~HealthConditionL
+
+inferno::HealthConditionLE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~HealthConditionLE
+
+inferno::ICity [typeinfo for,typeinfo name for,vtable for] (1):
+    ~ICity
+
+inferno::ICityAction [typeinfo for,typeinfo name for,vtable for] (1):
+    ~ICityAction
+
+inferno::ICityCondition [typeinfo for,typeinfo name for,vtable for] (1):
+    ~ICityCondition
+
+inferno::IEnvironment [typeinfo for,typeinfo name for,vtable for] (1):
+    ~IEnvironment
+
+inferno::IGameContext [typeinfo for,typeinfo name for,vtable for] (1):
+    ~IGameContext
+
+inferno::IHttpRequestHandler [typeinfo for,typeinfo name for,vtable for] (1):
+    ~IHttpRequestHandler
+
+inferno::IScriptCondition [typeinfo for,typeinfo name for,vtable for] (1):
+    ~IScriptCondition
+
+inferno::IScriptContext [typeinfo for,typeinfo name for,vtable for] (1):
+    ~IScriptContext
+
+inferno::IScriptExecutor [typeinfo for,typeinfo name for,vtable for] (1):
+    ~IScriptExecutor
+
+inferno::IScriptOperator [typeinfo for,typeinfo name for,vtable for] (1):
+    ~IScriptOperator
+
+inferno::IndicatorE [typeinfo for,typeinfo name for,vtable for] (3):
+    IndicatorE
+    check
+    ~IndicatorE
+
+inferno::IndicatorG [typeinfo for,typeinfo name for,vtable for] (3):
+    IndicatorG
+    check
+    ~IndicatorG
+
+inferno::IndicatorGE [typeinfo for,typeinfo name for,vtable for] (3):
+    IndicatorGE
+    check
+    ~IndicatorGE
+
+inferno::IndicatorL [typeinfo for,typeinfo name for,vtable for] (3):
+    IndicatorL
+    check
+    ~IndicatorL
+
+inferno::IndicatorLE [typeinfo for,typeinfo name for,vtable for] (3):
+    IndicatorLE
+    check
+    ~IndicatorLE
+
+inferno::IsContractProducing [typeinfo for,typeinfo name for,vtable for] (3):
+    IsContractProducing
+    check
+    ~IsContractProducing
+
+inferno::IsRequirementGranted [typeinfo for,typeinfo name for,vtable for] (3):
+    IsRequirementGranted
+    check
+    ~IsRequirementGranted
+
+inferno::IsTerritoryExplored [typeinfo for,typeinfo name for,vtable for] (3):
+    IsTerritoryExplored
+    check
+    ~IsTerritoryExplored
+
+inferno::IsTimingInProgress [typeinfo for,typeinfo name for,vtable for] (3):
+    IsTimingInProgress
+    check
+    ~IsTimingInProgress
+
+inferno::ItemCondition [typeinfo for,typeinfo name for,vtable for] (2):
+    ItemCondition
+    ~ItemCondition
+
+inferno::ItemConditionE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ItemConditionE
+
+inferno::ItemConditionG [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ItemConditionG
+
+inferno::ItemConditionGE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ItemConditionGE
+
+inferno::ItemConditionL [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ItemConditionL
+
+inferno::ItemConditionLE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ItemConditionLE
+
+inferno::ItemCountE [typeinfo for,typeinfo name for,vtable for] (3):
+    ItemCountE
+    check
+    ~ItemCountE
+
+inferno::ItemCountG [typeinfo for,typeinfo name for,vtable for] (3):
+    ItemCountG
+    check
+    ~ItemCountG
+
+inferno::ItemCountGE [typeinfo for,typeinfo name for,vtable for] (3):
+    ItemCountGE
+    check
+    ~ItemCountGE
+
+inferno::ItemCountL [typeinfo for,typeinfo name for,vtable for] (3):
+    ItemCountL
+    check
+    ~ItemCountL
+
+inferno::ItemCountLE [typeinfo for,typeinfo name for,vtable for] (3):
+    ItemCountLE
+    check
+    ~ItemCountLE
+
+inferno::Jackpot [] (14):
+    Jackpot
+    MaxWinChance
+    addItem
+    calculateWinChance
+    checkNode
+    clearLotteryItems
+    deserializeItems
+    deserializeTime
+    fillPrizes
+    serializeItems
+    serializeTime
+    serializeToNode
+    updateWinner
+    ~Jackpot
+
+inferno::JackpotAdd [typeinfo for,typeinfo name for,vtable for] (3):
+    JackpotAdd
+    execute
+    ~JackpotAdd
+
+inferno::LevelE [typeinfo for,typeinfo name for,vtable for] (3):
+    LevelE
+    check
+    ~LevelE
+
+inferno::LevelG [typeinfo for,typeinfo name for,vtable for] (3):
+    LevelG
+    check
+    ~LevelG
+
+inferno::LevelGE [typeinfo for,typeinfo name for,vtable for] (3):
+    LevelGE
+    check
+    ~LevelGE
+
+inferno::LevelL [typeinfo for,typeinfo name for,vtable for] (3):
+    LevelL
+    check
+    ~LevelL
+
+inferno::LevelLE [typeinfo for,typeinfo name for,vtable for] (3):
+    LevelLE
+    check
+    ~LevelLE
+
+inferno::LocalGameContext [typeinfo for,typeinfo name for,vtable for] (9):
+    LocalGameContext
+    commit
+    getConfig
+    getGameData
+    instance
+    lookAtData
+    reset
+    setGameData
+    ~LocalGameContext
+
+inferno::LogAction [typeinfo for,typeinfo name for,vtable for] (3):
+    LogAction
+    execute
+    ~LogAction
+
+inferno::LogicError [typeinfo for,typeinfo name for,vtable for] (2):
+    LogicError
+    ~LogicError
+
+inferno::Mission [typeinfo for,typeinfo name for,vtable for] (3):
+    Mission
+    serialize
+    ~Mission
+
+inferno::MissionError [typeinfo for,typeinfo name for,vtable for] (2):
+    MissionError
+    ~MissionError
+
+inferno::MissionFinishParams [typeinfo for,typeinfo name for,vtable for] (2):
+    MissionFinishParams
+    ~MissionFinishParams
+
+inferno::MissionFinishParams::UserActionParams [] (1):
+    ~UserActionParams
+
+inferno::MissionStartParams [typeinfo for,typeinfo name for,vtable for] (2):
+    MissionStartParams
+    ~MissionStartParams
+
+inferno::ModifyTicker [typeinfo for,typeinfo name for,vtable for] (3):
+    ModifyTicker
+    execute
+    ~ModifyTicker
+
+inferno::MoveDayInItem [typeinfo for,typeinfo name for,vtable for] (3):
+    MoveDayInItem
+    execute
+    ~MoveDayInItem
+
+inferno::MoveItem [typeinfo for,typeinfo name for,vtable for] (3):
+    MoveItem
+    execute
+    ~MoveItem
+
+inferno::Notification [] (1):
+    ~Notification
+
+inferno::OnCooldownCondition [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~OnCooldownCondition
+
+inferno::Pvp [] (3):
+    Pvp
+    serialize
+    ~Pvp
+
+inferno::Pvp::UserInfo [] (1):
+    UserInfo
+
+inferno::QueryFriendsOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~QueryFriendsOperator
+
+inferno::QueryTargetOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~QueryTargetOperator
+
+inferno::QueryTargetsInAreaOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~QueryTargetsInAreaOperator
+
+inferno::QueryTargetsInSectorOperator [typeinfo for,typeinfo name for,vtable for] (3):
+    QueryTargetsInSectorOperator
+    execute
+    ~QueryTargetsInSectorOperator
+
+inferno::RemovePerk [typeinfo for,typeinfo name for,vtable for] (3):
+    RemovePerk
+    execute
+    ~RemovePerk
+
+inferno::ScriptConditionAnd [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ScriptConditionAnd
+
+inferno::ScriptConditionComplex [typeinfo for,typeinfo name for,vtable for] (1):
+    ~ScriptConditionComplex
+
+inferno::ScriptConditionConst [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ScriptConditionConst
+
+inferno::ScriptConditionNot [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ScriptConditionNot
+
+inferno::ScriptConditionOr [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~ScriptConditionOr
+
+inferno::ScriptOperatorHalt [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~ScriptOperatorHalt
+
+inferno::ScriptOperatorIfThenElse [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~ScriptOperatorIfThenElse
+
+inferno::ScriptOperatorSleep [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~ScriptOperatorSleep
+
+inferno::ScriptOperatorWhile [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~ScriptOperatorWhile
+
+inferno::SecondsHavePassedE [typeinfo for,typeinfo name for,vtable for] (3):
+    SecondsHavePassedE
+    check
+    ~SecondsHavePassedE
+
+inferno::SecondsHavePassedG [typeinfo for,typeinfo name for,vtable for] (3):
+    SecondsHavePassedG
+    check
+    ~SecondsHavePassedG
+
+inferno::SecondsHavePassedGE [typeinfo for,typeinfo name for,vtable for] (3):
+    SecondsHavePassedGE
+    check
+    ~SecondsHavePassedGE
+
+inferno::SecondsHavePassedL [typeinfo for,typeinfo name for,vtable for] (3):
+    SecondsHavePassedL
+    check
+    ~SecondsHavePassedL
+
+inferno::SecondsHavePassedLE [typeinfo for,typeinfo name for,vtable for] (3):
+    SecondsHavePassedLE
+    check
+    ~SecondsHavePassedLE
+
+inferno::SendNotification [typeinfo for,typeinfo name for,vtable for] (3):
+    SendNotification
+    execute
+    ~SendNotification
+
+inferno::SetItem [typeinfo for,typeinfo name for,vtable for] (3):
+    SetItem
+    execute
+    ~SetItem
+
+inferno::Simulator [typeinfo for,typeinfo name for,vtable for] (20):
+    Simulator
+    castEffect
+    generateId
+    getCity
+    getEnemies
+    getField
+    getGameContext
+    load
+    onEntityCreated
+    onEntityDestroyed
+    onSoldierDead
+    queryEnemiesInArea
+    queryEnemiesInSector
+    queryFriends
+    run
+    spawnEnemyUnit
+    spawnMob
+    spawnUnit
+    tileAquired
+    ~Simulator
+
+inferno::SlotMachine [] (8):
+    SlotMachine
+    getGameNum
+    getLots
+    getTypesNotOpenedLots
+    openLot
+    serialize
+    wasFieldOpen
+    ~SlotMachine
+
+inferno::SpawnOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~SpawnOperator
+
+inferno::StartTicker [typeinfo for,typeinfo name for,vtable for] (3):
+    StartTicker
+    execute
+    ~StartTicker
+
+inferno::StartTiming [typeinfo for,typeinfo name for,vtable for] (3):
+    StartTiming
+    execute
+    ~StartTiming
+
+inferno::StopTicker [typeinfo for,typeinfo name for,vtable for] (3):
+    StopTicker
+    execute
+    ~StopTicker
+
+inferno::StunOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~StunOperator
+
+inferno::TakeItem [typeinfo for,typeinfo name for,vtable for] (3):
+    TakeItem
+    execute
+    ~TakeItem
+
+inferno::TargetHealthConditionE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~TargetHealthConditionE
+
+inferno::TargetHealthConditionG [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~TargetHealthConditionG
+
+inferno::TargetHealthConditionGE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~TargetHealthConditionGE
+
+inferno::TargetHealthConditionL [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~TargetHealthConditionL
+
+inferno::TargetHealthConditionLE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~TargetHealthConditionLE
+
+inferno::Timer [] (1):
+    Timer
+
+inferno::UnitLevelE [typeinfo for,typeinfo name for,vtable for] (3):
+    UnitLevelE
+    check
+    ~UnitLevelE
+
+inferno::UnitLevelG [typeinfo for,typeinfo name for,vtable for] (3):
+    UnitLevelG
+    check
+    ~UnitLevelG
+
+inferno::UnitLevelGE [typeinfo for,typeinfo name for,vtable for] (3):
+    UnitLevelGE
+    check
+    ~UnitLevelGE
+
+inferno::UnitLevelL [typeinfo for,typeinfo name for,vtable for] (3):
+    UnitLevelL
+    check
+    ~UnitLevelL
+
+inferno::UnitLevelLE [typeinfo for,typeinfo name for,vtable for] (3):
+    UnitLevelLE
+    check
+    ~UnitLevelLE
+
+inferno::UnknownUserError [typeinfo for,typeinfo name for,vtable for] (1):
+    ~UnknownUserError
+
+inferno::User [typeinfo for,typeinfo name for,vtable for] (66):
+    User
+    addEchoEvent
+    appendScheduledEventsToNode
+    applyPerk
+    battleFinish
+    battleSignUp
+    battleStart
+    canPlaceBuildingHere
+    checkSessionId
+    clearScheduledEvents
+    collectContract
+    constructBuilding
+    executeAction
+    exploreTerritory
+    failMission
+    finishMission
+    getBattleInfo
+    getBuildingCount
+    getCurrentTime
+    getIndicator
+    getItemCount
+    getItemLevel
+    getMission
+    getUID
+    getUnitLevel
+    giveItem
+    interact
+    isContractProducing
+    isExploredTerritory
+    isRequirementGranted
+    isTerritoryExplored
+    isTimingInProgress
+    jackpotAdd
+    jackpotPlay
+    modifyTicker
+    moveBuilding
+    notify
+    prepareMission
+    pvpAddOpponent
+    pvpAttackBattle
+    pvpAttackEnemy
+    pvpAttackOpponent
+    pvpPrepareMission
+    pvpSetup
+    removeBuilding
+    removeContract
+    removePerk
+    serializeToNode
+    setCurrentTime
+    setItem
+    setItemCount
+    setSessionId
+    skipTimer
+    slotMachineOpenField
+    slotMachineStart
+    startContract
+    startMission
+    startTicker
+    startTimer
+    startTimerFromPast
+    startTiming
+    stopTicker
+    takeItem
+    updateTimersRelatedStuff
+    upgradeBuilding
+    ~User
+
+inferno::UserEventBase [typeinfo for,typeinfo name for,vtable for] (4):
+    UserEventBase
+    appendToNode
+    processEvent
+    ~UserEventBase
+
+inferno::UserEventBattleUpdated [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventBattleUpdated
+    appendToNode
+    ~UserEventBattleUpdated
+
+inferno::UserEventBuildingCreated [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventBuildingCreated
+    appendToNode
+    ~UserEventBuildingCreated
+
+inferno::UserEventBuildingMoved [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventBuildingMoved
+    appendToNode
+    ~UserEventBuildingMoved
+
+inferno::UserEventBuildingRemoved [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventBuildingRemoved
+    appendToNode
+    ~UserEventBuildingRemoved
+
+inferno::UserEventBuildingUpgradeStarted [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventBuildingUpgradeStarted
+    appendToNode
+    ~UserEventBuildingUpgradeStarted
+
+inferno::UserEventBuildingUpgraded [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventBuildingUpgraded
+    appendToNode
+    ~UserEventBuildingUpgraded
+
+inferno::UserEventContractCollected [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventContractCollected
+    appendToNode
+    ~UserEventContractCollected
+
+inferno::UserEventContractFinished [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventContractFinished
+    appendToNode
+    ~UserEventContractFinished
+
+inferno::UserEventContractRemoved [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventContractRemoved
+    appendToNode
+    ~UserEventContractRemoved
+
+inferno::UserEventContractStarted [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventContractStarted
+    appendToNode
+    ~UserEventContractStarted
+
+inferno::UserEventCurrentTimeChanged [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventCurrentTimeChanged
+    appendToNode
+    ~UserEventCurrentTimeChanged
+
+inferno::UserEventEcho [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventEcho
+    appendToNode
+    ~UserEventEcho
+
+inferno::UserEventInteractionCreated [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventInteractionCreated
+    appendToNode
+    ~UserEventInteractionCreated
+
+inferno::UserEventInteractionRemoved [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventInteractionRemoved
+    appendToNode
+    ~UserEventInteractionRemoved
+
+inferno::UserEventItemCountChanged [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventItemCountChanged
+    appendToNode
+    ~UserEventItemCountChanged
+
+inferno::UserEventMissionFinished [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventMissionFinished
+    appendToNode
+    ~UserEventMissionFinished
+
+inferno::UserEventMissionUpdated [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventMissionUpdated
+    appendToNode
+    ~UserEventMissionUpdated
+
+inferno::UserEventNotification [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventNotification
+    appendToNode
+    ~UserEventNotification
+
+inferno::UserEventPerkApplied [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventPerkApplied
+    appendToNode
+    ~UserEventPerkApplied
+
+inferno::UserEventPerkRemoved [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventPerkRemoved
+    appendToNode
+    ~UserEventPerkRemoved
+
+inferno::UserEventPvpUpdated [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventPvpUpdated
+    appendToNode
+    ~UserEventPvpUpdated
+
+inferno::UserEventSlotMachineUpdated [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventSlotMachineUpdated
+    appendToNode
+    ~UserEventSlotMachineUpdated
+
+inferno::UserEventTerritoryExplorationStarted [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventTerritoryExplorationStarted
+    appendToNode
+    ~UserEventTerritoryExplorationStarted
+
+inferno::UserEventTerritoryExplored [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventTerritoryExplored
+    appendToNode
+    ~UserEventTerritoryExplored
+
+inferno::UserEventTickerFinished [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventTickerFinished
+    appendToNode
+    ~UserEventTickerFinished
+
+inferno::UserEventTickerModified [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventTickerModified
+    appendToNode
+    ~UserEventTickerModified
+
+inferno::UserEventTickerStarted [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventTickerStarted
+    appendToNode
+    ~UserEventTickerStarted
+
+inferno::UserEventTimerFinished [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventTimerFinished
+    appendToNode
+    ~UserEventTimerFinished
+
+inferno::UserEventTimerStarted [typeinfo for,typeinfo name for,vtable for] (4):
+    EVENT_NAME
+    UserEventTimerStarted
+    appendToNode
+    ~UserEventTimerStarted
+
+inferno::VariableCondition [typeinfo for,typeinfo name for,vtable for] (2):
+    VariableCondition
+    ~VariableCondition
+
+inferno::VariableConditionE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~VariableConditionE
+
+inferno::VariableConditionG [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~VariableConditionG
+
+inferno::VariableConditionGE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~VariableConditionGE
+
+inferno::VariableConditionL [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~VariableConditionL
+
+inferno::VariableConditionLE [typeinfo for,typeinfo name for,vtable for] (2):
+    check
+    ~VariableConditionLE
+
+inferno::VariableDecOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~VariableDecOperator
+
+inferno::VariableIncOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~VariableIncOperator
+
+inferno::VariableSetOperator [typeinfo for,typeinfo name for,vtable for] (2):
+    execute
+    ~VariableSetOperator
+
+inferno::configuration::Action [] (2):
+    Action
+    ~Action
+
+inferno::configuration::Auction [] (5):
+    Auction
+    chooseLot
+    getLot
+    getPoolCount
+    ~Auction
+
+inferno::configuration::Auction::Lot [] (1):
+    ~Lot
+
+inferno::configuration::Battle [typeinfo for,typeinfo name for,vtable for] (6):
+    Battle
+    getBattleTime
+    getMapPool
+    getMapPoolCount
+    getPlace
+    ~Battle
+
+inferno::configuration::Battle::MapPool [] (2):
+    MapPool
+    getMap
+
+inferno::configuration::Battle::Time [] (1):
+    Time
+
+inferno::configuration::BattleFieldMap [typeinfo for,typeinfo name for,vtable for] (7):
+    BattleFieldMap
+    calculatePathKey
+    checkField
+    getPath
+    getPortals
+    getZoneID
+    ~BattleFieldMap
+
+inferno::configuration::Behavior [typeinfo for,typeinfo name for,vtable for] (2):
+    Behavior
+    ~Behavior
+
+inferno::configuration::Building [typeinfo for,typeinfo name for,vtable for] (3):
+    Building
+    getLevel
+    ~Building
+
+inferno::configuration::Building::Level [] (3):
+    Level
+    getIndicator
+    ~Level
+
+inferno::configuration::CityScript [] (3):
+    execute
+    isEmpty
+    loadFromNode
+
+inferno::configuration::ConfigError [typeinfo for,typeinfo name for,vtable for] (2):
+    ConfigError
+    ~ConfigError
+
+inferno::configuration::Contract [typeinfo for,typeinfo name for,vtable for] (3):
+    Contract
+    canBeProducedIn
+    ~Contract
+
+inferno::configuration::Effect [] (2):
+    Effect
+    ~Effect
+
+inferno::configuration::GlobalParams [typeinfo for,typeinfo name for,vtable for] (5):
+    GlobalParams
+    choosePvpMap
+    getInteractionsMaxCount
+    getPvpMaps
+    ~GlobalParams
+
+inferno::configuration::InitialUser [typeinfo for,typeinfo name for,vtable for] (2):
+    InitialUser
+    ~InitialUser
+
+inferno::configuration::Interaction [typeinfo for,typeinfo name for,vtable for] (2):
+    Interaction
+    ~Interaction
+
+inferno::configuration::Item [typeinfo for,typeinfo name for,vtable for] (3):
+    Item
+    isLimited
+    ~Item
+
+inferno::configuration::Jackpot [typeinfo for,typeinfo name for,vtable for] (4):
+    Jackpot
+    calculateCommonWinChance
+    calculateUserSpecificWinChance
+    ~Jackpot
+
+inferno::configuration::Ladder [typeinfo for,typeinfo name for,vtable for] (3):
+    Ladder
+    getLevel
+    ~Ladder
+
+inferno::configuration::LogicConfiguration [guard variable for,typeinfo for,typeinfo name for,vtable for] (40):
+    DEFAULT_ITEM
+    DEFAULT_PERK
+    DamageBaseTypeFromString
+    EMPTY_REQUIREMENT
+    LoadScript
+    LoadScriptCondition
+    LoadSetFromNode
+    LogicConfiguration
+    getAction
+    getAuction
+    getBattle
+    getBattleFieldMap
+    getBattles
+    getBehavior
+    getBuilding
+    getContract
+    getEffect
+    getGlobalParams
+    getInitialUser
+    getInteraction
+    getItem
+    getJackpot
+    getLadder
+    getMission
+    getPerk
+    getRequirement
+    getSlotMachine
+    getSoldier
+    getSpell
+    getTerritories
+    getTerritory
+    getTicker
+    getTimer
+    getTurret
+    getUnit
+    instance
+    loadCityCondition
+    loadFrom
+    loadFromNode
+    ~LogicConfiguration
+
+inferno::configuration::Mission [typeinfo for,typeinfo name for,vtable for] (3):
+    Mission
+    getSlotSpawnerByTag
+    ~Mission
+
+inferno::configuration::Mission::PvpSpawner [] (1):
+    PvpSpawner
+
+inferno::configuration::Mission::ScriptSpawner [] (1):
+    ~ScriptSpawner
+
+inferno::configuration::Mission::SlotSpawner [] (2):
+    SlotSpawner
+    ~SlotSpawner
+
+inferno::configuration::Mission::Turret [] (1):
+    Turret
+
+inferno::configuration::Perk [typeinfo for,typeinfo name for,vtable for] (3):
+    Perk
+    getIndicator
+    ~Perk
+
+inferno::configuration::SlotMachine [typeinfo for,typeinfo name for,vtable for] (3):
+    SlotMachine
+    getSlot
+    ~SlotMachine
+
+inferno::configuration::Soldier [typeinfo for,typeinfo name for,vtable for] (2):
+    Soldier
+    ~Soldier
+
+inferno::configuration::Spell [] (3):
+    Spell
+    getLevel
+    ~Spell
+
+inferno::configuration::Territory [typeinfo for,typeinfo name for,vtable for] (6):
+    Territory
+    addArea
+    calculateIntersectionSquare
+    clearAreas
+    getAreas
+    ~Territory
+
+inferno::configuration::Ticker [typeinfo for,typeinfo name for,vtable for] (2):
+    Ticker
+    ~Ticker
+
+inferno::configuration::Timer [typeinfo for,typeinfo name for,vtable for] (2):
+    Timer
+    ~Timer
+
+inferno::configuration::Turret [typeinfo for,typeinfo name for,vtable for] (3):
+    Turret
+    getLevel
+    ~Turret
+
+inferno::configuration::Unit [typeinfo for,typeinfo name for,vtable for] (7):
+    Unit
+    getStatLevel
+    getStats
+    getStuffStats
+    loadStat
+    loadStuffItems
+    ~Unit
+
+inferno::configuration::Unit::Thing [] (1):
+    ~Thing
+
+inferno::configuration::jackpot::Item [] (1):
+    Item
+
+inferno::configuration::jackpot::ItemChance [] (1):
+    fill
+
+inferno::configuration::slot_machine::Lot [] (1):
+    Lot
+
+inferno::configuration::slot_machine::Pool [] (1):
+    getLotByChace
+
+inferno::configuration::slot_machine::Slot [] (6):
+    Slot
+    getLot
+    getLots
+    operator=
+    selectLotsTypesForPlay
+    ~Slot
+
+inferno::jackpot::LastWinner [] (3):
+    LastWinner
+    Swap
+    ~LastWinner
