@@ -1,0 +1,32 @@
+"""Согласованность опубликованных data/*.json — их пересобирает tools/parse_config.py."""
+import json
+from pathlib import Path
+
+import pytest
+
+DATA = Path(__file__).resolve().parents[1] / "data"
+pytestmark = pytest.mark.skipif(not (DATA / "config.json").exists(), reason="data/ не собрана")
+
+
+def load(name):
+    return json.loads((DATA / name).read_text(encoding="utf-8"))
+
+
+def test_summary_matches_config():
+    config, summary = load("config.json"), load("config_sections.json")
+    assert {k: len(v) for k, v in config.items()} == summary
+
+
+def test_totals_of_v1_3_12():
+    # Эталон для v1.3.12. Если парсер осознанно меняет разбор — обновить числа вместе с data/.
+    summary = load("config_sections.json")
+    assert (len(summary), sum(summary.values())) == (50, 13_511)
+
+
+def test_every_entity_is_a_node():
+    for section, entities in load("config.json").items():
+        assert all(isinstance(e.get("tag"), str) and e["tag"] for e in entities), section
+
+
+def test_locales_have_same_keys():
+    assert load("locale_ru.json").keys() == load("locale_en.json").keys()

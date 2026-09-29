@@ -122,6 +122,14 @@ pip install -r requirements.txt   # lxml — устойчивый парсер �
 python3 tools/parse_config.py     # пересобрать data/*.json из raw/
 ```
 
+Проверки — те же, что в CI (GitHub Actions на каждый PR и push в `main`). Тесты не требуют
+файлов игры: парсер проверяется на синтетических XML, `data/` — на согласованность.
+
+```bash
+pip install -r requirements-dev.txt   # + pytest и ruff
+ruff check . && pytest -q
+```
+
 ## Лицензия
 
 Код и документация проекта — под лицензией [MIT](LICENSE). Она не распространяется на содержимое
