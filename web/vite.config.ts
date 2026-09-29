@@ -1,17 +1,26 @@
-import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import sirv from 'sirv';
 import type { Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
 
 // Ассеты (assets/ в корне репозитория) собирают инструменты из tools/, в git их нет.
 // В dev их отдаёт этот плагин по адресу /assets/; в сборке адрес задаёт VITE_ASSETS_URL.
-const ASSETS_DIR = resolve(import.meta.dirname, '../assets');
+// Путь — от import.meta.url: Vite подставляет исходный адрес конфига (import.meta.dirname
+// указывал бы во временную папку, куда Vite собирает конфиг).
+const ASSETS_DIR = fileURLToPath(new URL('../assets', import.meta.url));
 
 function serveAssets(): Plugin {
+  const serve = sirv(ASSETS_DIR, { dev: true });
   return {
     name: 'underfire-assets',
     configureServer(server) {
-      server.middlewares.use('/assets', sirv(ASSETS_DIR, { dev: true }));
+      // Нет файла — честный 404, а не index.html от SPA-фолбэка Vite.
+      server.middlewares.use('/assets', (req, res) =>
+        serve(req, res, () => {
+          res.statusCode = 404;
+          res.end('not found');
+        }),
+      );
     },
   };
 }
