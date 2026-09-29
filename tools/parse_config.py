@@ -11,9 +11,11 @@ config.xml — склейка нескольких XML-документов с n
 Выход : data/config.json, data/config_sections.json (сводка), data/locale_ru.json, data/locale_en.json
 """
 from __future__ import annotations
-import json, re
-from collections import Counter
+
+import json
+import re
 from pathlib import Path
+
 from lxml import etree
 
 ROOT = Path(__file__).resolve().parents[1]
