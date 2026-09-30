@@ -47,7 +47,7 @@ fi
 
 (cd web && npm ci --no-audit --no-fund --silent && npm run build --silent)
 [ -f web/dist/index.html ] || { echo "нет web/dist/index.html"; exit 1; }
-COPYFILE_DISABLE=1 tar czf - -C web/dist . \
+COPYFILE_DISABLE=1 tar czf - --no-xattrs -C web/dist . \
   | ssh_ "set -e; install -d -m 755 $SITE; rm -rf $SITE/dist.new $SITE/dist.old; mkdir $SITE/dist.new; \
           tar xzf - -C $SITE/dist.new; \
           if [ -d $SITE/dist ]; then mv $SITE/dist $SITE/dist.old; fi; \
