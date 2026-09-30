@@ -34,9 +34,8 @@ anchorPoint и contentSize, actions, сборщик сцен из ccbi, видж
    центр вращения и масштаба без сдвига позиции, что соответствует `ignoreAnchorPointForPosition`
    ([API Container](https://pixijs.download/release/docs/scene.Container.html)). Поэтому для переноса
    145 макетов ccbi достаточно пересчитать ось Y.
-2. **Лучшее сочетание code-first и знания API моделями.** Исходники на TS, лицензия MIT, релизы раз в
-   1–2 месяца. Есть 25 официальных skills для ИИ-агентов (с 8.19 они лежат прямо в npm-пакете) и
-   llms.txt ([блог, 12.06.2026](https://pixijs.com/blog/june-2026)). Пакет скачивают 1,24 млн раз в неделю.
+2. **Лучшее сочетание code-first и распространённости.** Исходники на TS, лицензия MIT, релизы раз в
+   1–2 месяца. Пакет скачивают 1,24 млн раз в неделю.
 3. **Лёгкий рантайм и контроль памяти.** Полный пакет весит 261 КБ gz. В продакшне работает WebGL2,
    WebGPU остаётся в запасе. KTX2/Basis поддерживаются штатно — это важно, потому что наш объём текстур
    в RGBA8 займёт гигабайты видеопамяти (см. §1).
@@ -101,7 +100,7 @@ anchorPoint и contentSize, actions, сборщик сцен из ccbi, видж
 | Colyseus / сервер | Не нужен: игра офлайновая |
 | DragonBones / SWFTY | Не нужен: у нас кадровые атласы и visuals XML |
 | TS + Vite + маленький бандл против Godot | **Переносится полностью** |
-| Кругозор разработчиков и ИИ | Переносится; у PixiJS и Phaser он сопоставим (§4) |
+| Кругозор разработчиков | Переносится; у PixiJS и Phaser он сопоставим (§4) |
 
 Попутно для UC: **Phaser 3.90.0 (23.05.2025) — последний релиз ветки v3.** Команда тогда писала, что
 «this is likely the last version in the v3 tree» ([phaser.io](https://phaser.io/news/2025/05/phaser-v390-released)).
@@ -117,7 +116,7 @@ Phaser 4 стабилен с 10.04.2026. В документе UC указано
 | **Cocos Creator / Cocos 4** | Creator [3.8.8](https://github.com/cocos/cocos-engine/releases/tag/3.8.8) (16.12.2025, LTS). Cocos 4 — `4.0.0-alpha.34` (20.09.2026) | Движок 3.x под MIT, редактор со своим EULA. Cocos 4 и cocos-cli полностью под MIT | TS | WebGL/WebGL2 ([бэкенды](https://docs.cocos.com/creator/3.8/manual/en/graphics-backend/overview.html)) | Пустой web-mobile ≈1,8 МБ ([форум, 2021](https://forum.cocosengine.org/t/cocos-creator-3-build-size/53154)). Для Cocos 4 открыт [issue](https://github.com/cocos/cocos4/issues/197) (11.07.2026) про движок в 33 МБ JS для простой 2D-сборки | 9,8k★ у cocos-engine |
 | **cocos2d-html5 (Cocos2d-JS 3.17)** | Последний код — 16.04.2018. В README (2019–2020): «эволюционировал в Cocos Creator» ([repo](https://github.com/cocos2d/cocos2d-html5)) | MIT | ES5, глобальный `cc`, пакета v3 в npm нет | WebGL1/Canvas | — | 3,2k★ |
 | **Godot** | [4.7.2](https://github.com/godotengine/godot/releases/tag/4.7.2-stable) (18.08.2026). 4.7 — 18.06.2026 | MIT | GDScript. C# на web не экспортируется | Только WebGL 2.0 ([docs](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html)) | wasm ≈40 МБ, ≈**5 МБ brotli** (данные [4.3](https://godotengine.org/article/progress-report-web-export-in-4-3/)) | 117,9k★ |
-| **Defold** | [1.13.1](https://github.com/defold/defold/releases/tag/1.13.1) (17.08.2026). 1.14.0-alpha — 10.09.2026 | [Defold License](https://defold.com/license/): на базе Apache 2.0, нельзя продавать сам движок | Lua (TS только через community) | WebGL1/2, по умолчанию 2 ([docs](https://defold.com/llms/manuals/html5/)) | wasm 2,39 МБ, бандл ≈1,3 МБ ([build-size](https://github.com/defold/build-size)) | 6,3k★ |
+| **Defold** | [1.13.1](https://github.com/defold/defold/releases/tag/1.13.1) (17.08.2026). 1.14.0-alpha — 10.09.2026 | [Defold License](https://defold.com/license/): на базе Apache 2.0, нельзя продавать сам движок | Lua (TS только через community) | WebGL1/2, по умолчанию 2 ([docs](https://defold.com/manuals/html5/)) | wasm 2,39 МБ, бандл ≈1,3 МБ ([build-size](https://github.com/defold/build-size)) | 6,3k★ |
 | **Axmol** | [2.11.5](https://github.com/axmolengine/axmol/releases/tag/v2.11.5) (25.09.2026) | MIT | C++23/Lua | WebAssembly + WebGL | Демо: fairygui-tests.wasm 4,2 МБ, cpp-tests.wasm 13,2 МБ без сжатия (HEAD-запрос, 29.09.2026) | 1,5k★ |
 | Excalibur | [0.32.0](https://github.com/excaliburjs/Excalibur/releases/tag/v0.32.0) (23.12.2025) | BSD-2 | TS | HTML5 canvas | 571 КБ / 145 КБ | 2,3k★; 9,5 тыс. в неделю |
 | melonJS | 20.7.0 (22.09.2026) | MIT | JS | — | 888 КБ / 262 КБ | 6,4k★; 1,6 тыс. в неделю |
@@ -132,8 +131,8 @@ iOS и iPadOS 26 ([web.dev, 25.11.2025](https://web.dev/blog/webgpu-supported-ma
 
 ## 4. Сравнение по критериям (оценка)
 
-Шкала 0–5, итог — взвешенная сумма в пересчёте на 100. Веса отражают приоритеты проекта: код пишет ИИ,
-поэтому code-first и знание API весят больше всего.
+Шкала 0–5, итог — взвешенная сумма в пересчёте на 100. Веса отражают приоритеты проекта: сборка и правки
+без редактора, поэтому code-first и документация весят больше всего.
 
 | Критерий (вес, %) | PixiJS 8 | Phaser 4 | Phaser 3.90 | Cocos Cr. 3.8/4 | Axmol WASM | Godot 4.7 | cocos2d-html5 | Defold |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -145,7 +144,7 @@ iOS и iPadOS 26 ([web.dev, 25.11.2025](https://web.dev/blog/webgpu-supported-ma
 | Ввод, звук, мобильные браузеры и iOS Safari (10) | 4 | 5 | 5 | 4 | 3 | 2 | 1 | 4 |
 | Размер бандла и время старта (8) | 5 | 4 | 4 | 3 | 2 | 1 | 3 | 4 |
 | Code-first (15) | 5 | 5 | 5 | 2 | 3 | 3 | 5 | 2 |
-| Знание API моделями, документация (12) | 4 | 4 | 5 | 2 | 3 | 3 | 3 | 2 |
+| Документация, известность API (12) | 4 | 4 | 5 | 2 | 3 | 3 | 3 | 2 |
 | Близость к cocos2d-x, перенос ccbi (10) | 4 | 2 | 2 | 5 | 5 | 3 | 5 | 2 |
 | **Итог (из 100)** | **89,6** | **82,2** | 78,6 | 72,0 | 69,4 | 65,8 | 57,4 | 56,2 |
 
@@ -158,29 +157,22 @@ iOS и iPadOS 26 ([web.dev, 25.11.2025](https://web.dev/blog/webgpu-supported-ma
 
 Что решает по ключевым критериям:
 - **Code-first.** Проект PixiJS или Phaser — это обычный TS-проект: Vite, HMR, Vitest, Playwright,
-  ИИ может править всё. У Cocos Creator 3.8 импорт ассетов (meta-файлы с UUID), превью и отладка идут
+  всё правится текстом в репозитории. У Cocos Creator 3.8 импорт ассетов (meta-файлы с UUID), превью и отладка идут
   через редактор. Сборка из CLI тоже требует установленного редактора и GUI-окружения
   ([docs](https://docs.cocos.com/creator/3.8/manual/en/editor/publish/publish-in-command-line.html)).
-  Сцены и префабы — JSON с UUID, генерировать их ИИ неудобно. У Godot есть headless-экспорт
+  Сцены и префабы — JSON с UUID, генерировать их вне редактора неудобно. У Godot есть headless-экспорт
   (`--headless --export-release`, [docs](https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html)),
   но процесс по сути редакторный. У Defold GUI собирается в редакторе (`.gui`), хотя
   `gui.new_box_node`/`new_text_node` тоже есть.
-- **Знание API моделями.**
-  - PixiJS: [25 официальных skills](https://github.com/pixijs/pixijs-skills) (репозиторий создан
-    01.04.2026, MIT) и [llms.txt](https://pixijs.com/llms.txt). Команда прямо пишет, что skills нужны,
-    чтобы модели не «галлюцинировали паттерны v7».
-  - Phaser: [28 skills в репозитории](https://github.com/phaserjs/phaser/tree/master/skills), включая
-    `v3-to-v4-migration`, и [llms.txt](https://phaser.io/llms.txt) с индексом примеров v4. Но основной
-    массив знаний у моделей — про Phaser 3, а v4 вышел только 10.04.2026.
-  - Defold: полноценный [llms.txt](https://defold.com/llms.txt).
-  - У `docs.godotengine.org/llms.txt` и `docs.cocos.com/llms.txt` на 29.09.2026 ответ 404.
+- **Документация и известность API.** Выше всего у Phaser 3, за ним PixiJS 8 и Phaser 4: v4 вышел
+  только 10.04.2026, и основной массив материалов пока про Phaser 3.
 - **Близость к cocos2d-x.** Лучше всех здесь Cocos Creator (`UITransform` с `anchorPoint` и
   `contentSize`, ось Y вверх), Axmol (это и есть cocos2d-x) и cocos2d-html5 (штатно читает ccbi).
   У PixiJS есть настоящий граф сцены, `pivot`, `origin`, `zIndex` и наследование alpha, но ось Y
   направлена вниз, а action, Director и приоритетов касаний нет — их придётся дописать. У Phaser
-  «[Container origin is always 0,0. The transform point cannot be changed](https://github.com/phaserjs/phaser/tree/master/skills)»
-  (skill groups-and-containers). Для ввода контейнеру нужен `setSize`, а depth действует только
-  внутри своего контейнера. Значит, каждый CCNode с anchor≠0 и вращением или масштабом придётся делать
+  точка трансформации контейнера всегда (0,0), и сменить её нельзя
+  ([docs](https://docs.phaser.io/api-documentation/class/gameobjects-container)). Для ввода контейнеру
+  нужен `setSize`, а depth действует только внутри своего контейнера. Значит, каждый CCNode с anchor≠0 и вращением или масштабом придётся делать
   из двух вложенных контейнеров.
 - **Мобильные браузеры.** В документации Godot сказано, что у Safari «several issues with WebGL 2.0»,
   и советуют Chromium или Firefox. На iOS это не выход: там все браузеры работают на WebKit.
@@ -252,8 +244,7 @@ MIT, 40k★.
 - [NineSlice](https://docs.phaser.io/api-documentation/class/gameobjects-nineslice).
   [rexUI](https://rexrainbow.github.io/phaser3-rex-notes/docs/site/bbcodetext/) поддерживает v4:
   `phaser4-rex-plugins` 4.2.0 от 01.07.2026 даёт BBCodeText, ScrollablePanel и GridTable.
-- ИИ: 28 skills, включая миграцию с v3, и llms.txt с примерами. Большая часть API объектов и сцен
-  совпадает с Phaser 3.
+- Большая часть API объектов и сцен совпадает с Phaser 3, есть официальные материалы по миграции с v3.
 - Один и тот же движок с Under Control (при условии, что UC тоже перейдёт на v4).
 
 **Слабые стороны**
@@ -284,8 +275,8 @@ MIT, 40k★.
   ([PR Newswire](https://www.prnewswire.com/news-releases/sud-fully-acquires-cocos-302612392.html)).
   Анонс Cocos 4 под MIT вышел 30.12.2025, пресс-релиз — 05.01.2026
   ([PR Newswire](https://www.prnewswire.com/apac/news-releases/cocos-4-is-here-fully-open-source-302652633.html)).
-  В нём движок отделён от редактора: новая AI-IDE PinK проприетарная, а [cocos-cli](https://github.com/cocos/cocos-cli)
-  (MIT) умеет `create`/`build` и `start-mcp-server`.
+  В нём движок отделён от редактора: новая IDE PinK проприетарная, а [cocos-cli](https://github.com/cocos/cocos-cli)
+  (MIT) умеет `create`/`build`.
 - На 29.09.2026 и `cocos/cocos4`, и `cocos-cli` всё ещё альфа (4.0.0-alpha.35 и 1.0.0-alpha.6).
 - В апреле 2026 сообщество жаловалось, что за полгода после открытия исходников документации нет,
   а функционально движок почти не отличается от 3.x ([форум, 16–17.04.2026](https://forum.cocos.org/t/topic/175255)).
@@ -302,7 +293,7 @@ MIT, 40k★.
 - Меньше англоязычных материалов, модели путают API 2.x (`cc.Class`) и 3.x (декораторы) — это оценка.
 - Неясное будущее: смена владельца и Cocos 4 в альфе. Тяжелее бандл.
 
-**Когда пересмотреть.** Когда Cocos 4 и cocos-cli выйдут из альфы и headless-режим с MCP позволит
+**Когда пересмотреть.** Когда Cocos 4 и cocos-cli выйдут из альфы и headless-режим позволит
 вести проект без GUI. Тогда Cocos станет самым «родным» вариантом для переноса ccbi.
 
 ### 5.5 cocos2d-html5 / Cocos2d-JS v3.17 (legacy)
@@ -352,7 +343,6 @@ Y-sort и изометрические TileMapLayer.
 - Очень маленький и быстрый рантайм: wasm 2,39 МБ, бандл ≈1,3 МБ.
 - В GUI есть slice9, stencil-обрезка и pie-ноды — аналог радиального `CCProgressTimer`
   ([docs](https://defold.com/manuals/gui-pie/)). Ось Y вверх.
-- Есть полноценный llms.txt.
 
 **Минусы.**
 - Lua вместо TS.
@@ -376,8 +366,8 @@ WebAssembly ([repo](https://github.com/axmolengine/axmol)).
   на iOS есть ограничения памяти.
 - Сообщество маленькое (1,5k★).
 
-Axmol интересен, если однажды понадобится почти побайтная верность оригиналу. Для браузерного проекта,
-который пишет ИИ, он хуже TS-вариантов.
+Axmol интересен, если однажды понадобится почти побайтная верность оригиналу. Для браузерного проекта
+он хуже TS-вариантов.
 
 ### 5.9 Кратко: Excalibur, melonJS
 
@@ -395,7 +385,7 @@ Axmol интересен, если однажды понадобится поч�
 - Максимальная свобода, чтобы воспроизвести поведение cocos 2.x: приоритеты касаний, actions,
   таймлайны CCB.
 - Лучшая поддержка сжатых текстур (KTX2/Basis) под наш объём графики.
-- Маленький рантайм и официальная инфраструктура для ИИ-агентов.
+- Маленький рантайм.
 
 **Риски и меры**
 
@@ -410,7 +400,7 @@ Axmol интересен, если однажды понадобится поч�
 ### 2. Phaser 4 — 82/100 (оценка)
 
 **Обоснование.** Меньше своего кода благодаря встроенным сценам, твинам, звуку и камерам. Тот же
-TS/Vite-стек, что и у PixiJS. Официальные skills. Общий движок с Under Control, если UC перейдёт на v4.
+TS/Vite-стек, что и у PixiJS. Общий движок с Under Control, если UC перейдёт на v4.
 
 **Риски.**
 - Контейнеры без origin: для CCNode нужна обёртка из двух контейнеров, у вложенного ввода есть особенности.
@@ -454,8 +444,8 @@ TS/Vite-стек, что и у PixiJS. Официальные skills. Общий
 2. **Архитектура.** Экономику, бой, ИИ и сохранения писать на чистом TS без импорта движка и тестировать
    в Vitest под Node. Рендер держать тонким адаптером. Это снижает цену ошибки в выборе движка и упрощает
    сверку с поведением оригинала.
-3. **Инфраструктура для ИИ.** Закрепить версии, положить skills и llms.txt движка, прописать правила в
-   CLAUDE.md. Сделать страницу-витрину макетов для скриншотных тестов.
+3. **Инфраструктура.** Закрепить версии движка. Сделать страницу-витрину макетов для скриншотных
+   тестов.
 
 ## 9. Спайк для подтверждения (2–3 дня, сначала на PixiJS)
 
@@ -478,7 +468,6 @@ Phaser 4.
 - Релизы 8.15–8.21: https://github.com/pixijs/pixijs/releases
 - Рендереры (про WebGPU и продакшн): https://pixijs.com/8.x/guides/components/renderers
 - Тегированный текст и Canvas-рендерер (04.02.2026): https://pixijs.com/blog/8.16.0
-- AI skills и llms.txt (12.06.2026): https://pixijs.com/blog/june-2026, https://github.com/pixijs/pixijs-skills, https://pixijs.com/llms.txt
 - Render Layers: https://pixijs.com/8.x/guides/concepts/render-layers
 - NineSliceSprite: https://pixijs.com/8.x/guides/components/scene-objects/nine-slice-sprite
 - Сжатые текстуры: https://pixijs.com/8.x/guides/components/assets/compressed-textures
@@ -491,8 +480,6 @@ Phaser 4.
 - Последняя версия v3 (23.05.2025): https://phaser.io/news/2025/05/phaser-v390-released
 - Рендерер v4 (23.04.2026): https://phaser.io/news/2026/04/phaser-4-renderer-faster-cleaner-and-built-for-modern-games
 - Phaser 4.2 (21.07.2026): https://phaser.io/news/2026/07/phaser-4-2-spine-renderer-mesh2d-stencil
-- AI skills (28): https://github.com/phaserjs/phaser/tree/master/skills
-- llms.txt: https://phaser.io/llms.txt
 - Container: https://docs.phaser.io/api-documentation/class/gameobjects-container
 - NineSlice: https://docs.phaser.io/api-documentation/class/gameobjects-nineslice
 - rexUI для Phaser 4: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/bbcodetext/
@@ -525,9 +512,8 @@ Phaser 4.
 - Релиз 1.13.1: https://github.com/defold/defold/releases/tag/1.13.1
 - Лицензия: https://defold.com/license/
 - Размер сборок: https://github.com/defold/build-size
-- HTML5: https://defold.com/llms/manuals/html5/
+- HTML5: https://defold.com/manuals/html5/
 - GUI: https://defold.com/manuals/gui/
-- llms.txt: https://defold.com/llms.txt
 
 **Прочее**
 - Axmol: https://github.com/axmolengine/axmol, релиз 2.11.5: https://github.com/axmolengine/axmol/releases/tag/v2.11.5
