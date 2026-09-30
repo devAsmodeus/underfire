@@ -16,7 +16,7 @@
    git push -u origin etc1-decoder
    gh pr create --title "Ассеты: декодер ETC1" --body-file pr.md
    ```
-4. **Слияние** — только после зелёного CI (локально: `ruff check . && pytest -q`, для `web/` —
+4. **Слияние** — только после зелёного CI (локально: `uv run ruff check . && uv run pytest -q`, для `web/` —
    `npm run typecheck && npm test && npm run build`) и только squash (остальные способы в
    репозитории выключены), чтобы в `main` была одна запись на PR:
    ```bash
@@ -36,7 +36,8 @@
 
 ## Окружение
 
-- Python 3 (проверено на 3.12) и зависимости: `pip install -r requirements.txt`, для проверок —
-  `pip install -r requirements-dev.txt`.
+- [uv](https://github.com/astral-sh/uv): `uv sync` ставит Python 3.12 из `.python-version` и зависимости
+  из `uv.lock` в `.venv`. Новая зависимость — `uv add <пакет>` (`uv add --group dev` — для проверок);
+  `pyproject.toml` и `uv.lock` коммитятся вместе, CI ставит строго по lock-файлу (`uv sync --locked`).
 - Node.js 22.12+ (в CI — 24) для клиента: `cd web && npm install`.
 - Подготовка данных и запуск инструментов — в [README](README.md#подготовка-данных).

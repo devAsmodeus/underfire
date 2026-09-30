@@ -3,7 +3,7 @@
 
 Архивы собирает tools/build_assets.py --pack у того, у кого есть raw/; этот скрипт нужен всем
 остальным — сессиям и машинам без оригинала игры. Только стандартная библиотека: запускается
-до pip install.
+обычным python3 до uv sync.
 
     python3 tools/fetch_assets.py                    # всё: JSON (≈50 МБ в распаковке) + WebP (≈400 МБ)
     python3 tools/fetch_assets.py --only json        # без текстур: атласы, визуалы, макеты UI, шрифты
