@@ -25,3 +25,6 @@ __pycache__/
 # Веб-клиент
 node_modules/
 web/dist/
+
+# Личные настройки деплоя (web/deploy/deploy.sh): адрес сервера, домен; образец — .env.example
+.env
