@@ -36,6 +36,7 @@ assets/         # ассеты для браузера: WebP, атласы, ан
                 # собираются tools/build_assets.py или скачиваются из релиза (tools/fetch_assets.py)
 web/            # браузерный клиент: TypeScript + Vite + PixiJS 8
   src/engine/   # слой совместимости с cocos2d-x 2.x (геометрия узлов, правила CocosBuilder)
+  deploy/       # выкладка на свой сервер: deploy.sh и конфиг nginx (см. «Деплой»)
 tools/          # парсеры/декодеры
   extract_xapk.py       # XAPK → raw/ (из APK — только assets/, оба OBB — целиком)
   parse_config.py       # config.xml, server.xml, локали (Inferno, lxml recover) → data/*.json
@@ -192,6 +193,24 @@ cd web && npm install
 npm run dev                                       # http://localhost:5173; ассеты из ../assets — по /assets/
 npm run typecheck && npm test && npm run build    # то же, что проверяет CI
 ```
+
+## Деплой
+
+Клиент — статика: сборка `web/dist` плюс `assets/`. Выкладывается на свой сервер (Ubuntu, nginx)
+скриптом `web/deploy/deploy.sh`; адрес сервера и домен — `UF_DEPLOY_HOST` и `UF_DOMAIN` в `.env`
+(образец — `.env.example`, сам `.env` не коммитится).
+
+```bash
+web/deploy/deploy.sh --nginx --assets   # первый раз: nginx и конфиг сайта, ассеты релиза на сервер (≈450 МБ)
+web/deploy/deploy.sh                    # дальше: собрать web/dist и выложить
+web/deploy/deploy.sh --status           # что сейчас на сервере
+```
+
+На сервере сборка лежит в `/var/www/underfire/dist` и заменяется атомарно, ассеты — в
+`/var/www/underfire/assets` и отдаются как `/assets/`. Их сервер скачивает сам из релиза
+`assets-v1.3.12` скриптом `tools/fetch_assets.py`, с компьютера уходит только сборка (~1 МБ).
+Конфиг nginx — `web/deploy/underfire.nginx.conf`: без домена сайт отвечает по IP, с `UF_DOMAIN` —
+по имени; HTTPS после первого деплоя — `certbot --nginx -d <домен>`.
 
 ## Лицензия
 
