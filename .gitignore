@@ -18,9 +18,8 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 
-# IDE, Claude Code (личные настройки), macOS
+# IDE, macOS
 .idea/
-.claude/settings*.json
 .DS_Store
 
 # Веб-клиент
