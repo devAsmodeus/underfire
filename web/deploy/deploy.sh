@@ -23,15 +23,16 @@ ssh_() { ssh -o BatchMode=yes "$HOST" "$@"; }
 
 status() {
   ssh_ "echo \"nginx: \$(systemctl is-active nginx 2>/dev/null || echo нет)\"; \
-        echo \"ufw: \$(ufw status 2>/dev/null | head -1 | cut -d' ' -f2- || echo нет)\"; \
+        u=\$(ufw status 2>/dev/null | head -1 | cut -d' ' -f2-); echo \"ufw: \${u:-нет}\"; \
         du -sh $SITE/dist $SITE/assets 2>/dev/null || true; \
         grep -m2 -E '\"(version|built)\"' $SITE/assets/manifest.json 2>/dev/null || echo 'ассетов нет'; \
         for p in / /assets/manifest.json; do \
           echo \"GET \$p (на сервере) → \$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1\$p)\"; done"
   # Снаружи, с этой машины: если на сервере 200, а здесь нет ответа — порт 80 закрыт файрволом
   # (ufw на сервере или Hetzner Cloud Firewall в консоли).
-  local ip="${HOST#*@}"
-  echo "GET http://$ip/ (снаружи) → $(curl -s -o /dev/null -m 10 -w '%{http_code}' "http://$ip/" || echo 'нет ответа: порт 80 закрыт?')"
+  local ip="${HOST#*@}" code
+  code=$(curl -s -o /dev/null -m 10 -w '%{http_code}' "http://$ip/" || true)
+  echo "GET http://$ip/ (снаружи) → ${code:-000}$([ "${code:-000}" = 000 ] && echo ' нет ответа: порт 80 закрыт?')"
 }
 
 for arg in "$@"; do
