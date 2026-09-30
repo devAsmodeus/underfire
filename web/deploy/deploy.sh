@@ -23,10 +23,16 @@ ssh_() { ssh -o BatchMode=yes "$HOST" "$@"; }
 
 status() {
   ssh_ "echo \"nginx: \$(systemctl is-active nginx 2>/dev/null || echo нет)\"; \
+        u=\$(ufw status 2>/dev/null | head -1 | cut -d' ' -f2-); echo \"ufw: \${u:-нет}\"; \
         du -sh $SITE/dist $SITE/assets 2>/dev/null || true; \
         grep -m2 -E '\"(version|built)\"' $SITE/assets/manifest.json 2>/dev/null || echo 'ассетов нет'; \
         for p in / /assets/manifest.json; do \
-          echo \"GET \$p → \$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1\$p)\"; done"
+          echo \"GET \$p (на сервере) → \$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1\$p)\"; done"
+  # Снаружи, с этой машины: если на сервере 200, а здесь нет ответа — порт 80 закрыт файрволом
+  # (ufw на сервере или Hetzner Cloud Firewall в консоли).
+  local ip="${HOST#*@}" code
+  code=$(curl -s -o /dev/null -m 10 -w '%{http_code}' "http://$ip/" || true)
+  echo "GET http://$ip/ (снаружи) → ${code:-000}$([ "${code:-000}" = 000 ] && echo ' нет ответа: порт 80 закрыт?')"
 }
 
 for arg in "$@"; do
@@ -41,8 +47,9 @@ if [[ " $* " == *" --nginx "* ]]; then
   ssh_ "set -e; install -d -m 755 $SITE; \
         ln -sf /etc/nginx/sites-available/underfire /etc/nginx/sites-enabled/underfire; \
         rm -f /etc/nginx/sites-enabled/default; \
-        nginx -t -q && systemctl enable -q --now nginx && systemctl reload nginx"
-  echo "  nginx: сайт underfire (${DOMAIN:-по IP}), стандартный сайт default отключён"
+        nginx -t -q && systemctl enable -q --now nginx && systemctl reload nginx; \
+        if ufw status 2>/dev/null | grep -q '^Status: active'; then ufw allow 80/tcp >/dev/null; ufw allow 443/tcp >/dev/null; fi"
+  echo "  nginx: сайт underfire (${DOMAIN:-по IP}), стандартный сайт default отключён, в ufw открыты 80 и 443"
 fi
 
 (cd web && npm ci --no-audit --no-fund --silent && npm run build --silent)
