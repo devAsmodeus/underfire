@@ -19,12 +19,12 @@
 ## Команды
 
 ```bash
-pip install -r requirements-dev.txt              # зависимости + pytest и ruff
-python3 tools/extract_xapk.py <путь к XAPK>     # оригинал → raw/ (--force — перезаписать)
-python3 tools/parse_config.py                    # raw/ → data/*.json
-python3 tools/build_assets.py                    # raw/ → assets/ (весь конвейер ассетов)
-python3 tools/fetch_assets.py [--only json]      # без raw/: готовый assets/ из релиза
-ruff check . && pytest -q                        # то же, что проверяет CI (Python)
+uv sync                                          # .venv: Python 3.12 и зависимости из uv.lock, pytest, ruff
+uv run tools/extract_xapk.py <путь к XAPK>       # оригинал → raw/ (--force — перезаписать)
+uv run tools/parse_config.py                     # raw/ → data/*.json
+uv run tools/build_assets.py                     # raw/ → assets/ (весь конвейер ассетов)
+python3 tools/fetch_assets.py [--only json]      # без raw/: готовый assets/ из релиза (без зависимостей)
+uv run ruff check . && uv run pytest -q          # то же, что проверяет CI (Python)
 cd web && npm install && npm run dev             # клиент: http://localhost:5173
 npm run typecheck && npm test && npm run build   # то же, что проверяет CI (web/)
 ```
@@ -42,7 +42,7 @@ npm run typecheck && npm test && npm run build   # то же, что прове�
 ## Код
 
 - Инструменты — Python 3.12 в `tools/`, по скрипту на шаг. Вверху docstring: что делает,
-  вход, выход, как запускать.
+  вход, выход, как запускать. Зависимости — через `uv add`, `uv.lock` лежит в git.
 - Тесты — в `tests/`, без файлов игры: синтетические данные на лету (`tmp_path`).
 - Клиент — TypeScript в `web/src`, PixiJS закреплён точной версией. Геометрию узлов cocos2d-x
   повторять формулой (`web/src/engine/cocos.ts`), а не подгонкой; тесты — Vitest рядом с кодом.

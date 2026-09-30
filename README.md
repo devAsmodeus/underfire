@@ -142,8 +142,8 @@ tools/          # парсеры/декодеры
 файлов с эталоном версии (160 / 8 884 / 2 932).
 
 ```bash
-python3 tools/extract_xapk.py /путь/к/Under+Fire_+Invasion_1.3.12_APKPure.xapk   # --force — перезаписать
-python3 tools/build_assets.py                     # raw/ → assets/ (≈1,5 мин на 8 ядрах)
+uv run tools/extract_xapk.py /путь/к/Under+Fire_+Invasion_1.3.12_APKPure.xapk   # --force — перезаписать
+uv run tools/build_assets.py                     # raw/ → assets/ (≈1,5 мин на 8 ядрах)
 ```
 
 ### Без XAPK: готовые ассеты
@@ -161,23 +161,28 @@ python3 tools/fetch_assets.py --only json  # без текстур: атласы
 Обновить релиз после пересборки (нужен `raw/`):
 
 ```bash
-python3 tools/build_assets.py --pack dist/
+uv run tools/build_assets.py --pack dist/
 gh release upload assets-v1.3.12 dist/* --clobber
 ```
 
 ## Запуск инструментов
 
+Зависимости Python описаны в `pyproject.toml` и закреплены в `uv.lock`; ставит их
+[uv](https://github.com/astral-sh/uv) вместе с Python 3.12 из `.python-version`:
+
 ```bash
-pip install -r requirements.txt   # lxml, Pillow, texture2ddecoder
-python3 tools/parse_config.py     # пересобрать data/*.json из raw/
+uv sync                          # .venv: lxml, Pillow, texture2ddecoder + pytest и ruff
+uv run tools/parse_config.py     # пересобрать data/*.json из raw/
 ```
+
+`uv run` запускает скрипт в `.venv`; то же даёт `python3 tools/…` после `source .venv/bin/activate`.
+Только `tools/fetch_assets.py` обходится стандартной библиотекой и работает без uv.
 
 Проверки — те же, что в CI (GitHub Actions на каждый PR и push в `main`). Тесты не требуют
 файлов игры: парсер проверяется на синтетических XML, `data/` — на согласованность.
 
 ```bash
-pip install -r requirements-dev.txt   # + pytest и ruff
-ruff check . && pytest -q
+uv run ruff check . && uv run pytest -q
 ```
 
 ## Клиент
