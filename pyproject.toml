@@ -1,3 +1,24 @@
+[project]
+name = "underfire"
+version = "0.0.0"
+description = "Реконструкция Under Fire: Invasion для браузера: инструменты конвейера данных и ассетов"
+requires-python = ">=3.12"
+dependencies = [
+    "lxml>=5.0",               # устойчивый парсер для склеенных XML-документов с namespace
+    "pillow>=11.0",            # WebP
+    "texture2ddecoder>=1.0.5", # ETC1
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff~=0.16.9",
+]
+
+[tool.uv]
+# tools/ — отдельные скрипты, а не пакет: uv sync ставит только зависимости, сам проект не собирает.
+package = false
+
 [tool.ruff]
 line-length = 100
 target-version = "py312"
