@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Выкладка клиента на свой сервер (Ubuntu, nginx). Адрес — UF_DEPLOY_HOST в .env (например root@1.2.3.4),
 # домен — UF_DOMAIN там же (необязательно: без домена nginx отвечает по IP на любой Host).
+# UF_DEPLOY_HOST=local — скрипт запущен на самом сервере (репозиторий склонирован туда): те же шаги без ssh.
 #
 #   web/deploy/deploy.sh             собрать web/dist и выложить
 #   web/deploy/deploy.sh --nginx     + поставить nginx (если его нет) и обновить конфиг сайта
@@ -19,7 +20,7 @@ HOST="${UF_DEPLOY_HOST:-$(env_var UF_DEPLOY_HOST)}"
 DOMAIN="${UF_DOMAIN:-$(env_var UF_DOMAIN)}"
 [ -n "$HOST" ] || { echo "нет UF_DEPLOY_HOST в .env (образец — .env.example)"; exit 1; }
 SITE=/var/www/underfire
-ssh_() { ssh -o BatchMode=yes "$HOST" "$@"; }
+ssh_() { if [ "$HOST" = local ]; then bash -c "$*"; else ssh -o BatchMode=yes "$HOST" "$@"; fi; }
 
 status() {
   ssh_ "echo \"nginx: \$(systemctl is-active nginx 2>/dev/null || echo нет)\"; \
@@ -29,7 +30,8 @@ status() {
         for p in / /assets/manifest.json; do \
           echo \"GET \$p (на сервере) → \$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1\$p)\"; done"
   # Снаружи, с этой машины: если на сервере 200, а здесь нет ответа — порт 80 закрыт файрволом
-  # (ufw на сервере или Hetzner Cloud Firewall в консоли).
+  # (ufw на сервере или Hetzner Cloud Firewall в консоли). На самом сервере снаружи не проверить.
+  [ "$HOST" = local ] && { echo "снаружи: проверьте с другой машины — curl -sI http://<IP>/"; return; }
   local ip="${HOST#*@}" code
   code=$(curl -s -o /dev/null -m 10 -w '%{http_code}' "http://$ip/" || true)
   echo "GET http://$ip/ (снаружи) → ${code:-000}$([ "${code:-000}" = 000 ] && echo ' нет ответа: порт 80 закрыт?')"
